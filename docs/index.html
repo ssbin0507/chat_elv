@@ -386,12 +386,95 @@
             color: var(--gold-dark);
         }
 
-        @media (max-width: 1000px) {
+        /* 데스크톱 중간 크기 대응 */
+        @media (max-width: 1000px) and (min-width: 769px) {
             .scene { width: 100%; max-width: 720px; height: 520px; }
             .cover-title { font-size: 1.8rem; }
             .cover-emblem { font-size: 3rem; }
             .page-face { padding: 20px 15px; }
             .card { padding: 8px; }
+        }
+
+        /* ==========================================
+           [모바일 최적화: 미디어 단면 1페이지 전용]
+           ========================================== */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .top-nav {
+                margin-bottom: 15px;
+                gap: 5px;
+            }
+
+            .nav-tab {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+
+            /* 책 씬 크기를 100% 모바일 영역으로 전환 */
+            .scene {
+                width: 100%;
+                max-width: 480px;
+                height: 580px;
+                perspective: 1500px;
+            }
+
+            /* 모바일에서는 1페이지 전체 영역을 차지하도록 100% 지정 */
+            .page {
+                width: 100%;
+                left: 0;
+                right: 0;
+                transform-origin: center center;
+            }
+
+            .page-face {
+                padding: 20px 15px;
+            }
+
+            .page-front {
+                border-radius: 8px;
+            }
+
+            .page-back {
+                border-radius: 8px;
+            }
+
+            .cover-title { 
+                font-size: 1.6rem; 
+            }
+            .cover-emblem { 
+                font-size: 3rem; 
+            }
+
+            .section-title {
+                font-size: 1.15rem;
+                margin-bottom: 10px;
+            }
+
+            .content-body {
+                font-size: 0.82rem;
+            }
+
+            .card {
+                padding: 8px;
+                margin-bottom: 8px;
+            }
+
+            .card h4 {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 4px;
+                font-size: 0.75rem;
+            }
+
+            /* 모바일 접힘선 그림자 감추기 */
+            .page-front::before, .page-back::after {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -751,13 +834,6 @@
             document.querySelectorAll('.nav-tab').forEach((tab, idx) => {
                 tab.classList.toggle('active', idx === currentSpread);
             });
-
-            // 하단 상태 표시
-            document.getElementById('pageIndicator').innerText = pageTitles[currentSpread];
-
-            // 버튼 비활성화 상태
-            document.getElementById('prevBtn').disabled = (currentSpread === 0);
-            document.getElementById('nextBtn').disabled = (currentSpread === totalPages - 1);
         }
 
         function flipPage(pageIdx) {
