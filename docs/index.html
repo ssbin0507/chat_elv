@@ -396,7 +396,7 @@
         }
 
         /* ==========================================
-           [모바일 최적화: 모바일 3D 회전 및 레이아웃 수정]
+           [모바일 최적화: 모바일 3D 회전 애니메이션 구현]
            ========================================== */
         @media (max-width: 768px) {
             body {
@@ -438,49 +438,13 @@
                 border-top-left-radius: 2px;
                 border-bottom-left-radius: 2px;
                 box-shadow: -8px 0 15px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(120, 80, 30, 0.15);
-                overflow-y: auto; /* 내용이 길어져도 스크롤 가능하도록 설정 */
             }
 
-            /* 모바일 전용: 왼쪽 페이지 내용 비우기 (겉표지 제외) 및 오른쪽 페이지로 내용 이전 */
-            .page:not(#page0) .page-front {
-                background: transparent !important;
-                border: none !important;
-                box-shadow: none !important;
-            }
-
-            .page:not(#page0) .page-front > * {
-                display: none !important; /* 왼쪽 페이지의 개별 요소 숨김 */
-            }
-
-            .page:not(#page0) .page-back {
+            .page-back {
                 border-top-right-radius: 12px;
                 border-bottom-right-radius: 12px;
                 border-top-left-radius: 2px;
                 border-bottom-left-radius: 2px;
-            }
-
-            /* 왼쪽 페이지(Front)에 있던 내용을 오른쪽 페이지(Back)에 포함하여 출력 */
-            #page1 .page-back .content-body::before {
-                content: "";
-                display: block;
-            }
-            #page1 .page-back .content-body {
-                display: flex;
-                flex-direction: column;
-            }
-            #page1 .page-back .content-body > * {
-                order: 2;
-            }
-
-            /* 1페이지: 판정 & 다이스 룰 (원래 Front 내용) 추가 */
-            #page1 .page-back::before {
-                content: '';
-                display: block;
-            }
-
-            /* 하단 이전/다음 버튼 삭제 (모바일 한정) */
-            .page-corner-btn {
-                display: none !important;
             }
 
             /* 책 접힘선(왼쪽 경계선) 표현 */
@@ -622,29 +586,6 @@
                         <span class="section-sub">World & Races</span>
                     </div>
                     <div class="content-body">
-                        <!-- 모바일 버전 시 왼쪽 페이지 내용 수용을 위한 슬롯 -->
-                        <div class="card">
-                            <h4>다이스 룰</h4>
-                            <p>성공여부가 불확실한 상황 발생시 20면체 주사위를 굴려 판단한다. 나온 주사위 값+보정값이 목표치보다 클경우 성공.</p>
-                            <p>{💥대실패/❌실패/✅성공/✨대성공}</p>
-                            <div class="card-example">
-                                <h5>&lt;예시&gt;</h5>
-                                <p>목표: 약초 채집 / 난이도: 10<br>🎲14+AGI(+1)+일반채집(+1)+채집낫(+2)=18<br><br>판정 ✅성공</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <h4>기본능력치</h4>
-                            <table>
-                                <tr><th>종류</th><th>내용</th><th>영향</th></tr>
-                                <tr><td>STR</td><td>힘</td><td>물리공격</td></tr>
-                                <tr><td>AGI</td><td>민첩</td><td>회피, 명중, 정밀행동, 원거리공격</td></tr>
-                                <tr><td>CON</td><td>건강</td><td>최대 HP, 자연회복, 면역력</td></tr>
-                                <tr><td>INT</td><td>지능</td><td>마법 또는 특수 스킬 효율</td></tr>
-                                <tr><td>MND</td><td>정신</td><td>최대 MP, 상태 이상 저항</td></tr>
-                                <tr><td>LUK</td><td>운</td><td>재료 발견, 아이템드랍 등의 변수</td></tr>
-                                <tr><td>CHA</td><td>매력</td><td>외모, 말 솜씨, 사교, 카리스마</td></tr>
-                            </table>
-                        </div>
                         <div class="card">
                             <h4>엘바테라 대륙</h4>
                         </div>
@@ -699,22 +640,6 @@
                     </div>
                     <div class="content-body">
                         <div class="card">
-                            <h4>종족 (Races)</h4>
-                            <ul>
-                                <li><strong>인간:</strong> 수명 100세 / 표준 균형형</li>
-                                <li><strong>엘프:</strong> 수명 1000세 / MND +2, STR -2 / 마나 우대</li>
-                                <li><strong>드워프:</strong> 수명 1000세 / STR +2, MND -2 / 힘 우대</li>
-                                <li><strong>수인:</strong> 수명 500세 / CON +2, LUK -2 / 동물 생태 특성</li>
-                            </ul>
-                        </div>
-                        <div class="card">
-                            <h4>거주지 등급</h4>
-                            <ul>
-                                <li><strong>종류:</strong> 없음 / 오두막 / 주택 / 저택</li>
-                                <li><strong>개조:</strong> 빈방 1개당 시설 1개 (창고, 손님방, 온실, 공방, 연금실)</li>
-                            </ul>
-                        </div>
-                        <div class="card">
                             <h4>아스테리아 (인간) / 루나렐</h4>
                             <p>군주제 (여왕 발레리) | 성벽 도시, 석조 건축</p>
                         </div>
@@ -755,7 +680,7 @@
                         <div class="card">
                             <h4>헌터 (Hunter)</h4>
                             <p>전투계(검사, 궁수, 창사, 둔기사, 마법사 등) / 채집계</p>
-                            <p style="font-size: 0.8rem; color: var(--text-sub);">코퍼 &lt; 실버 &lt; 골드 &lt; 플래티넘</p>
+                            <p style="font-size: 0.8rem; color: var(--text-sub);">코퍼 < 실버 < 골드 < 플래티넘</p>
                         </div>
                     </div>
                     <div class="page-footer">
@@ -769,27 +694,16 @@
                         <span class="section-sub">Artisan & Chef</span>
                     </div>
                     <div class="content-body">
-                        <p style="margin-bottom: 8px;">주직업 1개 + 부직업 1개 선택 가능</p>
-                        <div class="card">
-                            <h4>위치 (Witch)</h4>
-                            <p>마나도구 및 포션 제작 (제작계 / 포션계 / 만능계)</p>
-                            <p style="font-size: 0.8rem; color: var(--text-sub);">F(견습) ~ S(대마녀)</p>
-                        </div>
-                        <div class="card">
-                            <h4>헌터 (Hunter)</h4>
-                            <p>전투계(검사, 궁수, 창사, 둔기사, 마법사 등) / 채집계</p>
-                            <p style="font-size: 0.8rem; color: var(--text-sub);">코퍼 &lt; 실버 &lt; 골드 &lt; 플래티넘</p>
-                        </div>
                         <div class="card">
                             <h4>요리사 (Chef)</h4>
                             <p>전문 요리 및 미식 구율</p>
-                            <p style="font-size: 0.8rem; color: var(--text-sub);">⭐0(입문) ~ ⭐5 &lt; 💫(마스터)</p>
+                            <p style="font-size: 0.8rem; color: var(--text-sub);">⭐0(입문) ~ ⭐5 < 💫(마스터)</p>
                         </div>
                         <div class="card">
                             <h4>장인 (Artisan)</h4>
                             <p>무기, 장신구, 의복 제작 전문</p>
                             <p>대장장이(무기·방어구), 세공사(보석), 직조공(천·자수)</p>
-                            <p style="font-size: 0.8rem; color: var(--text-sub);">견습 &lt; 초급 &lt; 숙련 &lt; 전문 &lt; 명장 &lt; 거장</p>
+                            <p style="font-size: 0.8rem; color: var(--text-sub);">견습 < 초급 < 숙련 < 전문 < 명장 < 거장</p>
                         </div>
                     </div>
                     <div class="page-footer">
@@ -831,18 +745,6 @@
                         <span class="section-sub">Synthesis Result</span>
                     </div>
                     <div class="content-body">
-                        <div class="card">
-                            <h4>마나 & 룬 (Mana & Runes)</h4>
-                            <ul>
-                                <li><strong>마법잉크 & 펜:</strong> 마나를 담는 특수 잉크와 서술 펜</li>
-                                <li><strong>룬(Rune):</strong> 주문 영창 없이 즉시 발동하는 마법 문자</li>
-                                <li><strong>마나생명체:</strong> 마나가 물질화된 생물</li>
-                            </ul>
-                        </div>
-                        <div class="card">
-                            <h4>제작 4단계 공정</h4>
-                            <p>재료투입 → 가공 → 특수가공(마나/룬) → 마감</p>
-                        </div>
                         <div class="card">
                             <h4>특성 조합 상성</h4>
                             <ul>
@@ -899,22 +801,6 @@
                         <span class="section-sub">Characters II</span>
                     </div>
                     <div class="content-body">
-                        <div class="char-item">
-                            <div class="char-head"><span>엘리나 (Elina)</span><span>여/19세/인간</span></div>
-                            <p>포션계 위치 | ESFJ + 2w1 | 차분하고 상냥한 어투</p>
-                        </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>루시안 (Lucian)</span><span>남/200세/엘프</span></div>
-                            <p>제작계 위치 | INFJ + 9w1 | 포근하고 온화한 어투</p>
-                        </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>릴리아 (Lilia)</span><span>여/360세/수인</span></div>
-                            <p>만능계 위치 | ENTP + 7w8 | 장난스럽고 능글맞은 어투</p>
-                        </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>힐다 (Hilda)</span><span>여/400세/드워프</span></div>
-                            <p>대장장이 | ESTP + 8w7 | 호탕하고 시원시원한 어투</p>
-                        </div>
                         <div class="char-item">
                             <div class="char-head"><span>레반 (Revan)</span><span>남/30세/수인</span></div>
                             <p>헌터(검사) | ISTP + 6w5 | 무뚝뚝하고 간결함</p>
