@@ -396,11 +396,11 @@
         }
 
         /* ==========================================
-           [모바일 최적화: 미디어 단면 1페이지 전용]
+           [모바일 최적화: 우측 1면 단면 꽉 채우기 전용]
            ========================================== */
         @media (max-width: 768px) {
             body {
-                padding: 10px;
+                padding: 10px 5px;
             }
 
             .top-nav {
@@ -409,36 +409,72 @@
             }
 
             .nav-tab {
-                padding: 6px 12px;
-                font-size: 0.8rem;
+                padding: 6px 10px;
+                font-size: 0.78rem;
             }
 
-            /* 책 씬 크기를 100% 모바일 영역으로 전환 */
+            /* 모바일 씬 전체 크기 */
             .scene {
-                width: 100%;
-                max-width: 480px;
-                height: 580px;
-                perspective: 1500px;
+                width: 95vw;
+                max-width: 450px;
+                height: 80vh;
+                min-height: 520px;
+                perspective: 1000px;
             }
 
-            /* 모바일에서는 1페이지 전체 영역을 차지하도록 100% 지정 */
+            /* 손그림처럼 완벽한 오른쪽 1면 크기로 채우기 */
             .page {
                 width: 100%;
+                height: 100%;
                 left: 0;
                 right: 0;
-                transform-origin: center center;
+                transform-origin: left center;
+            }
+
+            /* 뒤집힌 모바일 상태에서도 오른쪽 단면 자리에 고정되도록 조정 */
+            .page.flipped {
+                transform: rotateY(0deg) !important;
             }
 
             .page-face {
-                padding: 20px 15px;
+                padding: 22px 18px;
+                border-top-right-radius: 12px;
+                border-bottom-right-radius: 12px;
+                border-top-left-radius: 2px;
+                border-bottom-left-radius: 2px;
+                box-shadow: -8px 0 15px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(120, 80, 30, 0.15);
             }
 
-            .page-front {
-                border-radius: 8px;
-            }
-
+            /* 모바일에서 뒷면(page-back)도 오른쪽 면으로 자연스럽게 표시 */
             .page-back {
-                border-radius: 8px;
+                transform: rotateY(0deg);
+                border-top-right-radius: 12px;
+                border-bottom-right-radius: 12px;
+                border-top-left-radius: 2px;
+                border-bottom-left-radius: 2px;
+            }
+
+            /* 넘겨진 상태에서는 뒷면(page-back)을 위에 표시 */
+            .page.flipped .page-front {
+                display: none;
+            }
+
+            .page.flipped .page-back {
+                z-index: 10;
+            }
+
+            /* 책 접힘선(왼쪽 경계선) 표현 */
+            .page-front::before, .page-back::before {
+                content: '';
+                position: absolute;
+                top: 0; bottom: 0; left: 0; width: 15px;
+                background: linear-gradient(to right, rgba(0,0,0,0.3) 0%, transparent 100%);
+                pointer-events: none;
+                display: block;
+            }
+
+            .page-back::after {
+                display: none;
             }
 
             .cover-title { 
@@ -469,11 +505,6 @@
             th, td {
                 padding: 4px;
                 font-size: 0.75rem;
-            }
-
-            /* 모바일 접힘선 그림자 감추기 */
-            .page-front::before, .page-back::after {
-                display: none;
             }
         }
     </style>
