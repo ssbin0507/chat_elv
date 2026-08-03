@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>엘바테라 대도감 - 3D 양피지 고서</title>
+    <title>엘바테라 대도감</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Gowun+Batang:wght@400;700&family=Noto+Serif+KR:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -302,6 +302,23 @@
             padding-bottom: 3px;
         }
 
+        .card-example {
+            background: var(--leather-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .card-example h5 {
+            font-size: 0.9rem;
+            color: var(--parchment);
+            padding-bottom: 3px;
+        }
+        .card-example p {
+            font-size: 0.8rem;
+            color: var(--parchment);
+        }
+
         ul { padding-left: 16px; }
         li { margin-bottom: 3px; }
 
@@ -409,16 +426,18 @@
                     </div>
                     <div class="content-body">
                         <div class="card">
-                            <h4>안내</h4>
-                            <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다.</p>
+                            <h4>서문</h4>
+                            <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 여러 헌터들의 노력으로 언제나 새로운 정보가 갱신되고 있으니 자세한 소식은 소속 길드를 통해 전달받아주십시오.</p>
                         </div>
-                        <div class="card" style="margin-top: 15px;">
-                            <h4>거주지 등급</h4>
+                        <div class="card">
+                            <h4>용어</h4>
                             <ul>
-                                <li><strong>종류:</strong> 없음 / 오두막 / 주택 / 저택</li>
-                                <li><strong>개조:</strong> 빈방 1개당 시설 1개 (창고, 손님방, 온실, 공방, 연금실)</li>
+                                <li><strong>아이템 등급:</strong> Ⅰ&lt;Ⅱ&lt;Ⅲ&lt;Ⅳ&lt;Ⅴ</li>
+                                <li><strong>장비·무기 내구도:</strong> 0%~100% / 50%이하, 25%이하로 낮아질수록 보정값↓ / 0%=파괴</li>
+                                <li><strong>소모품 잔량:</strong> 0~100% / 0%=소멸</li>
                             </ul>
                         </div>
+
                     </div>
                     <div class="page-footer">
                         <span>LIBER ELVATERA</span>
@@ -431,10 +450,19 @@
             <div class="page" id="page1" onclick="flipPage(1)">
                 <div class="page-face page-front">
                     <div class="section-title">
-                        <span>기본 규칙</span>
+                        <span>판정</span>
                         <span class="section-sub">Rules & Dice</span>
                     </div>
                     <div class="content-body">
+                        <div class="card">
+                            <h4>다이스 룰</h4>
+			    <p>성공여부가 불확실한 상황 발생시 20면체 주사위를 굴려 판단한다. 나온 주사위 값+보정값이 목표치보다 클경우 성공.</p>
+			    <p>{💥대실패/❌실패/✅성공/✨대성공}</p>
+                            <div class="card-example">
+				<h5>&lt;예시&gt;</h5>
+ 			        <p>목표: 약초 채집 / 난이도: 10<br>🎲14+AGI(+1)+일반채집(+1)+채집낫(+2)=18<br><br>판정 ✅성공</p>
+                            </div>
+                        </div>
                         <div class="card">
                             <h4>기본능력치</h4>
                             <table>
@@ -447,14 +475,6 @@
                                 <tr><td>LUK</td><td>운</td><td>재료 발견, 아이템드랍 등의 변수</td></tr>
                                 <tr><td>CHA</td><td>매력</td><td>외모, 말 솜씨, 사교, 카리스마</td></tr>
                             </table>
-                        </div>
-                        <div class="card">
-                            <h4>아이템</h4>
-                            <ul>
-                                <li><strong>등급:</strong> Ⅰ&lt;Ⅱ&lt;Ⅲ&lt;Ⅳ&lt;Ⅴ</li>
-                                <li><strong>장비·무기 내구도:</strong> 0%~100% / 50%이하, 25%이하로 낮아질수록 보정값↓ / 0%=파괴</li>
-                                <li><strong>소모품 잔량:</strong> 0~100% / 0%=소멸</li>
-                            </ul>
                         </div>
                     </div>
                     <div class="page-footer">
@@ -501,6 +521,14 @@
                                 <li><strong>수인:</strong> 수명 500세 / CON +2, LUK -2 / 동물 생태 특성</li>
                             </ul>
                         </div>
+                        <div class="card" style="margin-top: 15px;">
+                            <h4>거주지 등급</h4>
+                            <ul>
+                                <li><strong>종류:</strong> 없음 / 오두막 / 주택 / 저택</li>
+                                <li><strong>개조:</strong> 빈방 1개당 시설 1개 (창고, 손님방, 온실, 공방, 연금실)</li>
+                            </ul>
+                        </div>
+
                     </div>
                     <div class="page-footer">
                         <span>CHAPTER II</span>
