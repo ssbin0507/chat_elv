@@ -396,7 +396,7 @@
         }
 
         /* ==========================================
-           [모바일 최적화: 우측 1면 단면 꽉 채우기 전용]
+           [모바일 최적화: 모바일 3D 회전 애니메이션 구현]
            ========================================== */
         @media (max-width: 768px) {
             body {
@@ -419,21 +419,16 @@
                 max-width: 450px;
                 height: 80vh;
                 min-height: 520px;
-                perspective: 1000px;
+                perspective: 1200px;
             }
 
-            /* 손그림처럼 완벽한 오른쪽 1면 크기로 채우기 */
+            /* 오른쪽 1면 크기로 채우고, 왼쪽 축을 기준으로 3D 회전 */
             .page {
                 width: 100%;
                 height: 100%;
                 left: 0;
                 right: 0;
                 transform-origin: left center;
-            }
-
-            /* 뒤집힌 모바일 상태에서도 오른쪽 단면 자리에 고정되도록 조정 */
-            .page.flipped {
-                transform: rotateY(0deg) !important;
             }
 
             .page-face {
@@ -445,22 +440,11 @@
                 box-shadow: -8px 0 15px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(120, 80, 30, 0.15);
             }
 
-            /* 모바일에서 뒷면(page-back)도 오른쪽 면으로 자연스럽게 표시 */
             .page-back {
-                transform: rotateY(0deg);
                 border-top-right-radius: 12px;
                 border-bottom-right-radius: 12px;
                 border-top-left-radius: 2px;
                 border-bottom-left-radius: 2px;
-            }
-
-            /* 넘겨진 상태에서는 뒷면(page-back)을 위에 표시 */
-            .page.flipped .page-front {
-                display: none;
-            }
-
-            .page.flipped .page-back {
-                z-index: 10;
             }
 
             /* 책 접힘선(왼쪽 경계선) 표현 */
