@@ -48,36 +48,54 @@
             overflow-x: hidden;
         }
 
-        /* 컨트롤 네비게이션 탭 */
+        /* [수정] 바인더 탭 네비게이션 컨테이너 */
         .top-nav {
             display: flex;
-            gap: 8px;
-            margin-bottom: 25px;
+            gap: 4px;
             z-index: 100;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            width: 960px;
+            padding-right: 15px;
+            margin-bottom: -1px; /* 책과 빈틈없이 밀착 */
         }
 
+        /* [수정] 바인더 인덱스 탭 디자인 (움직임/팝업 제거, 배경색 고정) */
         .nav-tab {
-            background: rgba(28, 13, 6, 0.85);
-            border: 1px solid var(--gold-dark);
-            color: #d8c3a5;
-            padding: 8px 16px;
+            background: #a38968;
+            border: 1px solid var(--border-color);
+            border-bottom: none;
+            color: #3d2c1d;
+            padding: 8px 18px 6px 18px;
             font-family: 'Cinzel', 'Gowun Batang', serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
-            border-radius: 20px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            position: relative;
+            box-shadow: inset 0 -3px 5px rgba(0,0,0,0.15);
+            /* 호버/클릭 시 애니메이션 및 움직임 없음 */
+            transition: none;
+            transform: none !important;
         }
 
-        .nav-tab:hover, .nav-tab.active {
-            background: var(--gold-accent);
+        /* [수정] 현재 선택된 탭 (페이지 배경색과 완전 동일하게 고정) */
+        .nav-tab.active {
+            background: var(--parchment-dark);
             color: var(--leather-dark);
-            border-color: var(--gold-bright);
-            box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
-            transform: translateY(-2px);
+            border-color: var(--border-color);
+            border-bottom: 1px solid var(--parchment);
+            z-index: 10;
+            box-shadow: none;
+        }
+
+        /* 표지(0번) 활성화 시 표지색과 고정 */
+        .nav-tab[data-tab="0"].active {
+            background: #230f06;
+            color: var(--gold-bright);
+            border-color: var(--gold-dark);
+            border-bottom: 1px solid #230f06;
         }
 
         /* 3D 책 전체 컨테이너 */
@@ -188,19 +206,17 @@
         }
 
         /* Page Layering Z-Index */
-        #page0 { z-index: 6; }
-        #page1 { z-index: 5; }
-        #page2 { z-index: 4; }
-        #page3 { z-index: 3; }
-        #page4 { z-index: 2; }
-        #page5 { z-index: 1; }
+        #page0 { z-index: 5; }
+        #page1 { z-index: 4; }
+        #page2 { z-index: 3; }
+        #page3 { z-index: 2; }
+        #page4 { z-index: 1; }
 
         #page0.flipped { z-index: 1; }
         #page1.flipped { z-index: 2; }
         #page2.flipped { z-index: 3; }
         #page3.flipped { z-index: 4; }
         #page4.flipped { z-index: 5; }
-        #page5.flipped { z-index: 6; }
 
         /* 표지 (Page 0 Front) 전용 가죽/금박 스타일 */
         .cover-page-style {
@@ -393,6 +409,7 @@
 
         /* 데스크톱 중간 크기 대응 */
         @media (max-width: 1000px) and (min-width: 769px) {
+            .top-nav { width: 100%; max-width: 720px; }
             .scene { width: 100%; max-width: 720px; height: 520px; }
             .cover-title { font-size: 1.8rem; }
             .cover-emblem { font-size: 3rem; }
@@ -409,13 +426,15 @@
             }
 
             .top-nav {
-                margin-bottom: 15px;
-                gap: 5px;
+                width: 95vw;
+                max-width: 450px;
+                gap: 2px;
+                justify-content: center;
             }
 
             .nav-tab {
-                padding: 6px 10px;
-                font-size: 0.78rem;
+                padding: 5px 6px;
+                font-size: 0.7rem;
             }
 
             /* 모바일 전용 요소 표시 및 왼쪽 페이지 비우기 */
@@ -514,14 +533,13 @@
 </head>
 <body>
 
-    <!-- 상단 바로가기 탭 -->
+    <!-- 상단 바인더 인덱스 탭 -->
     <nav class="top-nav">
-        <button class="nav-tab active" onclick="goToSpread(0)">겉표지</button>
-        <button class="nav-tab" onclick="goToSpread(1)">I. 개요 & 규칙</button>
-        <button class="nav-tab" onclick="goToSpread(2)">II. 세계관</button>
-        <button class="nav-tab" onclick="goToSpread(3)">III. 직업 시스템</button>
-        <button class="nav-tab" onclick="goToSpread(4)">IV. 마나 & 제작</button>
-        <button class="nav-tab" onclick="goToSpread(5)">V. 주요 인물</button>
+        <button class="nav-tab active" data-tab="0" onclick="goToSpread(0)">겉표지</button>
+        <button class="nav-tab" data-tab="1" onclick="goToSpread(1)">I. 개요</button>
+        <button class="nav-tab" data-tab="2" onclick="goToSpread(2)">II. 세계관</button>
+        <button class="nav-tab" data-tab="3" onclick="goToSpread(3)">III. 직업</button>
+        <button class="nav-tab" data-tab="4" onclick="goToSpread(4)">IV. 주요 인물</button>
     </nav>
 
     <!-- 3D 펼침책 구조 (Book Viewport) -->
@@ -558,7 +576,7 @@
                     </div>
                     <div class="page-footer">
                         <span>LIBER ELVATERA</span>
-                        <span>[ 서문 ]</span>
+                        <span>-0-</span>
                     </div>
                 </div>
             </div>
@@ -593,11 +611,11 @@
                     <div class="content-body">
                         <div class="card">
                             <h4>다이스 룰</h4>
-			    <p>성공여부가 불확실한 상황 발생시 20면체 주사위를 굴려 판단한다. 나온 주사위 값+보정값이 목표치보다 클경우 성공.</p>
-			    <p>{💥대실패/❌실패/✅성공/✨대성공}</p>
+                            <p>성공여부가 불확실한 상황 발생시 20면체 주사위를 굴려 판단한다. 나온 주사위 값+보정값이 목표치보다 클경우 성공.</p>
+                            <p>{💥대실패/❌실패/✅성공/✨대성공}</p>
                             <div class="card-example">
-				<h5>&lt;예시&gt;</h5>
- 			        <p>목표: 약초 채집 / 난이도: 10<br>🎲14+AGI(+1)+일반채집(+1)+채집낫(+2)=18<br><br>판정 ✅성공</p>
+                                <h5>&lt;예시&gt;</h5>
+                                <p>목표: 약초 채집 / 난이도: 10<br>🎲14+AGI(+1)+일반채집(+1)+채집낫(+2)=18<br><br>판정 ✅성공</p>
                             </div>
                         </div>
                         <div class="card">
@@ -632,16 +650,27 @@
                             <h4>지형 환경</h4>
                             <p>사막(고온건조), 밀림(고온다습), 산맥(저온평균), 바다(시원다습), 평지(온난평균)</p>
                         </div>
+                        <div class="card">
+                            <h4>마나 & 룬 (Mana & Runes)</h4>
+                            <ul>
+                                <li><strong>마법잉크 & 펜:</strong> 마나를 담는 특수 잉크와 서술 펜</li>
+                                <li><strong>룬(Rune):</strong> 주문 영창 없이 즉시 발동하는 마법 문자</li>
+                                <li><strong>마나생명체:</strong> 마나가 물질화된 생물</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h4>제작 4단계 공정</h4>
+                            <p>재료투입 → 가공 → 특수가공(마나/룬) → 마감</p>
+                        </div>
                     </div>
-
                     <div class="page-footer">
                         <span class="page-corner-btn">▶ 이전</span>
-                        <span>PAGE 1</span>
+                        <span>-1-</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Page 2 (I. 세계관) -->
+            <!-- Page 2 (II. 세계관) -->
             <div class="page" id="page2" onclick="flipPage(2)">
                 <div class="page-face page-front">
                     <!-- 모바일 전용: Page 1 Back(세계관 개요) 내용 -->
@@ -712,7 +741,7 @@
                     </div>
                     <div class="page-footer">
                         <span class="page-corner-btn">▶ 이전</span>
-                        <span>PAGE 2</span>
+                        <span>-2-</span>
                     </div>
                 </div>
             </div>
@@ -760,6 +789,17 @@
                             <p>전투계(검사, 궁수, 창사, 둔기사, 마법사 등) / 채집계</p>
                             <p style="font-size: 0.8rem; color: var(--text-sub);">코퍼 &lt; 실버 &lt; 골드 &lt; 플래티넘</p>
                         </div>
+                        <div class="card">
+                            <h4>요리사 (Chef)</h4>
+                            <p>전문 요리 및 미식 구율</p>
+                            <p style="font-size: 0.8rem; color: var(--text-sub);">⭐0(입문) ~ ⭐5 &lt; 💫(마스터)</p>
+                        </div>
+                        <div class="card">
+                            <h4>장인 (Artisan)</h4>
+                            <p>무기, 장신구, 의복 제작 전문</p>
+                            <p>대장장이(무기·방어구), 세공사(보석), 직조공(천·자수)</p>
+                            <p style="font-size: 0.8rem; color: var(--text-sub);">견습 &lt; 초급 &lt; 숙련 &lt; 전문 &lt; 명장 &lt; 거장</p>
+                        </div>
                     </div>
                     <div class="page-footer">
                         <span>CHAPTER III</span>
@@ -772,119 +812,17 @@
                         <span class="section-sub">Artisan & Chef</span>
                     </div>
                     <div class="content-body">
-                        <div class="card">
-                            <h4>요리사 (Chef)</h4>
-                            <p>전문 요리 및 미식 구율</p>
-                            <p style="font-size: 0.8rem; color: var(--text-sub);">⭐0(입문) ~ ⭐5 &lt; 💫(마스터)</p>
-                        </div>
-                        <div class="card">
-                            <h4>장인 (Artisan)</h4>
-                            <p>무기, 장신구, 의복 제작 전문</p>
-                            <p>대장장이(무기·방어구), 세공사(보석), 직조공(천·자수)</p>
-                            <p style="font-size: 0.8rem; color: var(--text-sub);">견습 &lt; 초급 &lt; 숙련 &lt; 전문 &lt; 명장 &lt; 거장</p>
-                        </div>
                     </div>
                     <div class="page-footer">
                         <span class="page-corner-btn">▶ 이전</span>
-                        <span>PAGE 3</span>
+                        <span>-3-</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Page 4 (IV. 마나 & 제작) -->
+            <!-- Page 4 (IV. 주요 등장인물) -->
             <div class="page" id="page4" onclick="flipPage(4)">
                 <div class="page-face page-front">
-                    <!-- 모바일 전용: Page 3 Back(전문 직업군) 내용 -->
-                    <div class="mobile-only">
-                        <div class="section-title">
-                            <span>전문 직업군</span>
-                            <span class="section-sub">Artisan & Chef</span>
-                        </div>
-                        <div class="card">
-                            <h4>요리사 (Chef)</h4>
-                            <p>전문 요리 및 미식 구율</p>
-                            <p style="font-size: 0.8rem; color: var(--text-sub);">⭐0(입문) ~ ⭐5 &lt; 💫(마스터)</p>
-                        </div>
-                        <div class="card">
-                            <h4>장인 (Artisan)</h4>
-                            <p>무기, 장신구, 의복 제작 전문</p>
-                            <p>대장장이(무기·방어구), 세공사(보석), 직조공(천·자수)</p>
-                            <p style="font-size: 0.8rem; color: var(--text-sub);">견습 &lt; 초급 &lt; 숙련 &lt; 전문 &lt; 명장 &lt; 거장</p>
-                        </div>
-                    </div>
-
-                    <div class="section-title">
-                        <span>마나 & 제작</span>
-                        <span class="section-sub">Mana & Crafting</span>
-                    </div>
-                    <div class="content-body">
-                        <div class="card">
-                            <h4>마나 & 룬 (Mana & Runes)</h4>
-                            <ul>
-                                <li><strong>마법잉크 & 펜:</strong> 마나를 담는 특수 잉크와 서술 펜</li>
-                                <li><strong>룬(Rune):</strong> 주문 영창 없이 즉시 발동하는 마법 문자</li>
-                                <li><strong>마나생명체:</strong> 마나가 물질화된 생물</li>
-                            </ul>
-                        </div>
-                        <div class="card">
-                            <h4>제작 4단계 공정</h4>
-                            <p>재료투입 → 가공 → 특수가공(마나/룬) → 마감</p>
-                        </div>
-                    </div>
-                    <div class="page-footer">
-                        <span>CHAPTER IV</span>
-                        <span class="page-corner-btn">다음 ◀</span>
-                    </div>
-                </div>
-                <div class="page-face page-back">
-                    <div class="section-title">
-                        <span>연금 & 아이템 완성</span>
-                        <span class="section-sub">Synthesis Result</span>
-                    </div>
-                    <div class="content-body">
-                        <div class="card">
-                            <h4>특성 조합 상성</h4>
-                            <ul>
-                                <li><strong>동일 특성:</strong> 중첩 강화</li>
-                                <li><strong>연관 특성:</strong> 시너지 복합효과</li>
-                                <li><strong>상반 특성:</strong> 약화 및 구조 불안정</li>
-                            </ul>
-                        </div>
-                        <div class="card">
-                            <h4>완성 판정</h4>
-                            <p>d100 ≤ 성공률 판정 성공 시, 별도 d100으로 최종 아이템 등급 결정</p>
-                        </div>
-                    </div>
-                    <div class="page-footer">
-                        <span class="page-corner-btn">▶ 이전</span>
-                        <span>PAGE 4</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Page 5 (V. 주요 등장인물) -->
-            <div class="page" id="page5" onclick="flipPage(5)">
-                <div class="page-face page-front">
-                    <!-- 모바일 전용: Page 4 Back(연금 & 아이템 완성) 내용 -->
-                    <div class="mobile-only">
-                        <div class="section-title">
-                            <span>연금 & 아이템 완성</span>
-                            <span class="section-sub">Synthesis Result</span>
-                        </div>
-                        <div class="card">
-                            <h4>특성 조합 상성</h4>
-                            <ul>
-                                <li><strong>동일 특성:</strong> 중첩 강화</li>
-                                <li><strong>연관 특성:</strong> 시너지 복합효과</li>
-                                <li><strong>상반 특성:</strong> 약화 및 구조 불안정</li>
-                            </ul>
-                        </div>
-                        <div class="card">
-                            <h4>완성 판정</h4>
-                            <p>d100 ≤ 성공률 판정 성공 시, 별도 d100으로 최종 아이템 등급 결정</p>
-                        </div>
-                    </div>
-
                     <div class="section-title">
                         <span>주요 등장인물</span>
                         <span class="section-sub">Characters I</span>
@@ -908,7 +846,7 @@
                         </div>
                     </div>
 
-                    <!-- 모바일 전용: Page 5 Back(주요 인물 & 수장) 내용 -->
+                    <!-- 모바일 전용: Page 4 Back(주요 인물 & 수장) 내용 -->
                     <div class="mobile-only">
                         <div class="section-title" style="margin-top: 15px;">
                             <span>주요 인물 & 수장</span>
@@ -929,7 +867,7 @@
                     </div>
 
                     <div class="page-footer">
-                        <span>CHAPTER V</span>
+                        <span>CHAPTER IV</span>
                         <span class="page-corner-btn">다음 ◀</span>
                     </div>
                 </div>
@@ -954,7 +892,7 @@
                     </div>
                     <div class="page-footer">
                         <span class="page-corner-btn">▶ 이전</span>
-                        <span>END OF COMPENDIUM</span>
+                        <span>-4-</span>
                     </div>
                 </div>
             </div>
@@ -963,14 +901,13 @@
 
     <script>
         let currentSpread = 0; // 0: Cover, 1: Page 1, 2: Page 2...
-        const totalPages = 6;
+        const totalPages = 5;
         const pageTitles = [
             'COVER / 겉표지',
-            'SPREAD 1 / 개요 & 규칙',
+            'SPREAD 1 / 개요',
             'SPREAD 2 / 세계관',
-            'SPREAD 3 / 직업 시스템',
-            'SPREAD 4 / 마나 & 제작',
-            'SPREAD 5 / 주요 인물'
+            'SPREAD 3 / 직업',
+            'SPREAD 4 / 주요 인물'
         ];
 
         function updateView() {
