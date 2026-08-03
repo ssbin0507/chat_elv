@@ -386,6 +386,11 @@
             color: var(--gold-dark);
         }
 
+        /* 모바일 전용 컨텐츠 제어 클래스 */
+        .mobile-only {
+            display: none;
+        }
+
         /* 데스크톱 중간 크기 대응 */
         @media (max-width: 1000px) and (min-width: 769px) {
             .scene { width: 100%; max-width: 720px; height: 520px; }
@@ -396,7 +401,7 @@
         }
 
         /* ==========================================
-           [모바일 최적화: 모바일 3D 회전 애니메이션 구현]
+           [모바일 최적화: 모바일 전용 수정을 위한 스타일]
            ========================================== */
         @media (max-width: 768px) {
             body {
@@ -411,6 +416,19 @@
             .nav-tab {
                 padding: 6px 10px;
                 font-size: 0.78rem;
+            }
+
+            /* 모바일 전용 요소 표시 및 왼쪽 페이지 비우기 */
+            .mobile-only {
+                display: block !important;
+            }
+
+            .page-back > * {
+                display: none !important;
+            }
+
+            .page-corner-btn {
+                display: none !important;
             }
 
             /* 모바일 씬 전체 크기 */
@@ -438,6 +456,7 @@
                 border-top-left-radius: 2px;
                 border-bottom-left-radius: 2px;
                 box-shadow: -8px 0 15px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(120, 80, 30, 0.15);
+                overflow-y: auto;
             }
 
             .page-back {
@@ -547,6 +566,26 @@
             <!-- Page 1 (I. 개요 & 규칙) -->
             <div class="page" id="page1" onclick="flipPage(1)">
                 <div class="page-face page-front">
+                    <!-- 모바일 전용: Page 0 Back(서문) 내용 -->
+                    <div class="mobile-only">
+                        <div class="section-title">
+                            <span>서문</span>
+                            <span class="section-sub">Elvatera Rules</span>
+                        </div>
+                        <div class="card">
+                            <h4>서문</h4>
+                            <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 여러 헌터들의 노력으로 언제나 새로운 정보가 갱신되고 있으니 자세한 소식은 소속 길드를 통해 전달받아주십시오.</p>
+                        </div>
+                        <div class="card">
+                            <h4>용어</h4>
+                            <ul>
+                                <li><strong>아이템 등급:</strong> Ⅰ&lt;Ⅱ&lt;Ⅲ&lt;Ⅳ&lt;Ⅴ</li>
+                                <li><strong>장비·무기 내구도:</strong> 0%~100% / 50%이하, 25%이하로 낮아질수록 보정값↓ / 0%=파괴</li>
+                                <li><strong>소모품 잔량:</strong> 0~100% / 0%=소멸</li>
+                            </ul>
+                        </div>
+                    </div>
+
                     <div class="section-title">
                         <span>판정</span>
                         <span class="section-sub">Rules & Dice</span>
@@ -605,6 +644,21 @@
             <!-- Page 2 (I. 세계관) -->
             <div class="page" id="page2" onclick="flipPage(2)">
                 <div class="page-face page-front">
+                    <!-- 모바일 전용: Page 1 Back(세계관 개요) 내용 -->
+                    <div class="mobile-only">
+                        <div class="section-title">
+                            <span>Ⅰ. 세계관</span>
+                            <span class="section-sub">World & Races</span>
+                        </div>
+                        <div class="card">
+                            <h4>엘바테라 대륙</h4>
+                        </div>
+                        <div class="card">
+                            <h4>지형 환경</h4>
+                            <p>사막(고온건조), 밀림(고온다습), 산맥(저온평균), 바다(시원다습), 평지(온난평균)</p>
+                        </div>
+                    </div>
+
                     <div class="section-title">
                         <span>Ⅰ</span>
                         <span class="section-sub">World & Races</span>
@@ -666,6 +720,30 @@
             <!-- Page 3 (III. 직업 시스템) -->
             <div class="page" id="page3" onclick="flipPage(3)">
                 <div class="page-face page-front">
+                    <!-- 모바일 전용: Page 2 Back(4대 왕국) 내용 -->
+                    <div class="mobile-only">
+                        <div class="section-title">
+                            <span>엘바테라 4대 왕국</span>
+                            <span class="section-sub">4 Kingdoms</span>
+                        </div>
+                        <div class="card">
+                            <h4>아스테리아 (인간) / 루나렐</h4>
+                            <p>군주제 (여왕 발레리) | 성벽 도시, 석조 건축</p>
+                        </div>
+                        <div class="card">
+                            <h4>실바니스 (엘프) / 아르보르</h4>
+                            <p>군주+장로제 (여왕 티타니아) | 트리하우스, 세계수 중심</p>
+                        </div>
+                        <div class="card">
+                            <h4>페르모스 (드워프) / 포르낙</h4>
+                            <p>대표+공화제 (대표 톨슨) | 지하도시, 석굴 건축</p>
+                        </div>
+                        <div class="card">
+                            <h4>테리안 (수인) / 페론</h4>
+                            <p>수장+선출제 (수장 오르반) | 실력 존중, 수변/산악 건축</p>
+                        </div>
+                    </div>
+
                     <div class="section-title">
                         <span>직업</span>
                         <span class="section-sub">Classes</span>
@@ -680,7 +758,7 @@
                         <div class="card">
                             <h4>헌터 (Hunter)</h4>
                             <p>전투계(검사, 궁수, 창사, 둔기사, 마법사 등) / 채집계</p>
-                            <p style="font-size: 0.8rem; color: var(--text-sub);">코퍼 < 실버 < 골드 < 플래티넘</p>
+                            <p style="font-size: 0.8rem; color: var(--text-sub);">코퍼 &lt; 실버 &lt; 골드 &lt; 플래티넘</p>
                         </div>
                     </div>
                     <div class="page-footer">
@@ -697,13 +775,13 @@
                         <div class="card">
                             <h4>요리사 (Chef)</h4>
                             <p>전문 요리 및 미식 구율</p>
-                            <p style="font-size: 0.8rem; color: var(--text-sub);">⭐0(입문) ~ ⭐5 < 💫(마스터)</p>
+                            <p style="font-size: 0.8rem; color: var(--text-sub);">⭐0(입문) ~ ⭐5 &lt; 💫(마스터)</p>
                         </div>
                         <div class="card">
                             <h4>장인 (Artisan)</h4>
                             <p>무기, 장신구, 의복 제작 전문</p>
                             <p>대장장이(무기·방어구), 세공사(보석), 직조공(천·자수)</p>
-                            <p style="font-size: 0.8rem; color: var(--text-sub);">견습 < 초급 < 숙련 < 전문 < 명장 < 거장</p>
+                            <p style="font-size: 0.8rem; color: var(--text-sub);">견습 &lt; 초급 &lt; 숙련 &lt; 전문 &lt; 명장 &lt; 거장</p>
                         </div>
                     </div>
                     <div class="page-footer">
@@ -716,6 +794,25 @@
             <!-- Page 4 (IV. 마나 & 제작) -->
             <div class="page" id="page4" onclick="flipPage(4)">
                 <div class="page-face page-front">
+                    <!-- 모바일 전용: Page 3 Back(전문 직업군) 내용 -->
+                    <div class="mobile-only">
+                        <div class="section-title">
+                            <span>전문 직업군</span>
+                            <span class="section-sub">Artisan & Chef</span>
+                        </div>
+                        <div class="card">
+                            <h4>요리사 (Chef)</h4>
+                            <p>전문 요리 및 미식 구율</p>
+                            <p style="font-size: 0.8rem; color: var(--text-sub);">⭐0(입문) ~ ⭐5 &lt; 💫(마스터)</p>
+                        </div>
+                        <div class="card">
+                            <h4>장인 (Artisan)</h4>
+                            <p>무기, 장신구, 의복 제작 전문</p>
+                            <p>대장장이(무기·방어구), 세공사(보석), 직조공(천·자수)</p>
+                            <p style="font-size: 0.8rem; color: var(--text-sub);">견습 &lt; 초급 &lt; 숙련 &lt; 전문 &lt; 명장 &lt; 거장</p>
+                        </div>
+                    </div>
+
                     <div class="section-title">
                         <span>마나 & 제작</span>
                         <span class="section-sub">Mana & Crafting</span>
@@ -768,6 +865,26 @@
             <!-- Page 5 (V. 주요 등장인물) -->
             <div class="page" id="page5" onclick="flipPage(5)">
                 <div class="page-face page-front">
+                    <!-- 모바일 전용: Page 4 Back(연금 & 아이템 완성) 내용 -->
+                    <div class="mobile-only">
+                        <div class="section-title">
+                            <span>연금 & 아이템 완성</span>
+                            <span class="section-sub">Synthesis Result</span>
+                        </div>
+                        <div class="card">
+                            <h4>특성 조합 상성</h4>
+                            <ul>
+                                <li><strong>동일 특성:</strong> 중첩 강화</li>
+                                <li><strong>연관 특성:</strong> 시너지 복합효과</li>
+                                <li><strong>상반 특성:</strong> 약화 및 구조 불안정</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h4>완성 판정</h4>
+                            <p>d100 ≤ 성공률 판정 성공 시, 별도 d100으로 최종 아이템 등급 결정</p>
+                        </div>
+                    </div>
+
                     <div class="section-title">
                         <span>주요 등장인물</span>
                         <span class="section-sub">Characters I</span>
@@ -790,6 +907,27 @@
                             <p>대장장이 | ESTP + 8w7 | 호탕하고 시원시원한 어투</p>
                         </div>
                     </div>
+
+                    <!-- 모바일 전용: Page 5 Back(주요 인물 & 수장) 내용 -->
+                    <div class="mobile-only">
+                        <div class="section-title" style="margin-top: 15px;">
+                            <span>주요 인물 & 수장</span>
+                            <span class="section-sub">Characters II</span>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-head"><span>레반 (Revan)</span><span>남/30세/수인</span></div>
+                            <p>헌터(검사) | ISTP + 6w5 | 무뚝뚝하고 간결함</p>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-head"><span>비비안 (Vivian)</span><span>여/18세/수인</span></div>
+                            <p>헌터(단검사) | ENTJ + 3w4 | 새침한 츤데레</p>
+                        </div>
+                        <div class="card" style="margin-top: 6px; padding: 6px 10px;">
+                            <h4 style="font-size: 0.88rem;">국가 수장진</h4>
+                            <p style="font-size: 0.8rem;">발레리(아스테리아) / 티타니아(실바니스) / 톨슨(페르모스) / 오르반(테리안)</p>
+                        </div>
+                    </div>
+
                     <div class="page-footer">
                         <span>CHAPTER V</span>
                         <span class="page-corner-btn">다음 ◀</span>
