@@ -101,13 +101,6 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #0d0502 0%, #2b1308 50%, #0d0502 100%);
-            border-radius: 12px;
-            box-shadow: 
-                0 30px 60px rgba(0, 0, 0, 0.95),
-                inset 0 0 40px rgba(0, 0, 0, 0.9),
-                0 0 0 4px var(--gold-dark);
-            border: 2px solid #54341c;
         }
 
         /* 책의 각 종이 페이지 (3D Stack) */
@@ -391,7 +384,7 @@
     <nav class="top-nav">
         <button class="nav-tab active" onclick="goToSpread(0)">겉표지</button>
         <button class="nav-tab" onclick="goToSpread(1)">I. 개요 & 규칙</button>
-        <button class="nav-tab" onclick="goToSpread(2)">II. 세계관 & 왕국</button>
+        <button class="nav-tab" onclick="goToSpread(2)">II. 세계관</button>
         <button class="nav-tab" onclick="goToSpread(3)">III. 직업 시스템</button>
         <button class="nav-tab" onclick="goToSpread(4)">IV. 마나 & 제작</button>
         <button class="nav-tab" onclick="goToSpread(5)">V. 주요 인물</button>
@@ -411,14 +404,13 @@
                 </div>
                 <div class="page-face page-back">
                     <div class="section-title">
-                        <span>도감 서문 (Preface)</span>
+                        <span>서문</span>
                         <span class="section-sub">Elvatera Rules</span>
                     </div>
                     <div class="content-body">
                         <div class="card">
-                            <h4>세계관 규정집 안내</h4>
-                            <p>본 고서는 대륙을 탐험하는 모든 모험가와 위치, 헌터들을 위한 통합 도감입니다.</p>
-                            <p style="margin-top: 6px;">우측 페이지부터 기본 행동 규칙과 d20 산출 수치가 기재되어 있습니다.</p>
+                            <h4>안내</h4>
+                            <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다.</p>
                         </div>
                         <div class="card" style="margin-top: 15px;">
                             <h4>거주지 등급</h4>
@@ -439,26 +431,30 @@
             <div class="page" id="page1" onclick="flipPage(1)">
                 <div class="page-face page-front">
                     <div class="section-title">
-                        <span>Ⅰ. 개요 & 기본 규칙</span>
+                        <span>기본 규칙</span>
                         <span class="section-sub">Rules & Dice</span>
                     </div>
                     <div class="content-body">
                         <div class="card">
-                            <h4>내구도 & 잔량 시스템 (0% ~ 100%)</h4>
-                            <ul>
-                                <li><strong>내구도 보정:</strong> 26~50% (eb·DEF-1) / 1~25% (eb·DEF-2) / 0% (파손)</li>
-                                <li><strong>내구 감소량:</strong> Ⅰ급(4~8%), Ⅱ급(3~6%), Ⅲ급(2~5%), Ⅳ급(1~4%), Ⅴ급(1~2%)</li>
-                                <li><strong>잔량 소멸:</strong> 0% 달성 시 소멸 / 소비량: Ⅰ급(8~12%) ~ Ⅴ급(1~3%)</li>
-                            </ul>
+                            <h4>기본능력치</h4>
+                            <table>
+                                <tr><th>종류</th><th>내용</th><th>영향</th></tr>
+                                <tr><td>STR</td><td>힘</td><td>물리공격</td></tr>
+                                <tr><td>AGI</td><td>민첩</td><td>회피, 명중, 정밀행동, 원거리공격</td></tr>
+                                <tr><td>CON</td><td>건강</td><td>최대 HP, 자연회복, 면역력</td></tr>
+                                <tr><td>INT</td><td>지능</td><td>마법 또는 특수 스킬 효율</td></tr>
+                                <tr><td>MND</td><td>정신</td><td>최대 MP, 상태 이상 저항</td></tr>
+                                <tr><td>LUK</td><td>운</td><td>재료 발견, 아이템드랍 등의 변수</td></tr>
+                                <tr><td>CHA</td><td>매력</td><td>외모, 말 솜씨, 사교, 카리스마</td></tr>
+                            </table>
                         </div>
                         <div class="card">
-                            <h4>d20 판정 공식</h4>
-                            <table>
-                                <tr><th>구분</th><th>산출 공식</th></tr>
-                                <tr><td>행동 판정</td><td>d20 + am + sb + eb ≥ dc</td></tr>
-                                <tr><td>명중 판정</td><td>d20 + am + sb + eb ≥ Target DEF/AGI</td></tr>
-                                <tr><td>피해량</td><td>피해주사위 + am + sb + eb</td></tr>
-                            </table>
+                            <h4>아이템</h4>
+                            <ul>
+                                <li><strong>등급:</strong> Ⅰ&lt;Ⅱ&lt;Ⅲ&lt;Ⅳ&lt;Ⅴ</li>
+                                <li><strong>장비·무기 내구도:</strong> 0%~100% / 50%이하, 25%이하로 낮아질수록 보정값↓ / 0%=파괴</li>
+                                <li><strong>소모품 잔량:</strong> 0~100% / 0%=소멸</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="page-footer">
@@ -468,20 +464,19 @@
                 </div>
                 <div class="page-face page-back">
                     <div class="section-title">
-                        <span>능력치 보정표 (am)</span>
-                        <span class="section-sub">Stats & Modifiers</span>
+                        <span>Ⅰ. 세계관</span>
+                        <span class="section-sub">World & Races</span>
                     </div>
                     <div class="content-body">
-                        <p style="margin-bottom: 8px;">STR, AGI, CON, INT, MND, LUK, CHA (범위 1~20, 10~11이 일반인)</p>
-                        <table>
-                            <tr><th>수치</th><th>1</th><th>2-3</th><th>4-5</th><th>6-7</th><th>8-9</th><th>10-11</th><th>12-13</th><th>14-15</th><th>16-17</th><th>18-19</th><th>20</th></tr>
-                            <tr><td><strong>am</strong></td><td>-5</td><td>-4</td><td>-3</td><td>-2</td><td>-1</td><td>0</td><td>+1</td><td>+2</td><td>+3</td><td>+4</td><td>+5</td></tr>
-                        </table>
-                        <div class="card" style="margin-top: 12px;">
-                            <h4>스킬 보너스 (sb)</h4>
-                            <p>Lv1(+1) / Lv2~3(+2) / Lv4~5(+3) / Lv6~7(+4) / Lv8~9(+5) / Lv10(+6)</p>
+                        <div class="card">
+                            <h4>엘바테라 대륙</h4>
+                        </div>
+                        <div class="card">
+                            <h4>지형 환경</h4>
+                            <p>사막(고온건조), 밀림(고온다습), 산맥(저온평균), 바다(시원다습), 평지(온난평균)</p>
                         </div>
                     </div>
+
                     <div class="page-footer">
                         <span class="page-corner-btn">▶ 이전</span>
                         <span>PAGE 1</span>
@@ -489,26 +484,22 @@
                 </div>
             </div>
 
-            <!-- Page 2 (II. 세계관 & 4대 왕국) -->
+            <!-- Page 2 (I. 세계관) -->
             <div class="page" id="page2" onclick="flipPage(2)">
                 <div class="page-face page-front">
                     <div class="section-title">
-                        <span>Ⅱ. 세계관 & 종족</span>
+                        <span>Ⅰ</span>
                         <span class="section-sub">World & Races</span>
                     </div>
                     <div class="content-body">
                         <div class="card">
-                            <h4>대륙 4대 종족 (Races)</h4>
+                            <h4>종족 (Races)</h4>
                             <ul>
                                 <li><strong>인간:</strong> 수명 100세 / 표준 균형형</li>
                                 <li><strong>엘프:</strong> 수명 1000세 / MND +2, STR -2 / 마나 우대</li>
                                 <li><strong>드워프:</strong> 수명 1000세 / STR +2, MND -2 / 힘 우대</li>
                                 <li><strong>수인:</strong> 수명 500세 / CON +2, LUK -2 / 동물 생태 특성</li>
                             </ul>
-                        </div>
-                        <div class="card">
-                            <h4>지형 환경</h4>
-                            <p>사막(고온건조), 밀림(고온다습), 산맥(저온평균), 바다(시원다습), 평지(온난평균)</p>
                         </div>
                     </div>
                     <div class="page-footer">
@@ -550,7 +541,7 @@
             <div class="page" id="page3" onclick="flipPage(3)">
                 <div class="page-face page-front">
                     <div class="section-title">
-                        <span>Ⅲ. 직업 시스템</span>
+                        <span>직업</span>
                         <span class="section-sub">Classes</span>
                     </div>
                     <div class="content-body">
@@ -600,7 +591,7 @@
             <div class="page" id="page4" onclick="flipPage(4)">
                 <div class="page-face page-front">
                     <div class="section-title">
-                        <span>Ⅳ. 마나 & 제작</span>
+                        <span>마나 & 제작</span>
                         <span class="section-sub">Mana & Crafting</span>
                     </div>
                     <div class="content-body">
@@ -652,7 +643,7 @@
             <div class="page" id="page5" onclick="flipPage(5)">
                 <div class="page-face page-front">
                     <div class="section-title">
-                        <span>Ⅴ. 주요 등장인물</span>
+                        <span>주요 등장인물</span>
                         <span class="section-sub">Characters I</span>
                     </div>
                     <div class="content-body">
@@ -712,7 +703,7 @@
         const pageTitles = [
             'COVER / 겉표지',
             'SPREAD 1 / 개요 & 규칙',
-            'SPREAD 2 / 세계관 & 왕국',
+            'SPREAD 2 / 세계관',
             'SPREAD 3 / 직업 시스템',
             'SPREAD 4 / 마나 & 제작',
             'SPREAD 5 / 주요 인물'
