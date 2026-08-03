@@ -376,50 +376,6 @@
             color: var(--gold-dark);
         }
 
-        /* 하단 컨트롤 바 */
-        .bottom-controls {
-            margin-top: 25px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            z-index: 100;
-        }
-
-        .btn-action {
-            background: linear-gradient(135deg, var(--gold-accent), var(--gold-dark));
-            color: #120703;
-            border: 1px solid var(--gold-bright);
-            padding: 10px 24px;
-            font-family: 'Cinzel', 'Gowun Batang', serif;
-            font-size: 0.95rem;
-            font-weight: bold;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-        }
-
-        .btn-action:hover {
-            background: var(--gold-bright);
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
-        }
-
-        .btn-action:disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .indicator {
-            color: #d8c3a5;
-            font-family: 'Cinzel', serif;
-            font-weight: bold;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-        }
-
         @media (max-width: 1000px) {
             .scene { width: 100%; max-width: 720px; height: 520px; }
             .cover-title { font-size: 1.8rem; }
@@ -452,10 +408,6 @@
                     <div class="cover-emblem">⚜️</div>
                     <h1 class="cover-title">엘바테라 대도감</h1>
                     <div class="cover-subtitle">Liber Compendium de Elvatera</div>
-                    <p style="max-width: 80%; font-size: 0.88rem; line-height: 1.6; color: #b39b82;">
-                        엘바테라 대륙의 탐험 규칙, d20 판정 체계, 마나 및 연금 연성, 직업군과 인물 기록을 담은 고풍스러운 양피지 도감 고서입니다.
-                    </p>
-                    <div class="click-hint">📖 클릭하여 도감책 펼치기</div>
                 </div>
                 <div class="page-face page-back">
                     <div class="section-title">
@@ -751,15 +703,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
-    </div>
-
-    <!-- 하단 페이지 컨트롤러 -->
-    <div class="bottom-controls">
-        <button class="btn-action" id="prevBtn" onclick="prevSpread()">◀ 이전 장</button>
-        <div class="indicator" id="pageIndicator">COVER / 겉표지</div>
-        <button class="btn-action" id="nextBtn" onclick="nextSpread()">다음 장 ▶</button>
     </div>
 
     <script>
