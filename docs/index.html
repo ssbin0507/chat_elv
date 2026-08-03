@@ -426,15 +426,21 @@
             }
 
             .top-nav {
-                width: 100vw;
-                max-width: 450px;
-                gap: 2px;
-                justify-content: center;
+		width: 100vw;
+		max-width: 450px;
+		gap: 4px; /* 버튼 간격 살짝 확대 */
+		justify-content: center;
+		flex-wrap: wrap; /* 버튼이 많아지면 다음 줄로 자연스럽게 넘어가도록 설정 */
             }
 
             .nav-tab {
-                padding: 5px 6px;
-                font-size: 0.7rem;
+		padding: 10px 12px; /* 위아래, 좌우 여백을 늘려 버튼 크기를 키움 */
+		font-size: 0.85rem;  /* 글자 크기 확대 (기존 0.7rem -> 0.85rem) */
+		font-weight: bold;
+		min-height: 40px;    /* 모바일 터치에 적합한 최소 높이 설정 */
+		display: flex;
+		align-items: center;
+		justify-content: center;
             }
 
             /* 모바일 전용 요소 표시 및 왼쪽 페이지 비우기 */
