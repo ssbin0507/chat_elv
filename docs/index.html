@@ -342,13 +342,12 @@
             width: 100%;
             border-collapse: collapse;
             font-size: 0.8rem;
-            margin: 8px 0;
             background: rgba(255,255,255,0.5);
         }
 
         th, td {
             border: 1px solid var(--border-color);
-            padding: 5px 6px;
+            padding: 3px 6px;
             text-align: left;
         }
 
@@ -433,8 +432,8 @@
             }
 
             .nav-tab {
-		padding: 5px 5px; /* 위아래, 좌우 여백을 늘려 버튼 크기를 키움 */
-		font-size: 0.85rem;  /* 글자 크기 확대 (기존 0.7rem -> 0.85rem) */
+		padding: 10px 10px; /* 위아래, 좌우 여백을 늘려 버튼 크기를 키움 */
+		font-size: 0.8rem;  /* 글자 크기 확대 (기존 0.7rem -> 0.85rem) */
 		font-weight: bold;
 		min-height: 40px;    /* 모바일 터치에 적합한 최소 높이 설정 */
 		display: flex;
@@ -597,7 +596,7 @@
                         </div>
                         <div class="card">
                             <h4>서문</h4>
-                            <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 여러 헌터들의 노력으로 언제나 새로운 정보가 갱신되고 있으니 자세한 소식은 소속 길드를 통해 전달받아주십시오.</p>
+                            <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 여러 헌터들의 노력으로 언제나 새로운 정보가 갱신되고 있으니 자세한 소식은 소속 길드를 통해 전달받아주십시오</p>
                         </div>
                         <div class="card">
                             <h4>용어</h4>
@@ -616,19 +615,19 @@
                     <div class="content-body">
                         <div class="card">
                             <h4>다이스 룰</h4>
-                            <p>성공여부가 불확실한 상황 발생시 20면체 주사위를 굴려 판단한다. 나온 주사위 값+보정값이 목표치보다 클경우 성공.</p>
-                            <p>{💥대실패/❌실패/✅성공/✨대성공}</p>
+                            <p>성공 여부가 불확실한 상황 발생 시 20면체 주사위를 굴려 판단. 🎲값+보정치≥목표치=성공.</p>
+                            <p>🎲1 발생시 대실패/🎲20 발생시 대성공.</p>
                             <div class="card-example">
                                 <h5>&lt;예시&gt;</h5>
-                                <p>목표: 약초 채집 / 난이도: 10<br>🎲14+AGI(+1)+일반채집(+1)+채집낫(+2)=18<br><br>판정 ✅성공</p>
+                                <p>목표: 약초 채집 / 난이도: 10<br>🎲14+AGI(+1)+일반채집(+1)+채집낫(+2)=18<br>판정 ✅성공</p>
                             </div>
                         </div>
                         <div class="card">
                             <h4>기본능력치</h4>
                             <table>
                                 <tr><th>종류</th><th>내용</th><th>영향</th></tr>
-                                <tr><td>STR</td><td>힘</td><td>물리공격</td></tr>
-                                <tr><td>AGI</td><td>민첩</td><td>회피, 명중, 정밀행동, 원거리공격</td></tr>
+                                <tr><td>STR</td><td>힘</td><td>근력사용, 물리 공격</td></tr>
+                                <tr><td>AGI</td><td>민첩</td><td>회피, 명중, 정밀행동, 원거리 공격</td></tr>
                                 <tr><td>CON</td><td>건강</td><td>최대 HP, 자연회복, 면역력</td></tr>
                                 <tr><td>INT</td><td>지능</td><td>마법 또는 특수 스킬 효율</td></tr>
                                 <tr><td>MND</td><td>정신</td><td>최대 MP, 상태 이상 저항</td></tr>
