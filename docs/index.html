@@ -90,14 +90,6 @@
             box-shadow: none;
         }
 
-        /* 표지(0번) 활성화 시 표지색과 고정 */
-        .nav-tab[data-tab="0"].active {
-            background: #230f06;
-            color: var(--gold-bright);
-            border-color: var(--gold-dark);
-            border-bottom: 1px solid #230f06;
-        }
-
         /* 3D 책 전체 컨테이너 */
         .scene {
             width: 960px;
@@ -533,8 +525,7 @@
 
     <!-- 상단 바인더 인덱스 탭 -->
     <nav class="top-nav">
-        <button class="nav-tab active" data-tab="0" onclick="goToSpread(0)">겉표지</button>
-        <button class="nav-tab" data-tab="1" onclick="goToSpread(1)">I. 개요</button>
+        <button class="nav-tab active" data-tab="1" onclick="goToSpread(1)">I. 개요</button>
         <button class="nav-tab" data-tab="2" onclick="goToSpread(2)">II. 세계관</button>
         <button class="nav-tab" data-tab="3" onclick="goToSpread(3)">III. 직업</button>
         <button class="nav-tab" data-tab="4" onclick="goToSpread(4)">IV. 주요 인물</button>
@@ -590,11 +581,11 @@
                     <!-- 모바일 전용: Page 0 Back(서문) 내용 -->
                     <div class="mobile-only">
                         <div class="section-title">
-                            <span>안내</span>
+                            <span>서문</span>
                             <span class="section-sub">Elvatera Rules</span>
                         </div>
                         <div class="card">
-                            <h4>서문</h4>
+                            <h4>안내</h4>
                             <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 여러 헌터들의 노력으로 언제나 새로운 정보가 갱신되고 있으니 자세한 소식은 소속 길드를 통해 전달받아주십시오</p>
                         </div>
                         <div class="card">
@@ -712,7 +703,7 @@
                 </div>
                 <div class="page-face page-back">
                     <div class="section-title">
-                        <span>엘바테라 4대 왕국</span>
+                        <span>&nbsp;</span>
                         <span class="section-sub">4 Kingdoms</span>
                     </div>
                     <div class="content-body">
@@ -909,8 +900,9 @@
             }
 
             // 상단 탭 업데이트
-            document.querySelectorAll('.nav-tab').forEach((tab, idx) => {
-                tab.classList.toggle('active', idx === currentSpread);
+            document.querySelectorAll('.nav-tab').forEach((tab) => {
+                const tabIdx = parseInt(tab.getAttribute('data-tab'));
+                tab.classList.toggle('active', tabIdx === currentSpread);
             });
         }
 
