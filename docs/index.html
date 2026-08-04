@@ -210,7 +210,7 @@
         #page3.flipped { z-index: 4; }
         #page4.flipped { z-index: 5; }
 
-        /* 표지 (Page 0 Front) 전용 가죽/금박 스타일 */
+        /* 표지 (Page 0 Front / Page 4 Back) 전용 가죽/금박 스타일 */
         .cover-page-style {
             background: 
                 radial-gradient(circle at 50% 40%, rgba(70, 35, 18, 0.6) 0%, rgba(15, 6, 3, 0.95) 100%),
@@ -525,10 +525,10 @@
 
     <!-- 상단 바인더 인덱스 탭 -->
     <nav class="top-nav">
-        <button class="nav-tab active" data-tab="1" onclick="goToSpread(1)">I. 개요</button>
-        <button class="nav-tab" data-tab="2" onclick="goToSpread(2)">II. 세계관</button>
-        <button class="nav-tab" data-tab="3" onclick="goToSpread(3)">III. 직업</button>
-        <button class="nav-tab" data-tab="4" onclick="goToSpread(4)">IV. 주요 인물</button>
+        <button class="nav-tab active" data-tab="1" onclick="goToSpread(1)"> 개요</button>
+        <button class="nav-tab" data-tab="2" onclick="goToSpread(2)">I. 세계관</button>
+        <button class="nav-tab" data-tab="3" onclick="goToSpread(3)">II. 직업</button>
+        <button class="nav-tab" data-tab="4" onclick="goToSpread(4)">III. 주요 인물</button>
     </nav>
 
     <!-- 3D 펼침책 구조 (Book Viewport) -->
@@ -605,18 +605,30 @@
                     </div>
 
                     <div class="section-title">
-                        <span>판정</span>
+                        <span>&nbsp;</span>
                         <span class="section-sub">Rules & Dice</span>
                     </div>
                     <div class="content-body">
                         <div class="card">
-                            <h4>다이스 룰</h4>
+                            <h4>판정 - 다이스룰</h4>
                             <p>성공 여부가 불확실한 상황 발생 시 20면체 주사위를 굴려 판단.</p>
 			    <p> - 🎲값+보정치≥목표치=성공 (🎲1=대실패 / 🎲20=대성공).</p>
                             <p> - 예시: </p>
                             <div class="card-example">
                                 <p>목표: 약초 채집 / 난이도: 10<br>🎲14+AGI(+1)+일반채집(+1)+채집낫(+2)=18<br>판정 ✅성공</p>
                             </div>
+                        </div>
+                        <div class="card">
+                            <h4>제작 공정</h4>
+                            <p>재료투입 → 가공 → 특수가공(마나/룬) → 마감</p>
+                        </div>
+                        <div class="card">
+                            <h4>아이템</h4>
+                            <ul>
+                                <li><strong>등급:</strong> Ⅰ&lt;Ⅱ&lt;Ⅲ&lt;Ⅳ&lt;Ⅴ</li>
+                                <li><strong>내구도:</strong> 장비·무기 내구도 | 0%~100% | 0%=파괴</li>
+                                <li><strong>잔량:</strong> 소모품 잔량 | 0%~100% | 0%=소멸</li>
+                           </ul>
                         </div>
                     </div>
                     <div class="page-footer">
@@ -710,25 +722,13 @@
                         <div class="card">
                             <h4>🏠거주지</h4>
 			    <p>각 왕국마다 집을 구매할 수 있습니다. 1인당 1체만 보유 가능하며 새 집을 구매할 시 기존 집은 자동으로 구매가의 반값으로 판매됩니다. </p>
+			    <p>집 내부의 빈 방들은 금액을 지불하여 각각 <strong>창고, 손님방, 온실, 공방, 연금실</strong>로 개조할 수 있습니다. 다른 시설로 변경할 경우 5은화를 지불하여 철거한 뒤 다시 개조하셔야 합니다.</p>
                             <table>
                                 <tr><th>집 종류</th><th>구성</th><th>구매가</th></tr>
                                 <tr><td>오두막</td><td>침실, 주방, 빈 방 1개</td><td>30은화</td></tr>
                                 <tr><td>주택</td><td>침실, 주방, 빈 방 2개</td><td>2금화.</td></tr>
                                 <tr><td>저택</td><td>침실, 주방, 빈 방 4개</td><td>15금화.</td></tr>
                             </table>
-			    <p>집 내부의 빈 방들은 각각 원하는 기능의 시설로 개조할 수 있습니다. 다른 시설로 변경하고 싶을 경우 5은화를 지불하여 철거한 뒤 다시 개조하셔야 합니다.</p>
-                            <p><strong>구매가: </strong> 창고 10은화/손님방 20은화/온실 30은화/공방 40은화/연금실 60은화</p>
-                        </div>
-                        <div class="card">
-                            <h4>제작 4단계 공정</h4>
-                            <p>재료투입 → 가공 → 특수가공(마나/룬) → 마감</p>
-                        </div>
-                        <div class="card">
-                            <h4>용어</h4>
-                            <ul>
-                                <li><strong>아이템 등급:</strong> Ⅰ&lt;Ⅱ&lt;Ⅲ&lt;Ⅳ&lt;Ⅴ</li>
-                                <li><strong>·내구도·잔량:</strong> 0%~100% / 0%=파괴·소멸</li>
-                            </ul>
                         </div>
                     </div>
                     <div class="page-footer">
@@ -746,25 +746,13 @@
                         <div class="card">
                             <h4>🏠거주지</h4>
 			    <p>각 왕국마다 집을 구매할 수 있습니다. 1인당 1체만 보유 가능하며 새 집을 구매할 시 기존 집은 자동으로 구매가의 반값으로 판매됩니다. </p>
+			    <p>집 내부의 빈 방들은 금액을 지불하여 각각 <strong>창고, 손님방, 온실, 공방, 연금실</strong>로 개조할 수 있습니다. 다른 시설로 변경할 경우 5은화를 지불하여 철거한 뒤 다시 개조하셔야 합니다.</p>
                             <table>
                                 <tr><th>집 종류</th><th>구성</th><th>구매가</th></tr>
                                 <tr><td>오두막</td><td>침실, 주방, 빈 방 1개</td><td>30은화</td></tr>
                                 <tr><td>주택</td><td>침실, 주방, 빈 방 2개</td><td>2금화.</td></tr>
                                 <tr><td>저택</td><td>침실, 주방, 빈 방 4개</td><td>15금화.</td></tr>
                             </table>
-			    <p>집 내부의 빈 방들은 각각 원하는 기능의 시설로 개조할 수 있습니다. 다른 시설로 변경하고 싶을 경우 5은화를 지불하여 철거한 뒤 다시 개조하셔야 합니다.</p>
-                            <p><strong>구매가: </strong> 창고 10은화/손님방 20은화/온실 30은화/공방 40은화/연금실 60은화</p>
-                        </div>
-                        <div class="card">
-                            <h4>제작 4단계 공정</h4>
-                            <p>재료투입 → 가공 → 특수가공(마나/룬) → 마감</p>
-                        </div>
-                        <div class="card">
-                            <h4>용어</h4>
-                            <ul>
-                                <li><strong>아이템 등급:</strong> Ⅰ&lt;Ⅱ&lt;Ⅲ&lt;Ⅳ&lt;Ⅴ</li>
-                                <li><strong>·내구도·잔량:</strong> 0%~100% / 0%=파괴·소멸</li>
-                            </ul>
                         </div>
                     </div>
 
@@ -815,7 +803,7 @@
                 </div>
             </div>
 
-            <!-- Page 4 (IV. 주요 등장인물) -->
+            <!-- Page 4 (IV. 주요 등장인물 / 뒤표지) -->
             <div class="page" id="page4" onclick="flipPage(4)">
                 <div class="page-face page-front">
                     <div class="section-title">
@@ -862,17 +850,8 @@
                         <span class="page-corner-btn">다음 ◀</span>
                     </div>
                 </div>
-                <div class="page-face page-back">
-                    <div class="section-title">
-                        <span>주요 인물 & 수장</span>
-                        <span class="section-sub">Characters II</span>
-                    </div>
-                    <div class="content-body">
-                    </div>
-                    <div class="page-footer">
-                        <span class="page-corner-btn">▶ 이전</span>
-                        <span>-4-</span>
-                    </div>
+                <!-- [수정] 마지막 장의 뒷면(Page 4 Back)을 앞표지(Page 0 Front)와 동일한 뒤표지 스타일로 변경 -->
+                <div class="page-face page-back cover-page-style">
                 </div>
             </div>
         </div>
