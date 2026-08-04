@@ -411,20 +411,20 @@
             }
 
             .top-nav {
-                width: 100vw;
-                max-width: 450px;
-                justify-content: center;
-                flex-wrap: wrap; /* 버튼이 많아지면 다음 줄로 자연스럽게 넘어가도록 설정 */
+		width: 100vw;
+		max-width: 450px;
+		justify-content: center;
+		flex-wrap: wrap; /* 버튼이 많아지면 다음 줄로 자연스럽게 넘어가도록 설정 */
             }
 
             .nav-tab {
-                padding: 10px 10px; /* 위아래, 좌우 여백을 늘려 버튼 크기를 키움 */
-                font-size: 0.8rem;  /* 글자 크기 확대 (기존 0.7rem -> 0.85rem) */
-                font-weight: bold;
-                min-height: 40px;    /* 모바일 터치에 적합한 최소 높이 설정 */
-                display: flex;
-                align-items: center;
-                justify-content: center;
+		padding: 10px 10px; /* 위아래, 좌우 여백을 늘려 버튼 크기를 키움 */
+		font-size: 0.8rem;  /* 글자 크기 확대 (기존 0.7rem -> 0.85rem) */
+		font-weight: bold;
+		min-height: 40px;    /* 모바일 터치에 적합한 최소 높이 설정 */
+		display: flex;
+		align-items: center;
+		justify-content: center;
             }
 
             /* 모바일 전용 요소 표시 및 왼쪽 페이지 비우기 */
@@ -459,11 +459,6 @@
                 transform-origin: left center;
             }
 
-            /* [수정 모바일 이동 오류 해결] 넘어간 페이지(flipped)가 터치를 수신할 수 있도록 pointer-events 및 z-index 보완 */
-            .page.flipped {
-                pointer-events: auto;
-            }
-
             .page-face {
                 padding: 22px 18px;
                 border-top-right-radius: 12px;
@@ -479,8 +474,6 @@
                 border-bottom-right-radius: 12px;
                 border-top-left-radius: 2px;
                 border-bottom-left-radius: 2px;
-                /* [수정] 모바일에서 뒤집힌 자식 요소들이 지워져 비어있는 page-back 영역도 클릭 터치 가능하도록 설정 */
-                pointer-events: auto;
             }
 
             /* 책 접힘선(왼쪽 경계선) 표현 */
@@ -545,7 +538,7 @@
             <div class="book-cover-base"></div>
 
             <!-- Page 0 (겉표지 Front / 서문 Back) -->
-            <div class="page" id="page0" onclick="handlePageClick(0)">
+            <div class="page" id="page0" onclick="flipPage(0)">
                 <div class="page-face page-front cover-page-style">
                     <div class="cover-emblem">⚜️</div>
                     <h1 class="cover-title">엘바테라 대도감</h1>
@@ -584,7 +577,7 @@
             </div>
 
             <!-- Page 1 (I. 개요 & 규칙) -->
-            <div class="page" id="page1" onclick="handlePageClick(1)">
+            <div class="page" id="page1" onclick="flipPage(1)">
                 <div class="page-face page-front">
                     <!-- 모바일 전용: Page 0 Back(서문) 내용 -->
                     <div class="mobile-only">
@@ -680,7 +673,7 @@
             </div>
 
             <!-- Page 2 (II. 세계관) -->
-            <div class="page" id="page2" onclick="handlePageClick(2)">
+            <div class="page" id="page2" onclick="flipPage(2)">
                 <div class="page-face page-front">
                     <!-- 모바일 전용: Page 1 Back(세계관 개요) 내용 -->
                     <div class="mobile-only">
@@ -769,7 +762,7 @@
             </div>
 
             <!-- Page 3 (III. 직업 시스템) -->
-            <div class="page" id="page3" onclick="handlePageClick(3)">
+            <div class="page" id="page3" onclick="flipPage(3)">
                 <div class="page-face page-front">
                     <!-- 모바일 전용: Page 2 Back(4대 왕국) 내용 -->
                     <div class="mobile-only">
@@ -846,7 +839,7 @@
             </div>
 
             <!-- Page 4 (IV. 주요 등장인물 / 뒤표지) -->
-            <div class="page" id="page4" onclick="handlePageClick(4)">
+            <div class="page" id="page4" onclick="flipPage(4)">
                 <div class="page-face page-front">
                     <!-- 모바일 전용: Page 4 주요 등장인물 내용 -->
                     <div class="mobile-only">
@@ -924,22 +917,6 @@
                 const tabIdx = parseInt(tab.getAttribute('data-tab'));
                 tab.classList.toggle('active', tabIdx === currentSpread);
             });
-        }
-
-        // 페이지 클릭 핸들러 (데스크톱 및 모바일 겸용 보완)
-        function handlePageClick(pageIdx) {
-            const isMobile = window.innerWidth <= 768;
-            if (isMobile) {
-                // 모바일 환경: 현재 페이지보다 작은 번호(넘어간 페이지) 클릭 시 이전 페이지로 이동
-                if (pageIdx < currentSpread) {
-                    prevSpread();
-                } else if (pageIdx === currentSpread) {
-                    nextSpread();
-                }
-            } else {
-                // 데스크톱 환경
-                flipPage(pageIdx);
-            }
         }
 
         function flipPage(pageIdx) {
