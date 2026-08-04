@@ -323,12 +323,6 @@
             border: 1px solid var(--border-color);
             border-radius: 5px;
             padding: 10px;
-            margin-bottom: 10px;
-        }
-        .card-example h5 {
-            font-size: 0.9rem;
-            color: var(--parchment);
-            padding-bottom: 3px;
         }
         .card-example p {
             font-size: 0.8rem;
@@ -347,7 +341,7 @@
 
         th, td {
             border: 1px solid var(--border-color);
-            padding: 3px 6px;
+            padding: 6px 6px;
             text-align: left;
         }
 
@@ -565,16 +559,21 @@
                     </div>
                     <div class="content-body">
                         <div class="card">
-                            <h4>서문</h4>
+                            <h4>안내</h4>
                             <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 여러 헌터들의 노력으로 언제나 새로운 정보가 갱신되고 있으니 자세한 소식은 소속 길드를 통해 전달받아주십시오.</p>
                         </div>
                         <div class="card">
-                            <h4>용어</h4>
-                            <ul>
-                                <li><strong>아이템 등급:</strong> Ⅰ&lt;Ⅱ&lt;Ⅲ&lt;Ⅳ&lt;Ⅴ</li>
-                                <li><strong>장비·무기 내구도:</strong> 0%~100% / 50%이하, 25%이하로 낮아질수록 보정값↓ / 0%=파괴</li>
-                                <li><strong>소모품 잔량:</strong> 0~100% / 0%=소멸</li>
-                            </ul>
+                            <h4>기본능력치</h4>
+                            <table>
+                                <tr><th>종류</th><th>내용</th><th>영향</th></tr>
+                                <tr><td>STR</td><td>힘</td><td>근력사용, 물리 공격</td></tr>
+                                <tr><td>AGI</td><td>민첩</td><td>회피, 명중, 정밀행동, 원거리 공격</td></tr>
+                                <tr><td>CON</td><td>건강</td><td>최대 HP, 자연회복, 면역력</td></tr>
+                                <tr><td>INT</td><td>지능</td><td>마법 또는 특수 스킬 효율</td></tr>
+                                <tr><td>MND</td><td>정신</td><td>최대 MP, 상태 이상 저항</td></tr>
+                                <tr><td>LUK</td><td>운</td><td>재료 발견, 아이템드랍 등의 변수</td></tr>
+                                <tr><td>CHA</td><td>매력</td><td>외모, 말 솜씨, 사교, 카리스마</td></tr>
+                            </table>
                         </div>
 
                     </div>
@@ -591,37 +590,12 @@
                     <!-- 모바일 전용: Page 0 Back(서문) 내용 -->
                     <div class="mobile-only">
                         <div class="section-title">
-                            <span>서문</span>
+                            <span>안내</span>
                             <span class="section-sub">Elvatera Rules</span>
                         </div>
                         <div class="card">
                             <h4>서문</h4>
                             <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 여러 헌터들의 노력으로 언제나 새로운 정보가 갱신되고 있으니 자세한 소식은 소속 길드를 통해 전달받아주십시오</p>
-                        </div>
-                        <div class="card">
-                            <h4>용어</h4>
-                            <ul>
-                                <li><strong>아이템 등급:</strong> Ⅰ&lt;Ⅱ&lt;Ⅲ&lt;Ⅳ&lt;Ⅴ</li>
-                                <li><strong>장비·무기 내구도:</strong> 0%~100% / 50%이하, 25%이하로 낮아질수록 보정값↓ / 0%=파괴</li>
-                                <li><strong>소모품 잔량:</strong> 0~100% / 0%=소멸</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="section-title">
-                        <span>판정</span>
-                        <span class="section-sub">Rules & Dice</span>
-                    </div>
-                    <div class="content-body">
-                        <div class="card">
-                            <h4>다이스 룰</h4>
-                            <p>성공 여부가 불확실한 상황 발생 시 20면체 주사위를 굴려 판단.</p>
-			    <p>🎲값+보정치≥목표치=성공.</p>
-                            <p>🎲1 발생시 대실패/🎲20 발생시 대성공.</p>
-                            <div class="card-example">
-                                <h5>&lt;예시&gt;</h5>
-                                <p>목표: 약초 채집 / 난이도: 10<br>🎲14+AGI(+1)+일반채집(+1)+채집낫(+2)=18<br>판정 ✅성공</p>
-                            </div>
                         </div>
                         <div class="card">
                             <h4>기본능력치</h4>
@@ -636,6 +610,23 @@
                                 <tr><td>CHA</td><td>매력</td><td>외모, 말 솜씨, 사교, 카리스마</td></tr>
                             </table>
                         </div>
+
+                    </div>
+
+                    <div class="section-title">
+                        <span>판정</span>
+                        <span class="section-sub">Rules & Dice</span>
+                    </div>
+                    <div class="content-body">
+                        <div class="card">
+                            <h4>다이스 룰</h4>
+                            <p>성공 여부가 불확실한 상황 발생 시 20면체 주사위를 굴려 판단.</p>
+			    <p> - 🎲값+보정치≥목표치=성공 (🎲1=대실패 / 🎲20=대성공).</p>
+                            <p> - 예시: </p>
+                            <div class="card-example">
+                                <p>목표: 약초 채집 / 난이도: 10<br>🎲14+AGI(+1)+일반채집(+1)+채집낫(+2)=18<br>판정 ✅성공</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="page-footer">
                         <span>CHAPTER I</span>
@@ -649,16 +640,25 @@
                     </div>
                     <div class="content-body">
                         <div class="card">
-                            <h4>마나 & 룬 (Mana & Runes)</h4>
+                            <h4>마나</h4>
+			    <p> - 세상에 깃든 무형의 힘, 생명력의 집합.</p>
                             <ul>
-                                <li><strong>마법잉크 & 펜:</strong> 마나를 담는 특수 잉크와 서술 펜</li>
-                                <li><strong>룬(Rune):</strong> 주문 영창 없이 즉시 발동하는 마법 문자</li>
-                                <li><strong>마나생명체:</strong> 마나가 물질화된 생물</li>
+                                <li><strong>마나생명체:</strong> 마나가 물질화된 형태가 다양한 생명체.</li>
+                                <li><strong>마법:</strong> 마나를 직접 운용해 특별한 현상을 발생시키는 것</li>
+                                <li><strong>룬:</strong> 마나생명체 외의 생물이 마법을 쓰기 위해 사용하는 문자</li>
+                                <li><strong>마법잉크 & 펜:</strong> 마나를 담는 특수잉크와 모든 곳에서 룬을 쓸 수 있도록 하는 특수 펜</li>
                             </ul>
                         </div>
                         <div class="card">
-                            <h4>제작 4단계 공정</h4>
-                            <p>재료투입 → 가공 → 특수가공(마나/룬) → 마감</p>
+                            <h4>종족</h4>
+                            <table>
+                                <tr><th>종족명</th><th>수명</th><th>외형특징</th><th>능력특징</th></tr>
+                                <tr><td>인간</td><td>약 100세</td><td> - </td><td>표준적</td></tr>
+                                <tr><td>엘프</td><td>약 1000세</td><td>뾰족귀</td><td>힘↓, 마나↑</td></tr>
+                                <tr><td>드워프</td><td>약 1000세</td><td>짧은키, 근육질</td><td>힘↑, 마나↓</td></tr>
+                                <tr><td>수인</td><td>약 500세</td><td>동물적 특징(귀, 꼬리 등)</td><td>체력↑, 운↓</td></tr>
+
+                            </table>
                         </div>
                     </div>
                     <div class="page-footer">
@@ -675,32 +675,35 @@
                     <div class="mobile-only">
                         <div class="section-title">
                             <span>Ⅰ. 세계관</span>
-                            <span class="section-sub">World & Races</span>
+                            <span class="section-sub">World</span>
                         </div>
                     </div>
 
                     <div class="section-title">
-                        <span>Ⅰ</span>
-                        <span class="section-sub">World & Races</span>
+                        <span>왕국</span>
+                        <span class="section-sub">Kingdom</span>
                     </div>
                     <div class="content-body">
                         <div class="card">
-                            <h4>종족 (Races)</h4>
-                            <ul>
-                                <li><strong>인간:</strong> 수명 100세 / 표준 균형형</li>
-                                <li><strong>엘프:</strong> 수명 1000세 / MND +2, STR -2 / 마나 우대</li>
-                                <li><strong>드워프:</strong> 수명 1000세 / STR +2, MND -2 / 힘 우대</li>
-                                <li><strong>수인:</strong> 수명 500세 / CON +2, LUK -2 / 동물 생태 특성</li>
-                            </ul>
+                            <h4>아스테리아</h4>
+                            <p>동부 평지에 위치한 인간 중심 국가.</p>
+                            <p>수도: 루나렐 | 군주제 | 현 여왕: 발레리 아스테리아</p>
                         </div>
-                        <div class="card" style="margin-top: 15px;">
-                            <h4>거주지 등급</h4>
-                            <ul>
-                                <li><strong>종류:</strong> 없음 / 오두막 / 주택 / 저택</li>
-                                <li><strong>개조:</strong> 빈방 1개당 시설 1개 (창고, 손님방, 온실, 공방, 연금실)</li>
-                            </ul>
+                        <div class="card">
+                            <h4>실바니스</h4>
+                            <p>서부 밀림에 위치한 엘프 중심 국가.</p>
+                            <p>수도: 아르보르 | 군주+장로제 | 현 여왕: 티타니아</p>
                         </div>
-
+                        <div class="card">
+                            <h4>페르모스</h4>
+                            <p>북부 사막에 위치한 드워프 중심 국가.</p>
+                            <p>수도: 포르낙 | 대표+공화제 | 현 대표: 톨슨</p>
+                        </div>
+                        <div class="card">
+                            <h4>테리안</h4>
+                            <p>남부 산맥과 바다 사이에 위치한 수인 중심 국가.</p>
+                            <p>수도: 페론 | 수장+선출제 | 현 수장: 오르반</p>
+                        </div>
                     </div>
                     <div class="page-footer">
                         <span>CHAPTER II</span>
@@ -714,20 +717,27 @@
                     </div>
                     <div class="content-body">
                         <div class="card">
-                            <h4>아스테리아 (인간) / 루나렐</h4>
-                            <p>군주제 (여왕 발레리) | 성벽 도시, 석조 건축</p>
+                            <h4>🏠거주지</h4>
+			    <p>각 왕국마다 집을 구매할 수 있습니다. 1인당 1체만 보유 가능하며 새 집을 구매할 시 기존 집은 자동으로 구매가의 반값으로 판매됩니다. </p>
+                            <table>
+                                <tr><th>집 종류</th><th>구성</th><th>구매가</th></tr>
+                                <tr><td>오두막</td><td>침실, 주방, 빈 방 1개</td><td>30은화</td></tr>
+                                <tr><td>주택</td><td>침실, 주방, 빈 방 2개</td><td>2금화.</td></tr>
+                                <tr><td>저택</td><td>침실, 주방, 빈 방 4개</td><td>15금화.</td></tr>
+                            </table>
+			    <p>집 내부의 빈 방들은 각각 원하는 기능의 시설로 개조할 수 있습니다. 다른 시설로 변경하고 싶을 경우 5은화를 지불하여 철거한 뒤 다시 개조하셔야 합니다.</p>
+                            <p><strong>구매가: </strong> 창고 10은화/손님방 20은화/온실 30은화/공방 40은화/연금실 60은화</p>
                         </div>
                         <div class="card">
-                            <h4>실바니스 (엘프) / 아르보르</h4>
-                            <p>군주+장로제 (여왕 티타니아) | 트리하우스, 세계수 중심</p>
+                            <h4>제작 4단계 공정</h4>
+                            <p>재료투입 → 가공 → 특수가공(마나/룬) → 마감</p>
                         </div>
                         <div class="card">
-                            <h4>페르모스 (드워프) / 포르낙</h4>
-                            <p>대표+공화제 (대표 톨슨) | 지하도시, 석굴 건축</p>
-                        </div>
-                        <div class="card">
-                            <h4>테리안 (수인) / 페론</h4>
-                            <p>수장+선출제 (수장 오르반) | 실력 존중, 수변/산악 건축</p>
+                            <h4>용어</h4>
+                            <ul>
+                                <li><strong>아이템 등급:</strong> Ⅰ&lt;Ⅱ&lt;Ⅲ&lt;Ⅳ&lt;Ⅴ</li>
+                                <li><strong>·내구도·잔량:</strong> 0%~100% / 0%=파괴·소멸</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="page-footer">
@@ -742,25 +752,28 @@
                 <div class="page-face page-front">
                     <!-- 모바일 전용: Page 2 Back(4대 왕국) 내용 -->
                     <div class="mobile-only">
-                        <div class="section-title">
-                            <span>엘바테라 4대 왕국</span>
-                            <span class="section-sub">4 Kingdoms</span>
+                        <div class="card">
+                            <h4>🏠거주지</h4>
+			    <p>각 왕국마다 집을 구매할 수 있습니다. 1인당 1체만 보유 가능하며 새 집을 구매할 시 기존 집은 자동으로 구매가의 반값으로 판매됩니다. </p>
+                            <table>
+                                <tr><th>집 종류</th><th>구성</th><th>구매가</th></tr>
+                                <tr><td>오두막</td><td>침실, 주방, 빈 방 1개</td><td>30은화</td></tr>
+                                <tr><td>주택</td><td>침실, 주방, 빈 방 2개</td><td>2금화.</td></tr>
+                                <tr><td>저택</td><td>침실, 주방, 빈 방 4개</td><td>15금화.</td></tr>
+                            </table>
+			    <p>집 내부의 빈 방들은 각각 원하는 기능의 시설로 개조할 수 있습니다. 다른 시설로 변경하고 싶을 경우 5은화를 지불하여 철거한 뒤 다시 개조하셔야 합니다.</p>
+                            <p><strong>구매가: </strong> 창고 10은화/손님방 20은화/온실 30은화/공방 40은화/연금실 60은화</p>
                         </div>
                         <div class="card">
-                            <h4>아스테리아 (인간) / 루나렐</h4>
-                            <p>군주제 (여왕 발레리) | 성벽 도시, 석조 건축</p>
+                            <h4>제작 4단계 공정</h4>
+                            <p>재료투입 → 가공 → 특수가공(마나/룬) → 마감</p>
                         </div>
                         <div class="card">
-                            <h4>실바니스 (엘프) / 아르보르</h4>
-                            <p>군주+장로제 (여왕 티타니아) | 트리하우스, 세계수 중심</p>
-                        </div>
-                        <div class="card">
-                            <h4>페르모스 (드워프) / 포르낙</h4>
-                            <p>대표+공화제 (대표 톨슨) | 지하도시, 석굴 건축</p>
-                        </div>
-                        <div class="card">
-                            <h4>테리안 (수인) / 페론</h4>
-                            <p>수장+선출제 (수장 오르반) | 실력 존중, 수변/산악 건축</p>
+                            <h4>용어</h4>
+                            <ul>
+                                <li><strong>아이템 등급:</strong> Ⅰ&lt;Ⅱ&lt;Ⅲ&lt;Ⅳ&lt;Ⅴ</li>
+                                <li><strong>·내구도·잔량:</strong> 0%~100% / 0%=파괴·소멸</li>
+                            </ul>
                         </div>
                     </div>
 
@@ -835,14 +848,6 @@
                             <div class="char-head"><span>힐다 (Hilda)</span><span>여/400세/드워프</span></div>
                             <p>대장장이 | ESTP + 8w7 | 호탕하고 시원시원한 어투</p>
                         </div>
-                    </div>
-
-                    <!-- 모바일 전용: Page 4 Back(주요 인물 & 수장) 내용 -->
-                    <div class="mobile-only">
-                        <div class="section-title" style="margin-top: 15px;">
-                            <span>주요 인물 & 수장</span>
-                            <span class="section-sub">Characters II</span>
-                        </div>
                         <div class="char-item">
                             <div class="char-head"><span>레반 (Revan)</span><span>남/30세/수인</span></div>
                             <p>헌터(검사) | ISTP + 6w5 | 무뚝뚝하고 간결함</p>
@@ -851,9 +856,13 @@
                             <div class="char-head"><span>비비안 (Vivian)</span><span>여/18세/수인</span></div>
                             <p>헌터(단검사) | ENTJ + 3w4 | 새침한 츤데레</p>
                         </div>
-                        <div class="card" style="margin-top: 6px; padding: 6px 10px;">
-                            <h4 style="font-size: 0.88rem;">국가 수장진</h4>
-                            <p style="font-size: 0.8rem;">발레리(아스테리아) / 티타니아(실바니스) / 톨슨(페르모스) / 오르반(테리안)</p>
+                    </div>
+
+                    <!-- 모바일 전용: Page 4 Back(주요 인물 & 수장) 내용 -->
+                    <div class="mobile-only">
+                        <div class="section-title" style="margin-top: 15px;">
+                            <span>주요 인물 & 수장</span>
+                            <span class="section-sub">Characters II</span>
                         </div>
                     </div>
 
@@ -868,18 +877,6 @@
                         <span class="section-sub">Characters II</span>
                     </div>
                     <div class="content-body">
-                        <div class="char-item">
-                            <div class="char-head"><span>레반 (Revan)</span><span>남/30세/수인</span></div>
-                            <p>헌터(검사) | ISTP + 6w5 | 무뚝뚝하고 간결함</p>
-                        </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>비비안 (Vivian)</span><span>여/18세/수인</span></div>
-                            <p>헌터(단검사) | ENTJ + 3w4 | 새침한 츤데레</p>
-                        </div>
-                        <div class="card" style="margin-top: 6px; padding: 6px 10px;">
-                            <h4 style="font-size: 0.88rem;">국가 수장진</h4>
-                            <p style="font-size: 0.8rem;">발레리(아스테리아) / 티타니아(실바니스) / 톨슨(페르모스) / 오르반(테리안)</p>
-                        </div>
                     </div>
                     <div class="page-footer">
                         <span class="page-corner-btn">▶ 이전</span>
