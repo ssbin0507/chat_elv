@@ -294,6 +294,24 @@
             flex-grow: 1;
         }
 
+        .content-body h3 {
+            position: relative;
+	    margin-bottom: 9px;
+	    padding: 0 0 5px 0;
+	    font-size: 1rem;
+	    color: var(--leather-dark);
+	    border-bottom: 1px solid rgba(140, 109, 70, 0.45);
+        }
+
+	.content-body h3::before {
+	    content: "◆ ";
+	}
+
+        .content-body p {
+            margin: 0 3px 7px;
+	    line-height: 1.7;
+        }
+
         /* 신규: 누끼 꽃 책갈피 이미지 프레임 스타일 */
         .bookmark-frame {
             margin-top: 25px;
@@ -316,11 +334,9 @@
 
         .card {
             background: rgba(255, 255, 255, 0.45);
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
             padding: 12px;
-            margin-bottom: 10px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            margin-bottom: 16px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05), 0 10px 15px rgba(0,0,0,0.03);
         }
 
         .card h4 {
@@ -331,11 +347,16 @@
             padding-bottom: 3px;
         }
 
+        .card p {
+            margin: 0 3px 7px;
+	    line-height: 1.7;
+        }
+
         .card-example {
-            background: var(--leather-dark);
-            border: 1px solid var(--border-color);
+            background: #1a0b06;
             border-radius: 5px;
             padding: 10px;
+	    box-shadow: inset 0 0 12px rgba(0,0,0,.35);
         }
         .card-example p {
             font-size: 0.8rem;
@@ -525,6 +546,10 @@
                 font-size: 0.82rem;
             }
 
+	    .content-body h3 {
+	    	font-size: 0.95rem;
+	    }
+
             .bookmark-frame {
                 height: 180px;
                 margin-top: 15px;
@@ -617,15 +642,13 @@
                     <div class="content-body">
                         <div class="card">
                             <h4>다이스룰</h4>
-                            <p>성공 여부가 불확실한 상황 발생 시 20면체 주사위를 굴려 판단.</p>
-                            <p> - 🎲값+보정치≥목표치=성공 (🎲1=대실패 / 🎲20=대성공).</p>
+                            <p>성공 여부가 불확실한 상황 발생 시 20면체 주사위를 굴려 판단.<br>🎲값+보정치≥목표치=성공 (🎲1=대실패 / 🎲20=대성공).</p>
                             <p> - 예시: </p>
                             <div class="card-example">
                                 <p>목표: 약초 채집 / 난이도: 10<br>🎲14+AGI(+1)+일반채집(+1)+채집낫(+2)=18<br><br>판정 ✅성공</p>
                             </div>
                         </div>
-                        <div class="card">
-                            <h4>기본능력치</h4>
+                            <h3>기본능력치</h3>
                             <ul>
                                 <li><strong>STR(힘):</strong> 근력사용, 물리 공격</li>
                                 <li><strong>AGI(민첩):</strong> 회피, 명중, 정밀행동, 원거리 공격</li>
@@ -635,7 +658,6 @@
                                 <li><strong>LUK(운):</strong> 재료 발견, 아이템드랍 등의 변수</li>
                                 <li><strong>CHA(매력):</strong> 외모, 말 솜씨, 사교, 카리스마</li>
                             </ul>
-                        </div>
 
                     </div>
                     <div class="page-footer">
