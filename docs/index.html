@@ -294,6 +294,26 @@
             flex-grow: 1;
         }
 
+        /* 신규: 누끼 꽃 책갈피 이미지 프레임 스타일 */
+        .bookmark-frame {
+            margin-top: 25px;
+            width: 100%;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .bookmark-frame img {
+            max-width: 98%;
+            max-height: 300px;
+            object-fit: contain;
+            transform: translate(-60px, 80px) rotate(-20deg); /* 약간 크고 비스듬하게 회전 */
+            filter: drop-shadow(0 2px 2px rgba(0,0,0,.15)) drop-shadow(2px 7px 6px rgba(0,0,0,.08)); /* 입체적 그림자 연출 */
+            transition: transform 0.3s ease;
+        }
+
         .card {
             background: rgba(255, 255, 255, 0.45);
             border: 1px solid var(--border-color);
@@ -401,6 +421,8 @@
             .cover-emblem { font-size: 3rem; }
             .page-face { padding: 20px 15px; }
             .card { padding: 8px; }
+            .bookmark-frame { height: 180px; }
+            .bookmark-frame img { max-height: 170px; }
         }
 
         /* ==========================================
@@ -503,6 +525,15 @@
                 font-size: 0.82rem;
             }
 
+            .bookmark-frame {
+                height: 180px;
+                margin-top: 15px;
+            }
+
+            .bookmark-frame img {
+                max-height: 170px;
+            }
+
             .card {
                 padding: 8px;
                 margin-bottom: 8px;
@@ -549,6 +580,11 @@
                     </div>
                     <div class="content-body">
                         <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 여러 헌터들의 노력으로 언제나 새로운 정보가 갱신되고 있으니 자세한 소식은 소속 길드를 통해 전달받아주십시오.</p>
+                        
+                        <!-- 누끼 딴 꽃 책갈피 이미지 삽입 공간 -->
+                        <div class="bookmark-frame">
+                            <img src="https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/flower_bookmark.webp" alt="꽃 책갈피">
+                        </div>
                     </div>
                     <div class="page-footer">
                         <span>LIBER ELVATERA</span>
@@ -566,7 +602,12 @@
                             <span>서문</span>
                             <span class="section-sub">Preface</span>
                         </div>
-                        <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 여러 헌터들의 노력으로 언제나 새로운 정보가 갱신되고 있으니 자세한 소식은 소속 길드를 통해 전달받아주십시오</p>
+                        <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 여러 헌터들의 노력으로 언제나 새로운 정보가 갱신되고 있으니 자세한 소식은 소속 길드를 통해 전달받아주십시오.</p>
+                        
+                        <!-- 모바일용 꽃 책갈피 이미지 삽입 공간 -->
+                        <div class="bookmark-frame">
+                            <img src="https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/flower_bookmark.webp" alt="꽃 책갈피">
+                        </div>
                     </div>
 
                     <div class="section-title">
