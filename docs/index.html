@@ -296,20 +296,20 @@
 
         .content-body h3 {
             position: relative;
-	    margin-bottom: 9px;
-	    padding: 0 0 5px 0;
-	    font-size: 1rem;
-	    color: var(--leather-dark);
-	    border-bottom: 1px solid rgba(140, 109, 70, 0.45);
+            margin-bottom: 9px;
+            padding: 0 0 5px 0;
+            font-size: 1rem;
+            color: var(--leather-dark);
+            border-bottom: 1px solid rgba(140, 109, 70, 0.45);
         }
 
-	.content-body h3::before {
-	    content: "◆ ";
-	}
+        .content-body h3::before {
+            content: "◆ ";
+        }
 
         .content-body p {
             margin: 0 3px 7px;
-	    line-height: 1.7;
+            line-height: 1.7;
         }
 
         /* 신규: 누끼 꽃 책갈피 이미지 프레임 스타일 */
@@ -367,14 +367,14 @@
 
         .card p {
             margin: 0 3px 7px;
-	    line-height: 1.7;
+            line-height: 1.7;
         }
 
         .card-example {
             background: #1a0b06;
             border-radius: 5px;
             padding: 10px;
-	    box-shadow: inset 0 0 12px rgba(0,0,0,.35);
+            box-shadow: inset 0 0 12px rgba(0,0,0,.35);
         }
         .card-example p {
             font-size: 0.8rem;
@@ -556,9 +556,9 @@
                 font-size: 0.82rem;
             }
 
-	    .content-body h3 {
-	    	font-size: 0.95rem;
-	    }
+            .content-body h3 {
+                font-size: 0.95rem;
+            }
 
             .bookmark-frame {
                 height: 180px;
@@ -607,7 +607,7 @@
             <div class="book-cover-base"></div>
 
             <!-- Page 0 (겉표지 Front / 서문 Back) -->
-            <div class="page" id="page0" onclick="flipPage(0)">
+            <div class="page" id="page0" onclick="flipPage(event, 0)">
                 <div class="page-face page-front cover-page-style">
                     <div class="cover-emblem">⚜️</div>
                     <h1 class="cover-title">알바테라 대도감</h1>
@@ -634,7 +634,7 @@
             </div>
 
             <!-- Page 1 (개요 & 규칙) -->
-            <div class="page" id="page1" onclick="flipPage(1)">
+            <div class="page" id="page1" onclick="flipPage(event, 1)">
                 <div class="page-face page-front">
                     <!-- 모바일 전용: Page 0 Back(서문) 내용 -->
                     <div class="mobile-only">
@@ -713,7 +713,7 @@
             </div>
 
             <!-- Page 2 (I. 세계관 / 왕국 & 거주지) -->
-            <div class="page" id="page2" onclick="flipPage(2)">
+            <div class="page" id="page2" onclick="flipPage(event, 2)">
                 <div class="page-face page-front">
                     <!-- 모바일 전용: Page 1 Back(세계관 개요) 내용 -->
                     <div class="mobile-only">
@@ -721,7 +721,7 @@
                             <span>Ⅰ. 세계관</span>
                             <span class="section-sub">CHAPTER I</span>
                         </div>
-			<div class="content-body">
+                        <div class="content-body">
                             <h4>마나</h4>
                             <p> - 세상에 깃든 무형의 힘, 생명력의 집합.</p>
                             <ul>
@@ -738,7 +738,7 @@
                                 <tr><td>드워프</td><td>약 1000세</td><td>짧은키, 근육질</td><td>힘↑, 마나↓</td></tr>
                                 <tr><td>수인</td><td>약 500세</td><td>동물적 특징(귀, 꼬리 등)</td><td>체력↑, 운↓</td></tr>
                             </table>
-			</div>
+                        </div>
                     </div>
 
                     <div class="section-title">
@@ -765,9 +765,9 @@
                     </div>
 
                     <div class="page-footer">
-						<div class="mobile-only">
-        	                <span class="page-corner-btn">▶ 이전</span>
-						</div>
+                        <div class="mobile-only">
+                            <span class="page-corner-btn">▶ 이전</span>
+                        </div>
                         <span>-3-</span>
                         <span class="page-corner-btn">다음 ◀</span>
                     </div>
@@ -795,11 +795,11 @@
             </div>
 
             <!-- Page 3 (II. 직업 시스템) -->
-            <div class="page" id="page3" onclick="flipPage(3)">
+            <div class="page" id="page3" onclick="flipPage(event, 3)">
                 <div class="page-face page-front">
                     <!-- 모바일 전용: Page 2 Back(4대 왕국 거주지) 내용 -->
                     <div class="mobile-only">
-			<div class="content-body">
+                        <div class="content-body">
                             <h3>🏠 거주지</h3>
                             <p>각 왕국마다 집을 구매할 수 있습니다. 1인당 1체만 보유 가능하며 새 집을 구매할 시 기존 집은 자동으로 구매가의 반값으로 판매됩니다. 빈 방들은 금액을 지불하여 각각 <strong>창고, 손님방, 온실, 공방, 연금실</strong>로 개조할 수 있습니다. 다른 시설로 변경 시 반드시 시설 철거가 선행되어야합니다.</p>
                             <table>
@@ -808,7 +808,7 @@
                                 <tr><td>주택</td><td>침실, 주방, 빈 방 2개</td><td>2금화.</td></tr>
                                 <tr><td>저택</td><td>침실, 주방, 빈 방 4개</td><td>15금화.</td></tr>
                             </table>
-			</div>
+                        </div>
                     </div>
 
                     <div class="section-title">
@@ -844,9 +844,9 @@
                         </div>
                     </div>
                     <div class="page-footer">
-						<div class="mobile-only">
-        	                <span class="page-corner-btn">▶ 이전</span>
-						</div>
+                        <div class="mobile-only">
+                            <span class="page-corner-btn">▶ 이전</span>
+                        </div>
                         <span>-5-</span>
                         <span class="page-corner-btn">다음 ◀</span>
                     </div>
@@ -876,7 +876,7 @@
             </div>
 
             <!-- Page 4 [신규] (III. 제작) -->
-            <div class="page" id="page4" onclick="flipPage(4)">
+            <div class="page" id="page4" onclick="flipPage(event, 4)">
                 <div class="page-face page-front">
                     <!-- 모바일 전용: Page 3 Back(제작 개요) 내용 -->
                     <div class="mobile-only">
@@ -910,9 +910,9 @@
                         </div>
                     </div>
                     <div class="page-footer">
-						<div class="mobile-only">
-        	                <span class="page-corner-btn">▶ 이전</span>
-		    </div>
+                        <div class="mobile-only">
+                            <span class="page-corner-btn">▶ 이전</span>
+                        </div>
                         <span>-7-</span>
                         <span class="page-corner-btn">다음 ◀</span>
                     </div>
@@ -957,10 +957,14 @@
             </div>
 
             <!-- Page 5 (IV. 주요 등장인물 / 뒤표지) -->
-            <div class="page" id="page5" onclick="flipPage(5)">
+            <div class="page" id="page5" onclick="flipPage(event, 5)">
                 <div class="page-face page-front">
                     <!-- 모바일 전용: Page 4 Back(등장인물 I) 내용 -->
                     <div class="mobile-only">
+                        <div class="section-title">
+                            <span>Ⅳ. 주요 등장인물</span>
+                            <span class="section-sub">CHAPTER IV</span>
+                        </div>
                         <div class="char-item">
                             <div class="char-head"><span>엘리나</span><span>여/19세/인간</span></div>
                             <p>포션계 위치 | ESFJ + 2w1 | 차분하고 상냥한 어투</p>
@@ -1010,9 +1014,9 @@
                         </div>
                     </div>
                     <div class="page-footer">
-						<div class="mobile-only">
-        	                <span class="page-corner-btn">▶ 이전</span>
-		    </div>
+                        <div class="mobile-only">
+                            <span class="page-corner-btn">▶ 이전</span>
+                        </div>
                         <span>-9-</span>
                         <span class="page-corner-btn">다음 ◀</span>
                     </div>
@@ -1053,15 +1057,30 @@
             });
         }
 
-        function flipPage(pageIdx) {
-            if (pageIdx === currentSpread) {
-                // 우측 페이지 클릭 시 앞으로 넘김
-                currentSpread++;
-            } else if (pageIdx === currentSpread - 1) {
-                // 좌측 페이지 클릭 시 뒤로 넘김
-                currentSpread--;
+        function flipPage(event, pageIdx) {
+            if (window.innerWidth <= 768) {
+                // 모바일 환경
+                const rect = event.currentTarget.getBoundingClientRect();
+                const clickX = event.clientX - rect.left;
+                
+                if (clickX > rect.width / 2) {
+                    // 오른쪽 클릭 시 다음 페이지로
+                    nextSpread();
+                } else {
+                    // 왼쪽 클릭 시 이전 페이지로
+                    prevSpread();
+                }
+            } else {
+                // 데스크톱 환경 (기존 로직 유지)
+                if (pageIdx === currentSpread) {
+                    // 우측 페이지 클릭 시 앞으로 넘김
+                    currentSpread++;
+                } else if (pageIdx === currentSpread - 1) {
+                    // 좌측 페이지 클릭 시 뒤로 넘김
+                    currentSpread--;
+                }
+                updateView();
             }
-            updateView();
         }
 
         function goToSpread(spreadIdx) {
