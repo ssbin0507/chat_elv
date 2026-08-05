@@ -510,6 +510,15 @@
                 transform-origin: left center;
             }
 
+            .page::before {
+                content: '';
+                position: absolute;
+                top: 0; bottom: 0; left: 0; width: 15px;
+                background: linear-gradient(to right, rgba(0,0,0,0.3) 0%, transparent 100%);
+                pointer-events: none;
+                display: block;
+            }
+
             .page-face {
                 padding: 22px 18px;
                 border-top-right-radius: 12px;
@@ -525,15 +534,6 @@
                 border-bottom-right-radius: 12px;
                 border-top-left-radius: 2px;
                 border-bottom-left-radius: 2px;
-            }
-
-            .page::before {
-                content: '';
-                position: absolute;
-                top: 0; bottom: 0; left: 0; width: 15px;
-                background: linear-gradient(to right, rgba(0,0,0,0.3) 0%, transparent 100%);
-                pointer-events: none;
-                display: block;
             }
 
             .page-back::after {
@@ -567,7 +567,7 @@
 
             .bookmark-frame img {
                 max-height: 200px;
-                transform: translate(50px, 40px) rotate(20deg);
+                transform: translate(50px, 0) rotate(20deg);
             }
 
             .card {
