@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>엘바테라 대도감</title>
+    <title>알바테라 대도감</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Gowun+Batang:wght@400;700&family=Noto+Serif+KR:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -48,7 +48,7 @@
             overflow-x: hidden;
         }
 
-        /* [수정] 바인더 탭 네비게이션 컨테이너 */
+        /* 바인더 탭 네비게이션 컨테이너 */
         .top-nav {
             display: flex;
             gap: 4px;
@@ -60,7 +60,7 @@
             margin-bottom: -1px; /* 책과 빈틈없이 밀착 */
         }
 
-        /* [수정] 바인더 인덱스 탭 디자인 (움직임/팝업 제거, 배경색 고정) */
+        /* 바인더 인덱스 탭 디자인 */
         .nav-tab {
             background: #a38968;
             border: 1px solid var(--border-color);
@@ -75,12 +75,11 @@
             cursor: pointer;
             position: relative;
             box-shadow: inset 0 -3px 5px rgba(0,0,0,0.15);
-            /* 호버/클릭 시 애니메이션 및 움직임 없음 */
             transition: none;
             transform: none !important;
         }
 
-        /* [수정] 현재 선택된 탭 (페이지 배경색과 완전 동일하게 고정) */
+        /* 현재 선택된 탭 */
         .nav-tab.active {
             background: var(--parchment-dark);
             color: var(--leather-dark);
@@ -197,20 +196,22 @@
             transform: rotateY(-180deg);
         }
 
-        /* Page Layering Z-Index */
-        #page0 { z-index: 5; }
-        #page1 { z-index: 4; }
-        #page2 { z-index: 3; }
-        #page3 { z-index: 2; }
-        #page4 { z-index: 1; }
+        /* Page Layering Z-Index (페이지가 6개로 늘어남에 따라 정렬 조정) */
+        #page0 { z-index: 6; }
+        #page1 { z-index: 5; }
+        #page2 { z-index: 4; }
+        #page3 { z-index: 3; }
+        #page4 { z-index: 2; }
+        #page5 { z-index: 1; }
 
         #page0.flipped { z-index: 1; }
         #page1.flipped { z-index: 2; }
         #page2.flipped { z-index: 3; }
         #page3.flipped { z-index: 4; }
         #page4.flipped { z-index: 5; }
+        #page5.flipped { z-index: 6; }
 
-        /* 표지 (Page 0 Front / Page 4 Back) 전용 가죽/금박 스타일 */
+        /* 표지 전용 가죽/금박 스타일 */
         .cover-page-style {
             background: 
                 radial-gradient(circle at 50% 40%, rgba(70, 35, 18, 0.6) 0%, rgba(15, 6, 3, 0.95) 100%),
@@ -403,7 +404,7 @@
         }
 
         /* ==========================================
-           [모바일 최적화: 모바일 전용 수정을 위한 스타일]
+           [모바일 최적화 스타일]
            ========================================== */
         @media (max-width: 768px) {
             body {
@@ -411,23 +412,22 @@
             }
 
             .top-nav {
-		width: 100vw;
-		max-width: 450px;
-		justify-content: center;
-		flex-wrap: wrap; /* 버튼이 많아지면 다음 줄로 자연스럽게 넘어가도록 설정 */
+                width: 100vw;
+                max-width: 450px;
+                justify-content: center;
+                flex-wrap: wrap;
             }
 
             .nav-tab {
-		padding: 10px 10px; /* 위아래, 좌우 여백을 늘려 버튼 크기를 키움 */
-		font-size: 0.8rem;  /* 글자 크기 확대 (기존 0.7rem -> 0.85rem) */
-		font-weight: bold;
-		min-height: 40px;    /* 모바일 터치에 적합한 최소 높이 설정 */
-		display: flex;
-		align-items: center;
-		justify-content: center;
+                padding: 8px 8px;
+                font-size: 0.75rem;
+                font-weight: bold;
+                min-height: 38px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
-            /* 모바일 전용 요소 표시 및 왼쪽 페이지 비우기 */
             .mobile-only {
                 display: block !important;
                 font-size: 0.82rem;
@@ -441,7 +441,6 @@
                 display: none !important;
             }
 
-            /* 모바일 씬 전체 크기 */
             .scene {
                 width: 95vw;
                 max-width: 450px;
@@ -450,7 +449,6 @@
                 perspective: 1200px;
             }
 
-            /* 오른쪽 1면 크기로 채우고, 왼쪽 축을 기준으로 3D 회전 */
             .page {
                 width: 100%;
                 height: 100%;
@@ -476,7 +474,6 @@
                 border-bottom-left-radius: 2px;
             }
 
-            /* 책 접힘선(왼쪽 경계선) 표현 */
             .page-front::before, .page-back::before {
                 content: '';
                 position: absolute;
@@ -526,10 +523,11 @@
 
     <!-- 상단 바인더 인덱스 탭 -->
     <nav class="top-nav">
-        <button class="nav-tab active" data-tab="1" onclick="goToSpread(1)"> 개요</button>
+        <button class="nav-tab active" data-tab="1" onclick="goToSpread(1)">개요</button>
         <button class="nav-tab" data-tab="2" onclick="goToSpread(2)">I. 세계관</button>
         <button class="nav-tab" data-tab="3" onclick="goToSpread(3)">II. 직업</button>
-        <button class="nav-tab" data-tab="4" onclick="goToSpread(4)">III. 주요 인물</button>
+        <button class="nav-tab" data-tab="4" onclick="goToSpread(4)">III. 제작</button>
+        <button class="nav-tab" data-tab="5" onclick="goToSpread(5)">IV. 주요 인물</button>
     </nav>
 
     <!-- 3D 펼침책 구조 (Book Viewport) -->
@@ -541,33 +539,16 @@
             <div class="page" id="page0" onclick="flipPage(0)">
                 <div class="page-face page-front cover-page-style">
                     <div class="cover-emblem">⚜️</div>
-                    <h1 class="cover-title">엘바테라 대도감</h1>
+                    <h1 class="cover-title">알바테라 대도감</h1>
                     <div class="cover-subtitle">Liber Compendium de Elvatera</div>
                 </div>
                 <div class="page-face page-back">
                     <div class="section-title">
                         <span>서문</span>
-                        <span class="section-sub">Elvatera Rules</span>
+                        <span class="section-sub">Preface</span>
                     </div>
                     <div class="content-body">
-                        <div class="card">
-                            <h4>안내</h4>
-                            <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 여러 헌터들의 노력으로 언제나 새로운 정보가 갱신되고 있으니 자세한 소식은 소속 길드를 통해 전달받아주십시오.</p>
-                        </div>
-                        <div class="card">
-                            <h4>기본능력치</h4>
-                            <table>
-                                <tr><th>종류</th><th>내용</th><th>영향</th></tr>
-                                <tr><td>STR</td><td>힘</td><td>근력사용, 물리 공격</td></tr>
-                                <tr><td>AGI</td><td>민첩</td><td>회피, 명중, 정밀행동, 원거리 공격</td></tr>
-                                <tr><td>CON</td><td>건강</td><td>최대 HP, 자연회복, 면역력</td></tr>
-                                <tr><td>INT</td><td>지능</td><td>마법 또는 특수 스킬 효율</td></tr>
-                                <tr><td>MND</td><td>정신</td><td>최대 MP, 상태 이상 저항</td></tr>
-                                <tr><td>LUK</td><td>운</td><td>재료 발견, 아이템드랍 등의 변수</td></tr>
-                                <tr><td>CHA</td><td>매력</td><td>외모, 말 솜씨, 사교, 카리스마</td></tr>
-                            </table>
-                        </div>
-
+                        <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 여러 헌터들의 노력으로 언제나 새로운 정보가 갱신되고 있으니 자세한 소식은 소속 길드를 통해 전달받아주십시오.</p>
                     </div>
                     <div class="page-footer">
                         <span>LIBER ELVATERA</span>
@@ -576,76 +557,60 @@
                 </div>
             </div>
 
-            <!-- Page 1 (I. 개요 & 규칙) -->
+            <!-- Page 1 (개요 & 규칙) -->
             <div class="page" id="page1" onclick="flipPage(1)">
                 <div class="page-face page-front">
                     <!-- 모바일 전용: Page 0 Back(서문) 내용 -->
                     <div class="mobile-only">
                         <div class="section-title">
                             <span>서문</span>
-                            <span class="section-sub">Elvatera Rules</span>
+                            <span class="section-sub">Preface</span>
                         </div>
-                        <div class="card">
-                            <h4>안내</h4>
-                            <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 여러 헌터들의 노력으로 언제나 새로운 정보가 갱신되고 있으니 자세한 소식은 소속 길드를 통해 전달받아주십시오</p>
-                        </div>
-                        <div class="card">
-                            <h4>기본능력치</h4>
-                            <table>
-                                <tr><th>종류</th><th>내용</th><th>영향</th></tr>
-                                <tr><td>STR</td><td>힘</td><td>근력사용, 물리 공격</td></tr>
-                                <tr><td>AGI</td><td>민첩</td><td>회피, 명중, 정밀행동, 원거리 공격</td></tr>
-                                <tr><td>CON</td><td>건강</td><td>최대 HP, 자연회복, 면역력</td></tr>
-                                <tr><td>INT</td><td>지능</td><td>마법 또는 특수 스킬 효율</td></tr>
-                                <tr><td>MND</td><td>정신</td><td>최대 MP, 상태 이상 저항</td></tr>
-                                <tr><td>LUK</td><td>운</td><td>재료 발견, 아이템드랍 등의 변수</td></tr>
-                                <tr><td>CHA</td><td>매력</td><td>외모, 말 솜씨, 사교, 카리스마</td></tr>
-                            </table>
-                        </div>
-
+                        <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 여러 헌터들의 노력으로 언제나 새로운 정보가 갱신되고 있으니 자세한 소식은 소속 길드를 통해 전달받아주십시오</p>
                     </div>
 
                     <div class="section-title">
-                        <span>&nbsp;</span>
-                        <span class="section-sub">Rules & Dice</span>
+                        <span>판정</span>
+                        <span class="section-sub">Rules</span>
                     </div>
                     <div class="content-body">
                         <div class="card">
-                            <h4>판정 - 다이스룰</h4>
+                            <h4>다이스룰</h4>
                             <p>성공 여부가 불확실한 상황 발생 시 20면체 주사위를 굴려 판단.</p>
-			    <p> - 🎲값+보정치≥목표치=성공 (🎲1=대실패 / 🎲20=대성공).</p>
+                            <p> - 🎲값+보정치≥목표치=성공 (🎲1=대실패 / 🎲20=대성공).</p>
                             <p> - 예시: </p>
                             <div class="card-example">
-                                <p>목표: 약초 채집 / 난이도: 10<br>🎲14+AGI(+1)+일반채집(+1)+채집낫(+2)=18<br>판정 ✅성공</p>
+                                <p>목표: 약초 채집 / 난이도: 10<br>🎲14+AGI(+1)+일반채집(+1)+채집낫(+2)=18<br><br>판정 ✅성공</p>
                             </div>
                         </div>
                         <div class="card">
-                            <h4>제작 공정</h4>
-                            <p>재료투입 → 가공 → 특수가공(마나/룬) → 마감</p>
-                        </div>
-                        <div class="card">
-                            <h4>아이템</h4>
+                            <h4>기본능력치</h4>
                             <ul>
-                                <li><strong>등급:</strong> Ⅰ&lt;Ⅱ&lt;Ⅲ&lt;Ⅳ&lt;Ⅴ</li>
-                                <li><strong>내구도:</strong> 장비·무기 내구도 | 0%~100% | 0%=파괴</li>
-                                <li><strong>잔량:</strong> 소모품 잔량 | 0%~100% | 0%=소멸</li>
-                           </ul>
+                                <li><strong>STR(힘):</strong> 근력사용, 물리 공격</li>
+                                <li><strong>AGI(민첩):</strong> 회피, 명중, 정밀행동, 원거리 공격</li>
+                                <li><strong>CON(건강):</strong> 최대 HP, 자연회복, 면역력</li>
+                                <li><strong>INT(지혜):</strong> 마법 또는 특수 스킬 효율</li>
+                                <li><strong>MND(정신):</strong> 최대 MP, 상태 이상 저항</li>
+                                <li><strong>LUK(운):</strong> 재료 발견, 아이템드랍 등의 변수</li>
+                                <li><strong>CHA(매력):</strong> 외모, 말 솜씨, 사교, 카리스마</li>
+                            </ul>
                         </div>
+
                     </div>
                     <div class="page-footer">
-                        <span>CHAPTER I</span>
+                        <span>-1-</span>
                         <span class="page-corner-btn">다음 ◀</span>
                     </div>
                 </div>
                 <div class="page-face page-back">
                     <div class="section-title">
                         <span>Ⅰ. 세계관</span>
-                        <span class="section-sub">World & Races</span>
+                        <span class="section-sub">CHAPTER I</span>
                     </div>
                     <div class="content-body">
                         <div class="card">
                             <h4>마나</h4>
-			    <p> - 세상에 깃든 무형의 힘, 생명력의 집합.</p>
+                            <p> - 세상에 깃든 무형의 힘, 생명력의 집합.</p>
                             <ul>
                                 <li><strong>마나생명체:</strong> 마나가 물질화된 형태가 다양한 생명체.</li>
                                 <li><strong>마법:</strong> 마나를 직접 운용해 특별한 현상을 발생시키는 것</li>
@@ -661,29 +626,28 @@
                                 <tr><td>엘프</td><td>약 1000세</td><td>뾰족귀</td><td>힘↓, 마나↑</td></tr>
                                 <tr><td>드워프</td><td>약 1000세</td><td>짧은키, 근육질</td><td>힘↑, 마나↓</td></tr>
                                 <tr><td>수인</td><td>약 500세</td><td>동물적 특징(귀, 꼬리 등)</td><td>체력↑, 운↓</td></tr>
-
                             </table>
                         </div>
                     </div>
                     <div class="page-footer">
                         <span class="page-corner-btn">▶ 이전</span>
-                        <span>-1-</span>
+                        <span>-2-</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Page 2 (II. 세계관) -->
+            <!-- Page 2 (I. 세계관 / 왕국 & 거주지) -->
             <div class="page" id="page2" onclick="flipPage(2)">
                 <div class="page-face page-front">
                     <!-- 모바일 전용: Page 1 Back(세계관 개요) 내용 -->
                     <div class="mobile-only">
                         <div class="section-title">
                             <span>Ⅰ. 세계관</span>
-                            <span class="section-sub">World</span>
+                            <span class="section-sub">CHAPTER I</span>
                         </div>
                         <div class="card">
                             <h4>마나</h4>
-			    <p> - 세상에 깃든 무형의 힘, 생명력의 집합.</p>
+                            <p> - 세상에 깃든 무형의 힘, 생명력의 집합.</p>
                             <ul>
                                 <li><strong>마나생명체:</strong> 마나가 물질화된 형태가 다양한 생명체.</li>
                                 <li><strong>마법:</strong> 마나를 직접 운용해 특별한 현상을 발생시키는 것</li>
@@ -699,15 +663,13 @@
                                 <tr><td>엘프</td><td>약 1000세</td><td>뾰족귀</td><td>힘↓, 마나↑</td></tr>
                                 <tr><td>드워프</td><td>약 1000세</td><td>짧은키, 근육질</td><td>힘↑, 마나↓</td></tr>
                                 <tr><td>수인</td><td>약 500세</td><td>동물적 특징(귀, 꼬리 등)</td><td>체력↑, 운↓</td></tr>
-
                             </table>
                         </div>
-
                     </div>
 
                     <div class="section-title">
                         <span>왕국</span>
-                        <span class="section-sub">Kingdom</span>
+                        <span class="section-sub">CHAPTER I</span>
                     </div>
                     <div class="content-body">
                         <div class="card">
@@ -732,20 +694,19 @@
                         </div>
                     </div>
                     <div class="page-footer">
-                        <span>CHAPTER II</span>
+                        <span>-3-</span>
                         <span class="page-corner-btn">다음 ◀</span>
                     </div>
                 </div>
                 <div class="page-face page-back">
                     <div class="section-title">
                         <span>&nbsp;</span>
-                        <span class="section-sub">4 Kingdoms</span>
+                        <span class="section-sub">CHAPTER I</span>
                     </div>
                     <div class="content-body">
                         <div class="card">
                             <h4>🏠거주지</h4>
-			    <p>각 왕국마다 집을 구매할 수 있습니다. 1인당 1체만 보유 가능하며 새 집을 구매할 시 기존 집은 자동으로 구매가의 반값으로 판매됩니다. </p>
-			    <p>집 내부의 빈 방들은 금액을 지불하여 각각 <strong>창고, 손님방, 온실, 공방, 연금실</strong>로 개조할 수 있습니다. 다른 시설로 변경할 경우 5은화를 지불하여 철거한 뒤 다시 개조하셔야 합니다.</p>
+                            <p>각 왕국마다 집을 구매할 수 있습니다. 1인당 1체만 보유 가능하며 새 집을 구매할 시 기존 집은 자동으로 구매가의 반값으로 판매됩니다. 빈 방들은 금액을 지불하여 각각 <strong>창고, 손님방, 온실, 공방, 연금실</strong>로 개조할 수 있습니다. 다른 시설로 변경 시 반드시 시설 철거가 선행되어야합니다..</p>
                             <table>
                                 <tr><th>집 종류</th><th>구성</th><th>구매가</th></tr>
                                 <tr><td>오두막</td><td>침실, 주방, 빈 방 1개</td><td>30은화</td></tr>
@@ -756,20 +717,19 @@
                     </div>
                     <div class="page-footer">
                         <span class="page-corner-btn">▶ 이전</span>
-                        <span>-2-</span>
+                        <span>-4-</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Page 3 (III. 직업 시스템) -->
+            <!-- Page 3 (II. 직업 시스템) -->
             <div class="page" id="page3" onclick="flipPage(3)">
                 <div class="page-face page-front">
-                    <!-- 모바일 전용: Page 2 Back(4대 왕국) 내용 -->
+                    <!-- 모바일 전용: Page 2 Back(4대 왕국 거주지) 내용 -->
                     <div class="mobile-only">
                         <div class="card">
                             <h4>🏠거주지</h4>
-			    <p>각 왕국마다 집을 구매할 수 있습니다. 1인당 1체만 보유 가능하며 새 집을 구매할 시 기존 집은 자동으로 구매가의 반값으로 판매됩니다. </p>
-			    <p>집 내부의 빈 방들은 금액을 지불하여 각각 <strong>창고, 손님방, 온실, 공방, 연금실</strong>로 개조할 수 있습니다. 다른 시설로 변경할 경우 5은화를 지불하여 철거한 뒤 다시 개조하셔야 합니다.</p>
+                            <p>각 왕국마다 집을 구매할 수 있습니다. 1인당 1체만 보유 가능하며 새 집을 구매할 시 기존 집은 자동으로 구매가의 반값으로 판매됩니다. 빈 방들은 금액을 지불하여 각각 <strong>창고, 손님방, 온실, 공방, 연금실</strong>로 개조할 수 있습니다. 다른 시설로 변경 시 반드시 시설 철거가 선행되어야합니다..</p>
                             <table>
                                 <tr><th>집 종류</th><th>구성</th><th>구매가</th></tr>
                                 <tr><td>오두막</td><td>침실, 주방, 빈 방 1개</td><td>30은화</td></tr>
@@ -781,68 +741,100 @@
 
                     <div class="section-title">
                         <span>Ⅱ. 직업</span>
-                        <span class="section-sub">Classes</span>
+                        <span class="section-sub">CHAPTER II</span>
                     </div>
                     <div class="content-body">
-                        <p style="margin-bottom: 8px;">주직업 1개 + 부직업 1개 선택 가능</p>
                         <div class="card">
                             <h4>위치 (Witch)</h4>
-                            <p>마나도구 및 포션 제작 (제작계 / 포션계 / 만능계)</p>
-                            <p style="font-size: 0.8rem; color: var(--text-sub);">F(견습) ~ S(대마녀)</p>
+                            <p>마나 도구, 포션 제작 전문</p>
+                            <p>분류: 제작계 | 포션계 | 만능계</p>
+                            <p style="font-size: 0.7rem; color: var(--text-sub);">등급: F(견습) &lt; E &lt; D &lt; C &lt; B &lt; A &lt; S(대마녀)</p>
                         </div>
                         <div class="card">
                             <h4>헌터 (Hunter)</h4>
-                            <p>전투계(검사, 궁수, 창사, 둔기사, 마법사 등) / 채집계</p>
-                            <p style="font-size: 0.8rem; color: var(--text-sub);">코퍼 &lt; 실버 &lt; 골드 &lt; 플래티넘</p>
+                            <p>사냥, 탐험, 생태계 탐색 및 관리 전문</p>
+                            <p>종류: 전투계(검사, 궁수, 마법사, 등) | 탐사계(탐험가, 생태학자)</p>
+                            <p style="font-size: 0.7rem; color: var(--text-sub);">등급: 코퍼 &lt; 실버 &lt; 골드 &lt; 플래티넘</p>
                         </div>
                         <div class="card">
                             <h4>요리사 (Chef)</h4>
-                            <p>전문 요리 및 미식 구율</p>
-                            <p style="font-size: 0.8rem; color: var(--text-sub);">⭐0(입문) ~ ⭐5 &lt; 💫(마스터)</p>
+                            <p>요리 제작 전문</p>
+                            <p style="font-size: 0.7rem; color: var(--text-sub);">등급: ⭐0(입문) &lt; ⭐1 &lt; ⭐2 &lt; ⭐3 &lt; ⭐4 &lt; ⭐5 &lt; 💫(마스터)</p>
                         </div>
                         <div class="card">
                             <h4>장인 (Artisan)</h4>
-                            <p>무기, 장신구, 의복 제작 전문</p>
-                            <p>대장장이(무기·방어구), 세공사(보석), 직조공(천·자수)</p>
-                            <p style="font-size: 0.8rem; color: var(--text-sub);">견습 &lt; 초급 &lt; 숙련 &lt; 전문 &lt; 명장 &lt; 거장</p>
+                            <p>각 분야 (무기, 장신구, 의복) 제작 전문</p>
+                            <p>종류: 대장장이 | 세공사 | 직조공</p>
+                            <p style="font-size: 0.7rem; color: var(--text-sub);">등급: 견습 &lt; 초급 &lt; 숙련 &lt; 전문 &lt; 명장 &lt; 거장</p>
                         </div>
                     </div>
                     <div class="page-footer">
-                        <span>CHAPTER III</span>
+                        <span>-5-</span>
                         <span class="page-corner-btn">다음 ◀</span>
                     </div>
                 </div>
                 <div class="page-face page-back">
                     <div class="section-title">
-                        <span>Ⅲ. 주요 등장인물</span>
-                        <span class="section-sub">Artisan & Chef</span>
+                        <span>Ⅲ. 제작</span>
+                        <span class="section-sub">CHAPTER III</span>
                     </div>
                     <div class="content-body">
-                        <div class="char-item">
-                            <div class="char-head"><span>엘리나</span><span>여/19세/인간</span></div>
-                            <p>포션계 위치 | ESFJ + 2w1 | 차분하고 상냥한 어투</p>
-                        </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>루시안</span><span>남/200세/엘프</span></div>
-                            <p>제작계 위치 | INFJ + 9w1 | 포근하고 온화한 어투</p>
-                        </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>릴리아</span><span>여/360세/수인</span></div>
-                            <p>만능계 위치 | ENTP + 7w8 | 장난스럽고 능글맞은 어투</p>
+                        <div class="card">
+                            <h4>성질</h4>
+                            <p>모든 부산물에는 성질이 존재한다. 성질은 <strong>원소, 성향</strong> 두 분류로 나뉜다.</p>
                         </div>
                     </div>
                     <div class="page-footer">
                         <span class="page-corner-btn">▶ 이전</span>
-                        <span>-3-</span>
+                        <span>-6-</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Page 4 (IV. 주요 등장인물 / 뒤표지) -->
+            <!-- Page 4 [신규] (III. 제작) -->
             <div class="page" id="page4" onclick="flipPage(4)">
                 <div class="page-face page-front">
-                    <!-- 모바일 전용: Page 4 주요 등장인물 내용 -->
+                    <!-- 모바일 전용: Page 3 Back(제작 개요) 내용 -->
                     <div class="mobile-only">
+                        <div class="section-title">
+                            <span>Ⅲ. 제작</span>
+                            <span class="section-sub">CHAPTER III</span>
+                        </div>
+                        <div class="card">
+                            <h4>성질</h4>
+                            <p>모든 부산물에는 성질이 존재한다. 성질은 <strong>원소, 성향</strong> 두 분류로 나뉜다.</p>
+                        </div>
+                    </div>
+
+                    <div class="section-title">
+                        <span>&nbsp;</span>
+                        <span class="section-sub">CHAPTER III</span>
+                    </div>
+                    <div class="content-body">
+                        <div class="card">
+                            <h4>제작 공정</h4>
+                            <p>재료투입 → 가공 → 특수가공(마나/룬) → 마감</p>
+                        </div>
+                        <div class="card">
+                            <h4>아이템 규격</h4>
+                            <ul>
+                                <li><strong>등급:</strong> Ⅰ &lt; Ⅱ &lt; Ⅲ &lt; Ⅳ &lt; Ⅴ</li>
+                                <li><strong>내구도:</strong> 장비·무기 내구도 | 0%~100% | 0%=파괴</li>
+                                <li><strong>잔량:</strong> 소모품 잔량 | 0%~100% | 0%=소멸</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page-footer">
+                        <span>-7-</span>
+                        <span class="page-corner-btn">다음 ◀</span>
+                    </div>
+                </div>
+                <div class="page-face page-back">
+                    <div class="section-title">
+                        <span>Ⅳ. 주요 등장인물</span>
+                        <span class="section-sub">CHAPTER IV</span>
+                    </div>
+                    <div class="content-body">
                         <div class="char-item">
                             <div class="char-head"><span>엘리나</span><span>여/19세/인간</span></div>
                             <p>포션계 위치 | ESFJ + 2w1 | 차분하고 상냥한 어투</p>
@@ -854,37 +846,87 @@
                         <div class="char-item">
                             <div class="char-head"><span>릴리아</span><span>여/360세/수인</span></div>
                             <p>만능계 위치 | ENTP + 7w8 | 장난스럽고 능글맞은 어투</p>
-                        </div>
-                    </div>
-                    <div class="section-title">
-                        <span>&nbsp;</span>
-                        <span class="section-sub">Characters I</span>
-                    </div>
-                    <div class="content-body">
-                        <div class="char-item">
-                            <div class="char-head"><span>힐다</span><span>여/400세/드워프</span></div>
-                            <p>대장장이 | ESTP + 8w7 | 호탕하고 시원시원한 어투</p>
-                        </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>레반</span><span>남/30세/수인</span></div>
-                            <p>헌터(검사) | ISTP + 6w5 | 무뚝뚝하고 간결함</p>
                         </div>
                         <div class="char-item">
                             <div class="char-head"><span>비비안</span><span>여/18세/수인</span></div>
                             <p>헌터(단검사) | ENTJ + 3w4 | 새침한 츤데레</p>
                         </div>
-                    </div>
-
-                    <!-- 모바일 전용: Page 4 Back(주요 인물 & 수장) 내용 -->
-                    <div class="mobile-only">
+                        <div class="char-item">
+                            <div class="char-head"><span>라스</span><span>남/25세/인간</span></div>
+                            <p>헌터 마법사 | INTJ + 5w6 | 까칠하고 논리적인 어투</p>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-head"><span>레반</span><span>남/30세/수인</span></div>
+                            <p>헌터(검사) | ISTP + 6w5 | 무뚝뚝하고 간결함</p>
+                        </div>
                     </div>
 
                     <div class="page-footer">
-                        <span>CHAPTER IV</span>
+                        <span class="page-corner-btn">▶ 이전</span>
+                        <span>-8-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 5 (IV. 주요 등장인물 / 뒤표지) -->
+            <div class="page" id="page5" onclick="flipPage(5)">
+                <div class="page-face page-front">
+                    <!-- 모바일 전용: Page 4 Back(등장인물 I) 내용 -->
+                    <div class="mobile-only">
+                        <div class="char-item">
+                            <div class="char-head"><span>엘리나</span><span>여/19세/인간</span></div>
+                            <p>포션계 위치 | ESFJ + 2w1 | 차분하고 상냥한 어투</p>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-head"><span>루시안</span><span>남/200세/엘프</span></div>
+                            <p>제작계 위치 | INFJ + 9w1 | 포근하고 온화한 어투</p>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-head"><span>릴리아</span><span>여/360세/수인</span></div>
+                            <p>만능계 위치 | ENTP + 7w8 | 장난스럽고 능글맞은 어투</p>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-head"><span>비비안</span><span>여/18세/수인</span></div>
+                            <p>헌터(단검사) | ENTJ + 3w4 | 새침한 츤데레</p>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-head"><span>라스</span><span>남/25세/인간</span></div>
+                            <p>헌터 마법사 | INTJ + 5w6 | 까칠하고 논리적인 어투</p>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-head"><span>레반</span><span>남/30세/수인</span></div>
+                            <p>헌터(검사) | ISTP + 6w5 | 무뚝뚝하고 간결함</p>
+                        </div>
+                    </div>
+
+                    <div class="section-title">
+                        <span>&nbsp;</span>
+                        <span class="section-sub">CHAPTER IV</span>
+                    </div>
+                    <div class="content-body">
+                        <div class="char-item">
+                            <div class="char-head"><span>메이</span><span>여/400세/여/47세/엘프</span></div>
+                            <p>헌터 탐험가 | ESFP + 7w6 | 웃음많고 발랄한 어투</p>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-head"><span>이안</span><span>남/22세/인간</span></div>
+                            <p>요리사 | ESTJ + 1w2 | 예의있고 담백하지만 직설적인 어투</p>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-head"><span>힐다</span><span>여/400세/드워프</span></div>
+                            <p>대장장이 | ESTP + 8w7 | 호탕하고 시원시원한 어투</p>
+                        </div>
+                        <div class="char-item">
+                            <div class="char-head"><span>베릴</span><span>남/60세/엘프?</span></div>
+                            <p>떠돌이상인? | ENTP + 5w4 | 능청스럽고 가벼운 어투</p>
+                        </div>
+                    </div>
+                    <div class="page-footer">
+                        <span>-9-</span>
                         <span class="page-corner-btn">다음 ◀</span>
                     </div>
                 </div>
-                <!-- [수정] 마지막 장의 뒷면(Page 4 Back)을 앞표지(Page 0 Front)와 동일한 뒤표지 스타일로 변경 -->
+                <!-- 뒤표지 스타일 -->
                 <div class="page-face page-back cover-page-style">
                 </div>
             </div>
@@ -892,14 +934,15 @@
     </div>
 
     <script>
-        let currentSpread = 0; // 0: Cover, 1: Page 1, 2: Page 2...
-        const totalPages = 5;
+        let currentSpread = 0; // 0: Cover, 1: Spread 1, 2: Spread 2...
+        const totalPages = 6;
         const pageTitles = [
             'COVER / 겉표지',
             'SPREAD 1 / 개요',
             'SPREAD 2 / 세계관',
             'SPREAD 3 / 직업',
-            'SPREAD 4 / 주요 인물'
+            'SPREAD 4 / 제작',
+            'SPREAD 5 / 주요 인물'
         ];
 
         function updateView() {
