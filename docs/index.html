@@ -92,7 +92,7 @@
         /* 3D 책 전체 컨테이너 */
         .scene {
             width: min(960px, calc(100vw - 40px));
-	    height: min(640px, calc(100dvh - 78px));
+	    height: min(700px, calc(100dvh - 78px));
             perspective: 2500px;
             position: relative;
         }
@@ -515,7 +515,7 @@
         /* 데스크톱 중간 크기 대응 */
         @media (max-width: 1000px) and (min-width: 769px) {
             .top-nav { width: 100%; max-width: 720px; }
-            .scene { width: 100%; max-width: 720px; height:  min(520px, calc(100dvh - 78px); }
+            .scene { width: 100%; max-width: 720px; height: 520px; }
             .cover-title { font-size: 1.8rem; }
             .cover-emblem { font-size: 3rem; }
             .page-face { padding: 20px 15px; }
@@ -584,6 +584,16 @@
                 overflow-y: auto;
             }
 
+            .page-face {
+                padding: 22px 18px;
+                border-top-right-radius: 12px;
+                border-bottom-right-radius: 12px;
+                border-top-left-radius: 2px;
+                border-bottom-left-radius: 2px;
+                box-shadow: -8px 0 15px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(120, 80, 30, 0.15);
+                overflow-y: auto;
+            }
+
             .page-back {
                 border-top-right-radius: 12px;
                 border-bottom-right-radius: 12px;
@@ -593,7 +603,7 @@
 
             .page-face::before {
                 content: '';
-                position: sticky;
+                position: absolute;
                 top: 0; bottom: 0; left: 0; width: 15px;
                 background: linear-gradient(to right, rgba(0,0,0,0.3) 0%, transparent 100%);
                 pointer-events: none;
@@ -649,7 +659,7 @@
 
             th, td {
                 padding: 4px;
-                font-size: 0.7rem;
+                font-size: 0.75rem;
             }
 
             .map-kingdom-container {
