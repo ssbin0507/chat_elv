@@ -312,7 +312,7 @@
             line-height: 1.7;
         }
 
-        /* 신규: 누끼 꽃 책갈피 이미지 프레임 스타일 */
+        /* 누끼 꽃 책갈피 이미지 프레임 스타일 */
         .bookmark-frame {
             margin-top: 25px;
             width: 100%;
@@ -339,7 +339,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05), 0 10px 15px rgba(0,0,0,0.03);
         }
 
-        /* 2x2 정사각형 배치 레이아웃 */
+        /* 2x2 정사각형 배치 레이아웃 (일반) */
         .job-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -353,9 +353,69 @@
             padding: 10px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             overflow: hidden;
         }
+
+        .job-grid .card h4{
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .job-grid .card p {
+            font-size: 0.75rem;
+        }
+
+        /* 지도 배경 위 포스트잇 왕국 지도 전용 레이아웃 */
+        .map-kingdom-container {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            background: url('https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/word/map.webp') no-repeat center center;
+            background-size: contain;
+        }
+
+        .map-card {
+            position: absolute;
+            width: 150px;
+	    height: 100px;
+            padding: 6px 8px;
+            background: rgba(255, 253, 245, 0.95);
+            border: 1px solid #d4c5ab;
+            border-radius: 2px;
+            box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.18);
+            font-size: 0.68rem;
+            line-height: 1.35;
+        }
+
+        .map-card h4 {
+            font-size: 0.9rem;
+            color: var(--leather-dark);
+            margin-bottom: 3px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-card h4 img {
+            height: 1.2em;
+            width: auto;
+        }
+
+        .map-card p {
+            margin: 0;
+            line-height: 1.35;
+            font-size: 0.7rem;
+        }
+
+        /* 각 왕국 카드별 지도 위치 매핑 */
+        .map-card.permos { top: 20px; left: 10px; transform: rotate(-4deg); }
+        .map-card.silvanis { bottom: 110px; left: 8px; transform: rotate(0deg); }
+        .map-card.asteria { top: 85px; right: 0px; transform: rotate(-1deg); }
+        .map-card.terrian { bottom: 30px; right: 40px; transform: rotate(2.5deg); }
 
         .card h4 {
             font-size: 0.98rem;
@@ -463,6 +523,10 @@
             .job-grid .card { padding: 8px; }
             .bookmark-frame { height: 180px; }
             .bookmark-frame img { max-height: 170px; }
+            .map-kingdom-container { height: 340px; }
+            .map-card { width: 145px; font-size: 0.62rem; padding: 4px 6px; }
+            .map-card h4 { font-size: 0.7rem; }
+            .map-card p { font-size: 0.62rem; }
         }
 
         /* ==========================================
@@ -518,7 +582,7 @@
                 border-bottom-left-radius: 2px;
                 box-shadow: -8px 0 15px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(120, 80, 30, 0.15);
                 overflow-y: auto;
-		box-shadow: inset 16px 0 18px -12px rgba(0, 0, 0, 0.42), -8px 0 15px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(120, 80, 30, 0.15);
+                box-shadow: inset 16px 0 18px -12px rgba(0, 0, 0, 0.42), -8px 0 15px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(120, 80, 30, 0.15);
             }
 
             .page-back {
@@ -578,6 +642,23 @@
             th, td {
                 padding: 4px;
                 font-size: 0.75rem;
+            }
+
+            .map-kingdom-container {
+                height: 320px;
+            }
+
+            .map-card {
+                width: 135px;
+                padding: 4px 5px;
+            }
+
+            .map-card h4 {
+                font-size: 0.68rem;
+            }
+
+            .map-card p {
+                font-size: 0.58rem;
             }
         }
     </style>
@@ -739,23 +820,39 @@
                         <span class="section-sub">CHAPTER I</span>
                     </div>
                     <div class="content-body">
-                        <div class="card">
-                            <h4>아스테리아</h4>
-                            <p>동부 평지에 위치한 인간 중심 국가.<br>수도: 루나렐 | 군주제 | 현 여왕: 발레리 아스테리아</p>
+                      <!-- 지도 배경 위 포스트잇 스타일 카드 배치 -->
+                      <div class="map-kingdom-container">
+                        <div class="map-card permos">
+                            <h4>
+                                <img src="https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/permos_logo.webp" alt="페르모스 로고">
+                                페르모스
+                            </h4>
+                            <p>수도: 포르낙<br>위치: 북부 사막<br>중심종족: 드워프<br>대표: 톨슨</p>
                         </div>
-                        <div class="card">
-                            <h4>실바니스</h4>
-                            <p>서부 밀림에 위치한 엘프 중심 국가.<br>수도: 아르보르 | 군주+장로제 | 현 여왕: 티타니아</p>
+                        <div class="map-card silvanis">
+                            <h4>
+                                <img src="https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/silvanis_logo.webp" alt="실바니스 로고">
+                                실바니스
+                            </h4>
+                            <p>수도: 아르보르<br>위치: 서부 밀림<br>중심종족: 엘프<br>왕: 티타니아</p>
                         </div>
-                        <div class="card">
-                            <h4>페르모스</h4>
-                            <p>북부 사막에 위치한 드워프 중심 국가.<br>수도: 포르낙 | 대표+공화제 | 현 대표: 톨슨</p>
+                        <div class="map-card asteria">
+                            <h4>
+                                <img src="https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/asteria_logo.webp" alt="아스테리아 로고">
+                                아스테리아
+                            </h4>
+                            <p>수도: 루나렐<br>위치: 동부 평지<br>중심종족: 인간<br>왕: 발레리 아스테리아</p>
                         </div>
-                        <div class="card">
-                            <h4>테리안</h4>
-                            <p>남부 산맥과 바다 사이에 위치한 수인 중심 국가.<br>수도: 페론 | 수장+선출제 | 현 수장: 오르반</p>
+                        <div class="map-card terrian">
+                            <h4>
+                                <img src="https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/terrian_logo.webp" alt="테리안 로고">
+                                테리안
+                            </h4>
+                            <p>수도: 페론<br>위치: 남부 산맥~바다<br>중심종족: 수인<br>수장: 오르반</p>
                         </div>
+                      </div>
                     </div>
+
                     <div class="page-footer">
                         <div class="mobile-only"><span class="page-corner-btn">▶ 이전</span></div>
                         <span>-3-</span>
@@ -808,28 +905,20 @@
                     <div class="content-body">
                         <div class="job-grid">
                             <div class="card">
-                                <div>
                                     <h4>위치 (Witch)</h4>
                                     <p>마나 도구, 포션 제작 전문<br>분류: 제작계 | 포션계 | 만능계<br>등급: F(견습) &lt; E &lt; D &lt; C &lt; B &lt; A &lt; S(대마녀)</p>
-                                </div>
                             </div>
                             <div class="card">
-                                <div>
                                     <h4>헌터 (Hunter)</h4>
                                     <p>사냥, 탐험, 생태계 탐색 및 관리 전문<br>종류: 전투계(검사, 궁수, 마법사, 등) | 탐사계(탐험가, 생태학자)<br>등급: 코퍼 &lt; 실버 &lt; 골드 &lt; 플래티넘</p>
-                                </div>
                             </div>
                             <div class="card">
-                                <div>
                                     <h4>요리사 (Chef)</h4>
                                     <p>요리 제작 전문<br>종류: -<br>등급: ⭐0(입문) &lt; ⭐1 &lt; ⭐2 &lt; ⭐3 &lt; ⭐4 &lt; ⭐5 &lt; 💫(마스터)</p>
-                                </div>
                             </div>
                             <div class="card">
-                                <div>
                                     <h4>장인 (Artisan)</h4>
                                     <p>각 분야 (무기, 장신구, 의복) 제작 전문<br>종류: 대장장이 | 세공사 | 직조공<br>등급: 견습 &lt; 초급 &lt; 숙련 &lt; 전문 &lt; 명장 &lt; 거장</p>
-                                </div>
                             </div>
                         </div>
                     </div>
