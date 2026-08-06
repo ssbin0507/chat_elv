@@ -575,6 +575,7 @@
             }
 
             .page-face {
+		position: relative; /* 가상 요소 기준점 지정 */
                 padding: 22px 18px;
                 border-top-right-radius: 12px;
                 border-bottom-right-radius: 12px;
@@ -582,8 +583,23 @@
                 border-bottom-left-radius: 2px;
                 box-shadow: -8px 0 15px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(120, 80, 30, 0.15);
                 overflow-y: auto;
-                box-shadow: inset 16px 0 18px -12px rgba(0, 0, 0, 0.42), -8px 0 15px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(120, 80, 30, 0.15);
             }
+	/* 모바일 전용: 스크롤을 내려도 항상 좌측 책 접힘 그림자가 끝까지 고정되도록 추가 */
+	.page-face::before {
+	    content: '';
+	    position: sticky;
+	    top: -22px; /* page-face의 padding-top 크기만큼 상단 상쇄 */
+	    left: -18px; /* page-face의 padding-left 크기만큼 좌측 상쇄 */
+	    float: left;
+	    width: 25px;
+	    height: calc(100% + 44px);
+	    margin-bottom: -100%;
+	    margin-left: -18px;
+	    margin-top: -22px;
+	    background: linear-gradient(to right, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.08) 50%, transparent 100%);
+	    pointer-events: none;
+	    z-index: 10;
+	}
 
             .page-back {
                 border-top-right-radius: 12px;
