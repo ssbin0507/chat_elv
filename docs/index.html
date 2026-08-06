@@ -515,7 +515,7 @@
         /* 데스크톱 중간 크기 대응 */
         @media (max-width: 1000px) and (min-width: 769px) {
             .top-nav { width: 100%; max-width: 720px; }
-            .scene { width: 100%; max-width: 720px; height: 520px; }
+            .scene { width: 100%; max-width: 720px; height: calc(100dvh - 60px); }
             .cover-title { font-size: 1.8rem; }
             .cover-emblem { font-size: 3rem; }
             .page-face { padding: 20px 15px; }
@@ -561,7 +561,7 @@
             .scene {
                 width: 95vw;
                 max-width: 450px;
-                height: calc(100dvh - 80px);
+                height: calc(100dvh - 70px);
                 perspective: 1200px;
             }
 
