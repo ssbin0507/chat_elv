@@ -340,6 +340,33 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05), 0 10px 15px rgba(0,0,0,0.03);
         }
 
+        /* 원소 카드 내 이미지 레이아웃 조절용 CSS 추가 */
+        .element-card-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .element-card-content ul {
+            flex: 1;
+        }
+
+        .element-img-box {
+            flex-shrink: 0;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .element-img-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
         /* 2x2 정사각형 배치 레이아웃 (일반) */
         .job-grid {
             display: grid;
@@ -528,6 +555,7 @@
             .map-card { width: 145px; font-size: 0.62rem; padding: 4px 6px; }
             .map-card h4 { font-size: 0.7rem; }
             .map-card p { font-size: 0.62rem; }
+            .element-img-box { width: 80px; height: 80px; }
         }
 
         /* ==========================================
@@ -674,6 +702,8 @@
         .map-card.silvanis { bottom: 110px; left: 8px; transform: rotate(0deg); }
         .map-card.asteria { top: 85px; right: 0px; transform: rotate(-1deg); }
         .map-card.terrian { bottom: 30px; right: 40px; transform: rotate(2.5deg); }
+
+        .element-img-box { width: 70px; height: 70px; }
 
         }
     </style>
@@ -953,11 +983,29 @@
                             <p>환경과 무관한 마나 고유의 성질. <br>성질은 <strong>원소, 성향</strong> 두 분류로 나뉜다</p>
                         <div class="card">
                             <h4>원소</h4>
-                            <p>불/물/바람/땅/빛/어둠</p>
+                            <!-- 원소 설명 우측 이미지 배치를 위한 컨테이너 구조 -->
+                            <div class="element-card-content">
+                                <ul>
+                                    <li><strong>불:</strong> 맛특징=자극적/자극·돌출 강화</li>
+                                    <li><strong>물:</strong> 맛특징=담백/조화·돌출 억제</li>
+                                    <li><strong>바람:</strong> 맛특징=독특·변화구/확산·변화</li>
+                                    <li><strong>땅:</strong> 맛특징=평균적/중립·균형</li>
+                                    <li><strong>빛:</strong> 맛특징=복합적/전체효과 강화</li>
+                                    <li><strong>어둠:</strong> 맛특징=씁쓸/전체효과 억제</li>
+                                </ul>
+                                <div class="element-img-box">
+                                    <!-- 원하시는 이미지 URL을 src 속성에 넣어주시면 됩니다. -->
+                                    <img src="https://via.placeholder.com/100" alt="원소 이미지">
+                                </div>
+                            </div>
                         </div>
                         <div class="card">
                             <h4>성향</h4>
-                            <p>질서/중용/혼돈</p>
+                        <ul>
+                            <li><strong>질서:</strong> 개당 dc -2/대성공·대실패 부가결과 약화.</li>
+                            <li><strong>중용:</strong> 변화없음.</li>
+                            <li><strong>혼돈:</strong> 개당 dc +2/대성공·대실패 부가결과 강화.</li>
+                        </ul>
                         </div>
                     </div>
                     <div class="page-footer">
@@ -980,6 +1028,12 @@
                             <h4>성질</h4>
                             <p>환경과 무관한 마나 고유의 성질. <br>성질은 <strong>원소, 성향</strong> 두 분류로 나뉜다</p>
                             <p>원소(불·물·바람·땅·빛·어둠)+성향(질서·중용·혼돈)</p>
+                            <!-- 모바일용 원소 카드 우측 이미지 구조 -->
+                            <div class="element-card-content" style="margin-top: 8px;">
+                                <div class="element-img-box" style="margin: 0 auto;">
+                                    <img src="https://via.placeholder.com/100" alt="원소 이미지">
+                                </div>
+                            </div>
                         </div>
                     </div>
 
