@@ -46,6 +46,7 @@
             align-items: center;
             padding: 6px 20px 6px;
             overflow-x: hidden;
+            overflow-y: hidden;
         }
 
         /* 바인더 탭 네비게이션 컨테이너 */
@@ -534,7 +535,7 @@
            ========================================== */
         @media (max-width: 768px) {
             body {
-                padding: 6px 5px 0 ;
+                padding: 6px 5px 0;
             }
 
             .top-nav {
@@ -561,7 +562,8 @@
             .scene {
                 width: 95vw;
                 max-width: 450px;
-                height: calc(100dvh - 60px);
+		flex: 1 1 auto;
+		height: auto;
                 perspective: 1200px;
             }
 
@@ -571,16 +573,6 @@
                 left: 0;
                 right: 0;
                 transform-origin: left center;
-            }
-
-            .page-face {
-                padding: 22px 18px;
-                border-top-right-radius: 12px;
-                border-bottom-right-radius: 12px;
-                border-top-left-radius: 2px;
-                border-bottom-left-radius: 2px;
-                box-shadow: -8px 0 15px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(120, 80, 30, 0.15);
-                overflow-y: auto;
             }
 
             .page-face {
