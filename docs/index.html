@@ -1706,8 +1706,8 @@
                 const clickX = event.clientX - rect.left;
 
 				if (pageIdx === currentSpread - 1) {
-					currentSpread--;
-				} else {
+					prevSpread();
+				} else if (pageIdx === currentSpread) {
 					if (clickX > rect.width / 2) {
 						// 오른쪽 클릭 시 다음 페이지로
 						nextSpread();
