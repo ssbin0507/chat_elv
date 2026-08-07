@@ -46,7 +46,7 @@
             align-items: center;
             padding: 6px 20px 6px;
             overflow-x: hidden;
-			overflow-y: hidden;
+            overflow-y: hidden;
         }
 
         /* 바인더 탭 네비게이션 컨테이너 */
@@ -93,7 +93,7 @@
         /* 3D 책 전체 컨테이너 */
         .scene {
             width: min(960px, calc(100vw - 40px));
-	    height: min(700px, calc(100dvh - 52px));
+            height: min(700px, calc(100dvh - 52px));
             perspective: 2500px;
             position: relative;
         }
@@ -197,7 +197,7 @@
             transform: rotateY(-180deg);
         }
 
-        /* Page Layering Z-Index (페이지가 6개로 늘어남에 따라 정렬 조정) */
+        /* Page Layering Z-Index */
         #page0 { z-index: 6; }
         #page1 { z-index: 5; }
         #page2 { z-index: 4; }
@@ -328,8 +328,8 @@
             max-width: 98%;
             max-height: 300px;
             object-fit: contain;
-            transform: translate(-60px, 80px) rotate(-20deg); /* 약간 크고 비스듬하게 회전 */
-            filter: drop-shadow(0 2px 2px rgba(0,0,0,.15)) drop-shadow(2px 7px 6px rgba(0,0,0,.08)); /* 입체적 그림자 연출 */
+            transform: translate(-60px, 80px) rotate(-20deg);
+            filter: drop-shadow(0 2px 2px rgba(0,0,0,.15)) drop-shadow(2px 7px 6px rgba(0,0,0,.08));
             transition: transform 0.3s ease;
         }
 
@@ -340,10 +340,10 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05), 0 10px 15px rgba(0,0,0,0.03);
         }
 
-        /* 원소 카드 내 이미지 레이아웃 조절용 CSS 추가 */
+        /* 원소 카드 내 이미지 레이아웃 조절용 CSS */
         .element-card-content {
             display: flex;
-	    flex: 0 0 42%;
+            flex: 0 0 42%;
             align-items: center;
             justify-content: space-between;
         }
@@ -407,7 +407,7 @@
         .map-card {
             position: absolute;
             width: 150px;
-	    height: 100px;
+            height: 100px;
             padding: 6px 8px;
             background: rgba(255, 253, 245, 0.95);
             border: 1px solid #d4c5ab;
@@ -439,7 +439,6 @@
             font-size: 0.7rem;
         }
 
-        /* 각 왕국 카드별 지도 위치 매핑 */
         .map-card.permos { top: 20px; left: 10px; transform: rotate(-4deg); }
         .map-card.silvanis { bottom: 110px; left: 8px; transform: rotate(0deg); }
         .map-card.asteria { top: 85px; right: 0px; transform: rotate(-1deg); }
@@ -490,24 +489,195 @@
             color: var(--leather-dark);
         }
 
-        .char-item {
-            background: rgba(255, 253, 248, 0.75);
-            border: 1px solid var(--border-color);
-            border-left: 3px solid var(--leather-light);
-            border-radius: 4px;
-            padding: 8px 10px;
-            margin-bottom: 8px;
-            font-size: 0.83rem;
+        /* -----------------------------------------------------
+           [주요 인물 길드 자격증 카드 신규 스타일]
+           ----------------------------------------------------- */
+        .guild-card {
+            background: linear-gradient(135deg, #f3e5c8 0%, #d8c09a 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            padding: 6px 10px;
+            margin-bottom: 7px;
+            box-shadow: inset 0 0 0 2px rgba(212, 175, 55, 0.4), 1px 2px 5px rgba(0,0,0,0.25);
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+            overflow: hidden;
         }
 
-        .char-head {
+        .guild-card:hover {
+            transform: translateY(-2px);
+            box-shadow: inset 0 0 0 2px var(--gold-accent), 2px 5px 10px rgba(0,0,0,0.3);
+        }
+
+        .guild-card-header {
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px double var(--border-color);
+            padding-bottom: 3px;
+            margin-bottom: 4px;
+        }
+
+        .guild-card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 0.62rem;
+            font-weight: bold;
+            color: var(--leather-light);
+            letter-spacing: 0.5px;
+        }
+
+        .guild-stamp {
+            font-size: 0.65rem;
+            color: #8b0000;
+            border: 1px solid #8b0000;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transform: rotate(-10deg);
+        }
+
+        .guild-card-body {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .guild-portrait {
+            width: 36px;
+            height: 44px;
+            background: #2e150a;
+            border: 1px solid var(--gold-dark);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+            flex-shrink: 0;
+        }
+
+        .guild-info {
+            flex-grow: 1;
+        }
+
+        .guild-info-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.78rem;
             font-weight: bold;
             color: var(--leather-dark);
-            border-bottom: 1px solid rgba(140, 109, 70, 0.25);
-            padding-bottom: 3px;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
+        }
+
+        .guild-info-detail {
+            font-size: 0.72rem;
+            color: var(--text-sub);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .click-badge {
+            font-size: 0.62rem;
+            color: var(--gold-dark);
+            text-align: right;
+            margin-top: 1px;
+            font-style: italic;
+        }
+
+        /* -----------------------------------------------------
+           [모달 팝업 창 스타일]
+           ----------------------------------------------------- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(3px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--parchment);
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.7) 0%, rgba(229, 211, 179, 0.5) 100%),
+                url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            border: 3px double var(--gold-accent);
+            border-radius: 8px;
+            width: min(420px, 90vw);
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(120, 80, 30, 0.25);
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            color: var(--leather-dark);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            font-family: 'Cinzel', 'Noto Serif KR', serif;
+            color: var(--leather-dark);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--leather-light);
+            line-height: 1;
+        }
+
+        .modal-body {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .modal-field {
+            margin-bottom: 10px;
+            display: flex;
+            border-bottom: 1px dashed rgba(140, 109, 70, 0.3);
+            padding-bottom: 6px;
+        }
+
+        .modal-field-label {
+            width: 70px;
+            font-weight: bold;
+            color: var(--leather-light);
+            flex-shrink: 0;
+        }
+
+        .modal-field-value {
+            flex-grow: 1;
+            color: var(--text-dark);
         }
 
         /* 하단 페이지 바 */
@@ -558,9 +728,7 @@
             .element-img-box { width: 100px; height: 100px; }
         }
 
-        /* ==========================================
-           [모바일 최적화 스타일]
-           ========================================== */
+        /* 모바일 최적화 스타일 */
         @media (max-width: 768px) {
             body {
                 padding: 6px 5px 0;
@@ -590,7 +758,7 @@
             .scene {
                 width: 95vw;
                 max-width: 450px;
-				height: calc(100dvh - 62px);
+                height: calc(100dvh - 62px);
                 perspective: 1200px;
             }
 
@@ -686,7 +854,7 @@
 
             .map-card {
                 width: 130px;
-				height: auto;
+                height: auto;
                 padding: 4px 5px;
             }
 
@@ -698,13 +866,12 @@
                 font-size: 0.58rem;
             }
 
-        .map-card.permos { top: 20px; left: 10px; transform: rotate(-4deg); }
-        .map-card.silvanis { bottom: 110px; left: 8px; transform: rotate(0deg); }
-        .map-card.asteria { top: 85px; right: 0px; transform: rotate(-1deg); }
-        .map-card.terrian { bottom: 30px; right: 40px; transform: rotate(2.5deg); }
+            .map-card.permos { top: 20px; left: 10px; transform: rotate(-4deg); }
+            .map-card.silvanis { bottom: 110px; left: 8px; transform: rotate(0deg); }
+            .map-card.asteria { top: 85px; right: 0px; transform: rotate(-1deg); }
+            .map-card.terrian { bottom: 30px; right: 40px; transform: rotate(2.5deg); }
 
-        .element-img-box { width: 100px; height: 100px; }
-
+            .element-img-box { width: 100px; height: 100px; }
         }
     </style>
 </head>
@@ -899,7 +1066,7 @@
                     <div class="mobile-only">
                         <div class="content-body">
                             <h3>🏠 거주지</h3>
-                            <p>각 왕국마다 집을 구매할 수 있습니다. 1인당 1체만 보유 가능하며 새 집을 구매할 시 기존 집은 자동으로 구매가의 반값으로 판매됩니다.<br>빈 방들은 금액을 지불하여 각각 <strong>창고, 손님방, 온실, 공방, 연금실</strong>로 개조할 수 있습니다. 다른 시설로 변경 시 반드시 시설 철거가 선행되어야합니다.</p>
+                            <p>모든 사람은 1인당 1체씩만 집을 보유 가능하며 새 집을 구매할 시 기존 집은 자동으로 구매가의 반값으로 판매된다.<br>빈 방들은 금액을 지불하여 각각 <strong>창고, 손님방, 온실, 공방, 연금실</strong>로 개조할 수 있다. 다른 시설로 변경 시 반드시 시설 철거가 선행되어야한다.</p>
                             <table>
                                 <tr><th>집 종류</th><th>구성</th><th>구매가</th></tr>
                                 <tr><td>오두막</td><td>침실, 주방, 빈 방 1개</td><td>30은화</td></tr>
@@ -927,7 +1094,7 @@
                     </div>
                     <div class="content-body">
                             <h3>🏠 거주지</h3>
-                            <p>각 왕국마다 집을 구매할 수 있습니다. 1인당 1체만 보유 가능하며 새 집을 구매할 시 기존 집은 자동으로 구매가의 반값으로 판매됩니다.<br>빈 방들은 금액을 지불하여 각각 <strong>창고, 손님방, 온실, 공방, 연금실</strong>로 개조할 수 있습니다. 다른 시설로 변경 시 반드시 시설 철거가 선행되어야합니다.</p>
+                            <p>모든 사람은 1인당 1체씩만 집을 보유 가능하며 새 집을 구매할 시 기존 집은 자동으로 구매가의 반값으로 판매된다.<br>빈 방들은 금액을 지불하여 각각 <strong>창고, 손님방, 온실, 공방, 연금실</strong>로 개조할 수 있다. 다른 시설로 변경 시 반드시 시설 철거가 선행되어야한다.</p>
                             <table>
                                 <tr><th>집 종류</th><th>구성</th><th>구매가</th></tr>
                                 <tr><td>오두막</td><td>침실, 주방, 빈 방 1개</td><td>30은화</td></tr>
@@ -1003,7 +1170,6 @@
                                     <li><strong>어둠:</strong> 전체억제</li>
                                 </ul>
                                 <div class="element-img-box">
-                                    <!-- 원하시는 이미지 URL을 src 속성에 넣어주시면 됩니다. -->
                                     <img src="https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/elements_advantage.webp" alt="원소 상성">
                                 </div>
                             </div>
@@ -1024,7 +1190,7 @@
                 </div>
             </div>
 
-            <!-- Page 4 [신규] (III. 제작) -->
+            <!-- Page 4 (III. 제작 / IV. 주요 등장인물 1) -->
             <div class="page" id="page4" onclick="flipPage(event, 4)">
                 <div class="page-face page-front">
                     <!-- 모바일 전용: Page 3 Back(제작 개요) 내용 -->
@@ -1037,7 +1203,6 @@
                             <p>모든 생물이 가진 마나 고유의 성질이며 <strong>원소, 성향</strong> 두 분류로 나뉜다</p>
 			    <div class="card">
                             	<h4>원소</h4>
-                            	<!-- 원소 설명 우측 이미지 배치를 위한 컨테이너 구조 -->
                             	<div class="element-card-content">
                                 	<ul>
  	                                   	<li><strong>불:</strong> 자극, 특출강화</li>
@@ -1047,8 +1212,7 @@
         	                        	<li><strong>빛:</strong> 전체강화</li>
          	                        	<li><strong>어둠:</strong> 전체억제</li>
         	                        </ul>
-                                <!-- 모바일용 원소 카드 우측 이미지 구조 -->
-                            	<div class="element-card-content" style="margin-top: 8px;">
+                                	<div class="element-card-content" style="margin-top: 8px;">
                                 	<div class="element-img-box" style="margin: 0 auto;">
                                     	<img src="https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/elements_advantage.webp" alt="원소 상성">
                                 	</div>
@@ -1099,29 +1263,113 @@
                         <span class="section-sub">CHAPTER IV</span>
                     </div>
                     <div class="content-body">
-                        <div class="char-item">
-                            <div class="char-head"><span>엘리나</span><span>여/19세/인간</span></div>
-                            <p>포션계 위치 | ESFJ + 2w1 | 차분하고 상냥한 어투</p>
+                        <!-- 자격증/신분증 컨셉의 캐릭터 카드 -->
+                        <div class="guild-card" onclick="openCharModal(event, '엘리나', '여', '19세', '인간', '포션계 위치', 'ESFJ + 2w1', '차분하고 상냥한 어투', '👩')">
+                            <div class="guild-card-header">
+                                <span class="guild-card-title">GUILD IDENTIFICATION CARD</span>
+                                <span class="guild-stamp">印</span>
+                            </div>
+                            <div class="guild-card-body">
+                                <div class="guild-portrait">👩</div>
+                                <div class="guild-info">
+                                    <div class="guild-info-row">
+                                        <span>엘리나</span>
+                                        <span>여 / 19세</span>
+                                    </div>
+                                    <div class="guild-info-detail">종족: 인간 | 포션계 위치</div>
+                                </div>
+                            </div>
+                            <div class="click-badge">Click to view details 🔍</div>
                         </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>루시안</span><span>남/200세/엘프</span></div>
-                            <p>제작계 위치 | INFJ + 9w1 | 포근하고 온화한 어투</p>
+
+                        <div class="guild-card" onclick="openCharModal(event, '루시안', '남', '200세', '엘프', '제작계 위치', 'INFJ + 9w1', '포근하고 온화한 어투', '🧝‍♂️')">
+                            <div class="guild-card-header">
+                                <span class="guild-card-title">GUILD IDENTIFICATION CARD</span>
+                                <span class="guild-stamp">印</span>
+                            </div>
+                            <div class="guild-card-body">
+                                <div class="guild-portrait">🧝‍♂️</div>
+                                <div class="guild-info">
+                                    <div class="guild-info-row">
+                                        <span>루시안</span>
+                                        <span>남 / 200세</span>
+                                    </div>
+                                    <div class="guild-info-detail">종족: 엘프 | 제작계 위치</div>
+                                </div>
+                            </div>
+                            <div class="click-badge">Click to view details 🔍</div>
                         </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>릴리아</span><span>여/360세/수인</span></div>
-                            <p>만능계 위치 | ENTP + 7w8 | 장난스럽고 능글맞은 어투</p>
+
+                        <div class="guild-card" onclick="openCharModal(event, '릴리아', '여', '360세', '수인', '만능계 위치', 'ENTP + 7w8', '장난스럽고 능글맞은 어투', '🦊')">
+                            <div class="guild-card-header">
+                                <span class="guild-card-title">GUILD IDENTIFICATION CARD</span>
+                                <span class="guild-stamp">印</span>
+                            </div>
+                            <div class="guild-card-body">
+                                <div class="guild-portrait">🦊</div>
+                                <div class="guild-info">
+                                    <div class="guild-info-row">
+                                        <span>릴리아</span>
+                                        <span>여 / 360세</span>
+                                    </div>
+                                    <div class="guild-info-detail">종족: 수인 | 만능계 위치</div>
+                                </div>
+                            </div>
+                            <div class="click-badge">Click to view details 🔍</div>
                         </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>비비안</span><span>여/18세/수인</span></div>
-                            <p>헌터(단검사) | ENTJ + 3w4 | 새침한 츤데레</p>
+
+                        <div class="guild-card" onclick="openCharModal(event, '비비안', '여', '18세', '수인', '헌터(단검사)', 'ENTJ + 3w4', '새침한 츤데레', '🐱')">
+                            <div class="guild-card-header">
+                                <span class="guild-card-title">GUILD IDENTIFICATION CARD</span>
+                                <span class="guild-stamp">印</span>
+                            </div>
+                            <div class="guild-card-body">
+                                <div class="guild-portrait">🐱</div>
+                                <div class="guild-info">
+                                    <div class="guild-info-row">
+                                        <span>비비안</span>
+                                        <span>여 / 18세</span>
+                                    </div>
+                                    <div class="guild-info-detail">종족: 수인 | 헌터(단검사)</div>
+                                </div>
+                            </div>
+                            <div class="click-badge">Click to view details 🔍</div>
                         </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>라스</span><span>남/25세/인간</span></div>
-                            <p>헌터 마법사 | INTJ + 5w6 | 까칠하고 논리적인 어투</p>
+
+                        <div class="guild-card" onclick="openCharModal(event, '라스', '남', '25세', '인간', '헌터 마법사', 'INTJ + 5w6', '까칠하고 논리적인 어투', '🧙‍♂️')">
+                            <div class="guild-card-header">
+                                <span class="guild-card-title">GUILD IDENTIFICATION CARD</span>
+                                <span class="guild-stamp">印</span>
+                            </div>
+                            <div class="guild-card-body">
+                                <div class="guild-portrait">🧙‍♂️</div>
+                                <div class="guild-info">
+                                    <div class="guild-info-row">
+                                        <span>라스</span>
+                                        <span>남 / 25세</span>
+                                    </div>
+                                    <div class="guild-info-detail">종족: 인간 | 헌터 마법사</div>
+                                </div>
+                            </div>
+                            <div class="click-badge">Click to view details 🔍</div>
                         </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>레반</span><span>남/30세/수인</span></div>
-                            <p>헌터(검사) | ISTP + 6w5 | 무뚝뚝하고 간결함</p>
+
+                        <div class="guild-card" onclick="openCharModal(event, '레반', '남', '30세', '수인', '헌터(검사)', 'ISTP + 6w5', '무뚝뚝하고 간결함', '🐺')">
+                            <div class="guild-card-header">
+                                <span class="guild-card-title">GUILD IDENTIFICATION CARD</span>
+                                <span class="guild-stamp">印</span>
+                            </div>
+                            <div class="guild-card-body">
+                                <div class="guild-portrait">🐺</div>
+                                <div class="guild-info">
+                                    <div class="guild-info-row">
+                                        <span>레반</span>
+                                        <span>남 / 30세</span>
+                                    </div>
+                                    <div class="guild-info-detail">종족: 수인 | 헌터(검사)</div>
+                                </div>
+                            </div>
+                            <div class="click-badge">Click to view details 🔍</div>
                         </div>
                     </div>
 
@@ -1132,7 +1380,7 @@
                 </div>
             </div>
 
-            <!-- Page 5 (IV. 주요 등장인물 / 뒤표지) -->
+            <!-- Page 5 (IV. 주요 등장인물 2 / 뒤표지) -->
             <div class="page" id="page5" onclick="flipPage(event, 5)">
                 <div class="page-face page-front">
                     <!-- 모바일 전용: Page 4 Back(등장인물 I) 내용 -->
@@ -1141,29 +1389,29 @@
                             <span>Ⅳ. 주요 등장인물</span>
                             <span class="section-sub">CHAPTER IV</span>
                         </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>엘리나</span><span>여/19세/인간</span></div>
-                            <p>포션계 위치 | ESFJ + 2w1 | 차분하고 상냥한 어투</p>
+                        <div class="guild-card" onclick="openCharModal(event, '엘리나', '여', '19세', '인간', '포션계 위치', 'ESFJ + 2w1', '차분하고 상냥한 어투', '👩')">
+                            <div class="guild-card-header"><span class="guild-card-title">GUILD IDENTIFICATION CARD</span><span class="guild-stamp">印</span></div>
+                            <div class="guild-card-body"><div class="guild-portrait">👩</div><div class="guild-info"><div class="guild-info-row"><span>엘리나</span><span>여 / 19세</span></div><div class="guild-info-detail">종족: 인간 | 포션계 위치</div></div></div>
                         </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>루시안</span><span>남/200세/엘프</span></div>
-                            <p>제작계 위치 | INFJ + 9w1 | 포근하고 온화한 어투</p>
+                        <div class="guild-card" onclick="openCharModal(event, '루시안', '남', '200세', '엘프', '제작계 위치', 'INFJ + 9w1', '포근하고 온화한 어투', '🧝‍♂️')">
+                            <div class="guild-card-header"><span class="guild-card-title">GUILD IDENTIFICATION CARD</span><span class="guild-stamp">印</span></div>
+                            <div class="guild-card-body"><div class="guild-portrait">🧝‍♂️</div><div class="guild-info"><div class="guild-info-row"><span>루시안</span><span>남 / 200세</span></div><div class="guild-info-detail">종족: 엘프 | 제작계 위치</div></div></div>
                         </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>릴리아</span><span>여/360세/수인</span></div>
-                            <p>만능계 위치 | ENTP + 7w8 | 장난스럽고 능글맞은 어투</p>
+                        <div class="guild-card" onclick="openCharModal(event, '릴리아', '여', '360세', '수인', '만능계 위치', 'ENTP + 7w8', '장난스럽고 능글맞은 어투', '🦊')">
+                            <div class="guild-card-header"><span class="guild-card-title">GUILD IDENTIFICATION CARD</span><span class="guild-stamp">印</span></div>
+                            <div class="guild-card-body"><div class="guild-portrait">🦊</div><div class="guild-info"><div class="guild-info-row"><span>릴리아</span><span>여 / 360세</span></div><div class="guild-info-detail">종족: 수인 | 만능계 위치</div></div></div>
                         </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>비비안</span><span>여/18세/수인</span></div>
-                            <p>헌터(단검사) | ENTJ + 3w4 | 새침한 츤데레</p>
+                        <div class="guild-card" onclick="openCharModal(event, '비비안', '여', '18세', '수인', '헌터(단검사)', 'ENTJ + 3w4', '새침한 츤데레', '🐱')">
+                            <div class="guild-card-header"><span class="guild-card-title">GUILD IDENTIFICATION CARD</span><span class="guild-stamp">印</span></div>
+                            <div class="guild-card-body"><div class="guild-portrait">🐱</div><div class="guild-info"><div class="guild-info-row"><span>비비안</span><span>여 / 18세</span></div><div class="guild-info-detail">종족: 수인 | 헌터(단검사)</div></div></div>
                         </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>라스</span><span>남/25세/인간</span></div>
-                            <p>헌터 마법사 | INTJ + 5w6 | 까칠하고 논리적인 어투</p>
+                        <div class="guild-card" onclick="openCharModal(event, '라스', '남', '25세', '인간', '헌터 마법사', 'INTJ + 5w6', '까칠하고 논리적인 어투', '🧙‍♂️')">
+                            <div class="guild-card-header"><span class="guild-card-title">GUILD IDENTIFICATION CARD</span><span class="guild-stamp">印</span></div>
+                            <div class="guild-card-body"><div class="guild-portrait">🧙‍♂️</div><div class="guild-info"><div class="guild-info-row"><span>라스</span><span>남 / 25세</span></div><div class="guild-info-detail">종족: 인간 | 헌터 마법사</div></div></div>
                         </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>레반</span><span>남/30세/수인</span></div>
-                            <p>헌터(검사) | ISTP + 6w5 | 무뚝뚝하고 간결함</p>
+                        <div class="guild-card" onclick="openCharModal(event, '레반', '남', '30세', '수인', '헌터(검사)', 'ISTP + 6w5', '무뚝뚝하고 간결함', '🐺')">
+                            <div class="guild-card-header"><span class="guild-card-title">GUILD IDENTIFICATION CARD</span><span class="guild-stamp">印</span></div>
+                            <div class="guild-card-body"><div class="guild-portrait">🐺</div><div class="guild-info"><div class="guild-info-row"><span>레반</span><span>남 / 30세</span></div><div class="guild-info-detail">종족: 수인 | 헌터(검사)</div></div></div>
                         </div>
                     </div>
 
@@ -1171,21 +1419,76 @@
                         <span>&nbsp;</span>
                     </div>
                     <div class="content-body">
-                        <div class="char-item">
-                            <div class="char-head"><span>메이</span><span>여/47세/엘프</span></div>
-                            <p>헌터 탐험가 | ESFP + 7w6 | 웃음많고 발랄한 어투</p>
+                        <div class="guild-card" onclick="openCharModal(event, '메이', '여', '47세', '엘프', '헌터 탐험가', 'ESFP + 7w6', '웃음많고 발랄한 어투', '🧝‍♀️')">
+                            <div class="guild-card-header">
+                                <span class="guild-card-title">GUILD IDENTIFICATION CARD</span>
+                                <span class="guild-stamp">印</span>
+                            </div>
+                            <div class="guild-card-body">
+                                <div class="guild-portrait">🧝‍♀️</div>
+                                <div class="guild-info">
+                                    <div class="guild-info-row">
+                                        <span>메이</span>
+                                        <span>여 / 47세</span>
+                                    </div>
+                                    <div class="guild-info-detail">종족: 엘프 | 헌터 탐험가</div>
+                                </div>
+                            </div>
+                            <div class="click-badge">Click to view details 🔍</div>
                         </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>이안</span><span>남/22세/인간</span></div>
-                            <p>요리사 | ESTJ + 1w2 | 예의있고 담백하지만 직설적인 어투</p>
+
+                        <div class="guild-card" onclick="openCharModal(event, '이안', '남', '22세', '인간', '요리사', 'ESTJ + 1w2', '예의있고 담백하지만 직설적인 어투', '👨‍🍳')">
+                            <div class="guild-card-header">
+                                <span class="guild-card-title">GUILD IDENTIFICATION CARD</span>
+                                <span class="guild-stamp">印</span>
+                            </div>
+                            <div class="guild-card-body">
+                                <div class="guild-portrait">👨‍🍳</div>
+                                <div class="guild-info">
+                                    <div class="guild-info-row">
+                                        <span>이안</span>
+                                        <span>남 / 22세</span>
+                                    </div>
+                                    <div class="guild-info-detail">종족: 인간 | 요리사</div>
+                                </div>
+                            </div>
+                            <div class="click-badge">Click to view details 🔍</div>
                         </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>힐다</span><span>여/400세/드워프</span></div>
-                            <p>대장장이 | ESTP + 8w7 | 호탕하고 시원시원한 어투</p>
+
+                        <div class="guild-card" onclick="openCharModal(event, '힐다', '여', '400세', '드워프', '대장장이', 'ESTP + 8w7', '호탕하고 시원시원한 어투', '🔨')">
+                            <div class="guild-card-header">
+                                <span class="guild-card-title">GUILD IDENTIFICATION CARD</span>
+                                <span class="guild-stamp">印</span>
+                            </div>
+                            <div class="guild-card-body">
+                                <div class="guild-portrait">🔨</div>
+                                <div class="guild-info">
+                                    <div class="guild-info-row">
+                                        <span>힐다</span>
+                                        <span>여 / 400세</span>
+                                    </div>
+                                    <div class="guild-info-detail">종족: 드워프 | 대장장이</div>
+                                </div>
+                            </div>
+                            <div class="click-badge">Click to view details 🔍</div>
                         </div>
-                        <div class="char-item">
-                            <div class="char-head"><span>베릴</span><span>남/60세/엘프?</span></div>
-                            <p>떠돌이상인? | ENTP + 5w4 | 능청스럽고 가벼운 어투</p>
+
+                        <div class="guild-card" onclick="openCharModal(event, '베릴', '남', '60세', '엘프?', '떠돌이상인?', 'ENTP + 5w4', '능청스럽고 가벼운 어투', '🎪')">
+                            <div class="guild-card-header">
+                                <span class="guild-card-title">GUILD IDENTIFICATION CARD</span>
+                                <span class="guild-stamp">印</span>
+                            </div>
+                            <div class="guild-card-body">
+                                <div class="guild-portrait">🎪</div>
+                                <div class="guild-info">
+                                    <div class="guild-info-row">
+                                        <span>베릴</span>
+                                        <span>남 / 60세</span>
+                                    </div>
+                                    <div class="guild-info-detail">종족: 엘프? | 떠돌이상인?</div>
+                                </div>
+                            </div>
+                            <div class="click-badge">Click to view details 🔍</div>
                         </div>
                     </div>
                     <div class="page-footer">
@@ -1196,6 +1499,41 @@
                 </div>
                 <!-- 뒤표지 스타일 -->
                 <div class="page-face page-back cover-page-style">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 캐릭터 모달 팝업 구조 -->
+    <div class="modal-overlay" id="charModal" onclick="closeCharModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <span class="modal-title" id="mName">캐릭터 성명</span>
+                <button class="modal-close" onclick="closeCharModal(event)">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div style="display: flex; justify-content: center; margin-bottom: 15px;">
+                    <div id="mIcon" style="font-size: 3rem; background: var(--leather-dark); border: 2px solid var(--gold-accent); border-radius: 8px; width: 70px; height: 85px; display: flex; align-items: center; justify-content: center;"></div>
+                </div>
+                <div class="modal-field">
+                    <span class="modal-field-label">성별/나이</span>
+                    <span class="modal-field-value" id="mGenderAge"></span>
+                </div>
+                <div class="modal-field">
+                    <span class="modal-field-label">종 족</span>
+                    <span class="modal-field-value" id="mRace"></span>
+                </div>
+                <div class="modal-field">
+                    <span class="modal-field-label">직 업</span>
+                    <span class="modal-field-value" id="mJob"></span>
+                </div>
+                <div class="modal-field">
+                    <span class="modal-field-label">성 격</span>
+                    <span class="modal-field-value" id="mPersonality"></span>
+                </div>
+                <div class="modal-field" style="border-bottom: none;">
+                    <span class="modal-field-label">말 투</span>
+                    <span class="modal-field-value" id="mSpeech"></span>
                 </div>
             </div>
         </div>
@@ -1244,7 +1582,7 @@
                     prevSpread();
                 }
             } else {
-                // 데스크톱 환경 (기존 로직 유지)
+                // 데스크톱 환경
                 if (pageIdx === currentSpread) {
                     // 우측 페이지 클릭 시 앞으로 넘김
                     currentSpread++;
@@ -1275,8 +1613,39 @@
             }
         }
 
-        // 키보드 방향키 조작 지원
+        /* -----------------------------------------------------
+           [캐릭터 신분증 클릭 시 팝업 관련 스크립트]
+           ----------------------------------------------------- */
+        function openCharModal(e, name, gender, age, race, job, personality, speech, icon) {
+            e.stopPropagation(); // 페이지 넘어가는 이벤트 방지
+            
+            document.getElementById('mName').innerText = name + ' (자격증 세부 정보)';
+            document.getElementById('mGenderAge').innerText = `${gender} / ${age}`;
+            document.getElementById('mRace').innerText = race;
+            document.getElementById('mJob').innerText = job;
+            document.getElementById('mPersonality').innerText = personality;
+            document.getElementById('mSpeech').innerText = speech;
+            document.getElementById('mIcon').innerText = icon;
+
+            const modal = document.getElementById('charModal');
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+        }
+
+        function closeCharModal(e) {
+            if(e) e.stopPropagation();
+            const modal = document.getElementById('charModal');
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+
+        // 키보드 방향키 및 ESC 조작 지원
         window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeCharModal();
             if (e.key === 'ArrowRight' || e.key === 'PageDown') nextSpread();
             if (e.key === 'ArrowLeft' || e.key === 'PageUp') prevSpread();
         });
