@@ -343,9 +343,9 @@
         /* 원소 카드 내 이미지 레이아웃 조절용 CSS 추가 */
         .element-card-content {
             display: flex;
+	    flex: 0 0 42%;
             align-items: center;
             justify-content: space-between;
-            gap: 10px;
         }
 
         .element-card-content ul {
@@ -354,17 +354,17 @@
 
         .element-img-box {
             flex-shrink: 0;
-            width: 100px;
-            height: 100px;
+            width: 250px;
+            height: 150px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .element-img-box img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            object-fit: fit;
         }
 
         /* 2x2 정사각형 배치 레이아웃 (일반) */
@@ -980,31 +980,31 @@
                     </div>
                     <div class="content-body">
                             <h3>성질</h3>
-                            <p>환경과 무관한 마나 고유의 성질. <br>성질은 <strong>원소, 성향</strong> 두 분류로 나뉜다</p>
+                            <p>환경과 무관한 마나 고유의 성질.<br><strong>원소, 성향</strong> 두 분류로 나뉜다</p>
                         <div class="card">
                             <h4>원소</h4>
                             <!-- 원소 설명 우측 이미지 배치를 위한 컨테이너 구조 -->
                             <div class="element-card-content">
                                 <ul>
-                                    <li><strong>불:</strong> 맛특징=자극적/자극·돌출 강화</li>
-                                    <li><strong>물:</strong> 맛특징=담백/조화·돌출 억제</li>
-                                    <li><strong>바람:</strong> 맛특징=독특·변화구/확산·변화</li>
-                                    <li><strong>땅:</strong> 맛특징=평균적/중립·균형</li>
-                                    <li><strong>빛:</strong> 맛특징=복합적/전체효과 강화</li>
-                                    <li><strong>어둠:</strong> 맛특징=씁쓸/전체효과 억제</li>
+                                    <li><strong>불:</strong> 자극, 특출강화</li>
+                                    <li><strong>물:</strong> 조화, 특출억제</li>
+                                    <li><strong>바람:</strong> 확산, 변화</li>
+                                    <li><strong>땅:</strong> 중립, 균형</li>
+                                    <li><strong>빛:</strong> 전체강화</li>
+                                    <li><strong>어둠:</strong> 전체억제</li>
                                 </ul>
                                 <div class="element-img-box">
                                     <!-- 원하시는 이미지 URL을 src 속성에 넣어주시면 됩니다. -->
-                                    <img src="https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/elemental_affinity.webp" alt="원소 상성">
+                                    <img src="https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/elements_advantage.webp" alt="원소 상성">
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <h4>성향</h4>
                         <ul>
-                            <li><strong>질서:</strong> 개당 dc -2/대성공·대실패 부가결과 약화.</li>
-                            <li><strong>중용:</strong> 변화없음.</li>
-                            <li><strong>혼돈:</strong> 개당 dc +2/대성공·대실패 부가결과 강화.</li>
+                            <li><strong>질서:</strong> 융화 수월, 고점↓+저점↑</li>
+                            <li><strong>중용:</strong> -</li>
+                            <li><strong>혼돈:</strong> 융화 어려움, 고점↑+저점↓</li>
                         </ul>
                         </div>
                     </div>
@@ -1025,33 +1025,33 @@
                             <span class="section-sub">CHAPTER III</span>
                         </div>
                             <h4>성질</h4>
-                            <p>환경과 무관한 마나 고유의 성질. <br>성질은 <strong>원소, 성향</strong> 두 분류로 나뉜다</p>
-						<div class="card">
-                            <h4>원소</h4>
-                            <!-- 원소 설명 우측 이미지 배치를 위한 컨테이너 구조 -->
-                            <div class="element-card-content">
-                                <ul>
-                                    <li><strong>불:</strong> 맛특징=자극적/자극·돌출 강화</li>
-                                    <li><strong>물:</strong> 맛특징=담백/조화·돌출 억제</li>
-                                    <li><strong>바람:</strong> 맛특징=독특·변화구/확산·변화</li>
-                                    <li><strong>땅:</strong> 맛특징=평균적/중립·균형</li>
-                                    <li><strong>빛:</strong> 맛특징=복합적/전체효과 강화</li>
-                                    <li><strong>어둠:</strong> 맛특징=씁쓸/전체효과 억제</li>
-                                </ul>
+                            <p>환경과 무관한 마나 고유의 성질.<br><strong>원소, 성향</strong> 두 분류로 나뉜다</p>
+			    <div class="card">
+                            	<h4>원소</h4>
+                            	<!-- 원소 설명 우측 이미지 배치를 위한 컨테이너 구조 -->
+                            	<div class="element-card-content">
+                                	<ul>
+ 	                                   	<li><strong>불:</strong> 자극, 특출강화</li>
+    	       	                        	<li><strong>물:</strong> 조화, 특출억제</li>
+ 	       	                        	<li><strong>바람:</strong> 확산, 변화</li>
+        	                        	<li><strong>땅:</strong> 중립, 균형</li>
+        	                        	<li><strong>빛:</strong> 전체강화</li>
+         	                        	<li><strong>어둠:</strong> 전체억제</li>
+        	                        </ul>
                                 <!-- 모바일용 원소 카드 우측 이미지 구조 -->
-                            <div class="element-card-content" style="margin-top: 8px;">
-                                <div class="element-img-box" style="margin: 0 auto;">
-                                    <img src="https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/elemental_affinity.webp" alt="원소 상성">
-                                </div>
-                            </div>
+                            	<div class="element-card-content" style="margin-top: 8px;">
+                                	<div class="element-img-box" style="margin: 0 auto;">
+                                    	<img src="https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/elements_advantage.webp" alt="원소 상성">
+                                	</div>
+                            	</div>
                             </div>
                         </div>
                         <div class="card">
                             <h4>성향</h4>
                         <ul>
-                            <li><strong>질서:</strong> 개당 dc -2/대성공·대실패 부가결과 약화.</li>
-                            <li><strong>중용:</strong> 변화없음.</li>
-                            <li><strong>혼돈:</strong> 개당 dc +2/대성공·대실패 부가결과 강화.</li>
+                            <li><strong>질서:</strong> 융화 수월, 고점↓+저점↑</li>
+                            <li><strong>중용:</strong> -</li>
+                            <li><strong>혼돈:</strong> 융화 어려움, 고점↑+저점↓</li>
                         </ul>
 						</div>
                     </div>
