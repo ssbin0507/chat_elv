@@ -1704,17 +1704,17 @@
                 // 모바일 환경
                 const rect = event.currentTarget.getBoundingClientRect();
                 const clickX = event.clientX - rect.left;
-                
-                if (clickX > rect.width / 2) {
-                    // 오른쪽 클릭 시 다음 페이지로
-                    nextSpread();
-                } else {
-                    // 왼쪽 클릭 시 이전 페이지로
-                    prevSpread();
-                }
-				if(pageIdx === currentSpread - 1)
-				{
-					prevSpread();
+
+				if (pageIdx === currentSpread - 1) {
+					currentSpread--;
+				} else {
+					if (clickX > rect.width / 2) {
+						// 오른쪽 클릭 시 다음 페이지로
+						nextSpread();
+					} else {
+						// 왼쪽 클릭 시 이전 페이지로
+						prevSpread();
+					}
 				}
             } else {
                 // 데스크톱 환경
