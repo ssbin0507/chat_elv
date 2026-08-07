@@ -1708,12 +1708,16 @@
 				if (pageIdx === currentSpread - 1) {
 					prevSpread();
 				} else if (pageIdx === currentSpread) {
-					if (clickX > rect.width / 2) {
-						// 오른쪽 클릭 시 다음 페이지로
+					if(currentSpread === 0) {
 						nextSpread();
 					} else {
-						// 왼쪽 클릭 시 이전 페이지로
-						prevSpread();
+						if (clickX > rect.width / 2) {
+							// 오른쪽 클릭 시 다음 페이지로
+							nextSpread();
+						} else {
+							// 왼쪽 클릭 시 이전 페이지로
+							prevSpread();
+						}
 					}
 				}
             } else {
