@@ -1712,6 +1712,10 @@
                     // 왼쪽 클릭 시 이전 페이지로
                     prevSpread();
                 }
+				if(pageIdx === currentSpread - 1)
+				{
+					prevSpread();
+				}
             } else {
                 // 데스크톱 환경
                 if (pageIdx === currentSpread) {
