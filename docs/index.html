@@ -299,7 +299,7 @@
             position: relative;
             margin-bottom: 9px;
             padding: 0 0 5px 0;
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--leather-dark);
             border-bottom: 1px solid rgba(140, 109, 70, 0.45);
         }
@@ -469,7 +469,7 @@
             color: var(--parchment);
         }
 
-        ul { padding-left: 16px; }
+        ul { padding-left: 16px; font-size: 0.8rem; }
         li { margin-bottom: 3px; }
 
         table {
@@ -555,7 +555,7 @@
             .map-card { width: 145px; font-size: 0.62rem; padding: 4px 6px; }
             .map-card h4 { font-size: 0.7rem; }
             .map-card p { font-size: 0.62rem; }
-            .element-img-box { width: 80px; height: 80px; }
+            .element-img-box { width: 100px; height: 100px; }
         }
 
         /* ==========================================
@@ -703,7 +703,7 @@
         .map-card.asteria { top: 85px; right: 0px; transform: rotate(-1deg); }
         .map-card.terrian { bottom: 30px; right: 40px; transform: rotate(2.5deg); }
 
-        .element-img-box { width: 70px; height: 70px; }
+        .element-img-box { width: 100px; height: 100px; }
 
         }
     </style>
@@ -775,8 +775,7 @@
                     <div class="content-body">
                         <div class="card">
                             <h4>다이스룰</h4>
-                            <p>성공 여부가 불확실한 상황 발생 시 20면체 주사위를 굴려 판단.<br>🎲값+보정치≥목표치=성공 (🎲1=대실패 / 🎲20=대성공).</p>
-                            <p style="margin: 0 0 0 0;"> - 예시: </p>
+                            <p style="margin-bottom: 0;">성공 여부가 불확실한 상황 발생 시 20면체 주사위를 굴려 판단.<br>🎲값+보정치≥목표치=성공 (🎲1=대실패 / 🎲20=대성공).<br> - 예시: </p>
                             <div class="card-example">
                                 <p style="margin: 0 0 0 5px;">목표: 약초 채집 / 난이도: 10<br>🎲14+AGI(+1)+일반채집(+1)+채집낫(+2)=18<br><br>판정 ✅성공</p>
                             </div>
@@ -861,8 +860,7 @@
                     </div>
 
                     <div class="section-title">
-                        <span>왕국</span>
-                        <span class="section-sub">CHAPTER I</span>
+                        <span>&nbsp;</span>
                     </div>
                     <div class="content-body">
                       <!-- 지도 배경 위 포스트잇 스타일 카드 배치 -->
@@ -897,7 +895,26 @@
                         </div>
                       </div>
                     </div>
-
+                    <!-- 모바일 전용: Page 2 Back(4대 왕국 거주지) 내용 -->
+                    <div class="mobile-only">
+                        <div class="content-body">
+                            <h3>🏠 거주지</h3>
+                            <p>각 왕국마다 집을 구매할 수 있습니다. 1인당 1체만 보유 가능하며 새 집을 구매할 시 기존 집은 자동으로 구매가의 반값으로 판매됩니다.<br>빈 방들은 금액을 지불하여 각각 <strong>창고, 손님방, 온실, 공방, 연금실</strong>로 개조할 수 있습니다. 다른 시설로 변경 시 반드시 시설 철거가 선행되어야합니다.</p>
+                            <table>
+                                <tr><th>집 종류</th><th>구성</th><th>구매가</th></tr>
+                                <tr><td>오두막</td><td>침실, 주방, 빈 방 1개</td><td>30은화</td></tr>
+                                <tr><td>주택</td><td>침실, 주방, 빈 방 2개</td><td>2금화.</td></tr>
+                                <tr><td>저택</td><td>침실, 주방, 빈 방 4개</td><td>15금화.</td></tr>
+                            </table>
+			    <br>
+                            <table>
+                                <tr><th>시설 종류</th><th>구매가</th><th>시설 종류</th><th>구매가</th></tr>
+                                <tr><td>창고</td><td>10은화</td><td>공방</td><td>40은화</td></tr>
+                                <tr><td>손님방</td><td>20은화.</td><td>연금실</td><td>60은화</td></tr>
+                                <tr><td>온실</td><td>30은화.</td><td colspan="2" style="color: red; font-weight : bold;">철거가 = 5은화</td></tr>
+                            </table>
+                        </div>
+                    </div>
                     <div class="page-footer">
                         <div class="mobile-only"><span class="page-corner-btn">▶ 이전</span></div>
                         <span>-3-</span>
@@ -907,16 +924,22 @@
                 <div class="page-face page-back">
                     <div class="section-title">
                         <span>&nbsp;</span>
-                        <span class="section-sub">CHAPTER I</span>
                     </div>
                     <div class="content-body">
                             <h3>🏠 거주지</h3>
-                            <p>각 왕국마다 집을 구매할 수 있습니다. 1인당 1체만 보유 가능하며 새 집을 구매할 시 기존 집은 자동으로 구매가의 반값으로 판매됩니다. 빈 방들은 금액을 지불하여 각각 <strong>창고, 손님방, 온실, 공방, 연금실</strong>로 개조할 수 있습니다. 다른 시설로 변경 시 반드시 시설 철거가 선행되어야합니다.</p>
+                            <p>각 왕국마다 집을 구매할 수 있습니다. 1인당 1체만 보유 가능하며 새 집을 구매할 시 기존 집은 자동으로 구매가의 반값으로 판매됩니다.<br>빈 방들은 금액을 지불하여 각각 <strong>창고, 손님방, 온실, 공방, 연금실</strong>로 개조할 수 있습니다. 다른 시설로 변경 시 반드시 시설 철거가 선행되어야합니다.</p>
                             <table>
                                 <tr><th>집 종류</th><th>구성</th><th>구매가</th></tr>
                                 <tr><td>오두막</td><td>침실, 주방, 빈 방 1개</td><td>30은화</td></tr>
                                 <tr><td>주택</td><td>침실, 주방, 빈 방 2개</td><td>2금화.</td></tr>
                                 <tr><td>저택</td><td>침실, 주방, 빈 방 4개</td><td>15금화.</td></tr>
+                            </table>
+			    <br>
+                            <table>
+                                <tr><th>시설 종류</th><th>구매가</th><th>시설 종류</th><th>구매가</th></tr>
+                                <tr><td>창고</td><td>10은화</td><td>공방</td><td>40은화</td></tr>
+                                <tr><td>손님방</td><td>20은화.</td><td>연금실</td><td>60은화</td></tr>
+                                <tr><td>온실</td><td>30은화.</td><td colspan="2" style="color: red; font-weight : bold;">철거가 = 5은화</td></tr>
                             </table>
                     </div>
                     <div class="page-footer">
@@ -929,20 +952,6 @@
             <!-- Page 3 (II. 직업 시스템) -->
             <div class="page" id="page3" onclick="flipPage(event, 3)">
                 <div class="page-face page-front">
-                    <!-- 모바일 전용: Page 2 Back(4대 왕국 거주지) 내용 -->
-                    <div class="mobile-only">
-                        <div class="content-body">
-                            <h3>🏠 거주지</h3>
-                            <p>각 왕국마다 집을 구매할 수 있습니다. 1인당 1체만 보유 가능하며 새 집을 구매할 시 기존 집은 자동으로 구매가의 반값으로 판매됩니다. 빈 방들은 금액을 지불하여 각각 <strong>창고, 손님방, 온실, 공방, 연금실</strong>로 개조할 수 있습니다. 다른 시설로 변경 시 반드시 시설 철거가 선행되어야합니다.</p>
-                            <table>
-                                <tr><th>집 종류</th><th>구성</th><th>구매가</th></tr>
-                                <tr><td>오두막</td><td>침실, 주방, 빈 방 1개</td><td>30은화</td></tr>
-                                <tr><td>주택</td><td>침실, 주방, 빈 방 2개</td><td>2금화.</td></tr>
-                                <tr><td>저택</td><td>침실, 주방, 빈 방 4개</td><td>15금화.</td></tr>
-                            </table>
-                        </div>
-                    </div>
-
                     <div class="section-title">
                         <span>Ⅱ. 직업</span>
                         <span class="section-sub">CHAPTER II</span>
@@ -980,7 +989,7 @@
                     </div>
                     <div class="content-body">
                             <h3>성질</h3>
-                            <p>환경과 무관한 마나 고유의 성질.<br><strong>원소, 성향</strong> 두 분류로 나뉜다</p>
+                            <p>모든 생물이 가진 마나 고유의 성질이며 <strong>원소, 성향</strong> 두 분류로 나뉜다</p>
                         <div class="card">
                             <h4>원소</h4>
                             <!-- 원소 설명 우측 이미지 배치를 위한 컨테이너 구조 -->
@@ -1002,9 +1011,9 @@
                         <div class="card">
                             <h4>성향</h4>
                         <ul>
-                            <li><strong>질서:</strong> 융화 수월, 고점↓+저점↑</li>
+                            <li><strong>질서:</strong> 융화 수월, 고점↓, 저점↑</li>
                             <li><strong>중용:</strong> -</li>
-                            <li><strong>혼돈:</strong> 융화 어려움, 고점↑+저점↓</li>
+                            <li><strong>혼돈:</strong> 융화 어려움, 고점↑, 저점↓</li>
                         </ul>
                         </div>
                     </div>
@@ -1025,7 +1034,7 @@
                             <span class="section-sub">CHAPTER III</span>
                         </div>
                             <h4>성질</h4>
-                            <p>환경과 무관한 마나 고유의 성질.<br><strong>원소, 성향</strong> 두 분류로 나뉜다</p>
+                            <p>모든 생물이 가진 마나 고유의 성질이며 <strong>원소, 성향</strong> 두 분류로 나뉜다</p>
 			    <div class="card">
                             	<h4>원소</h4>
                             	<!-- 원소 설명 우측 이미지 배치를 위한 컨테이너 구조 -->
@@ -1049,26 +1058,30 @@
                         <div class="card">
                             <h4>성향</h4>
                         <ul>
-                            <li><strong>질서:</strong> 융화 수월, 고점↓+저점↑</li>
+                            <li><strong>질서:</strong> 융화 수월, 고점↓, 저점↑</li>
                             <li><strong>중용:</strong> -</li>
-                            <li><strong>혼돈:</strong> 융화 어려움, 고점↑+저점↓</li>
+                            <li><strong>혼돈:</strong> 융화 어려움, 고점↑, 저점↓</li>
                         </ul>
-						</div>
+		      </div>
                     </div>
 
                     <div class="section-title">
                         <span>&nbsp;</span>
-                        <span class="section-sub">CHAPTER III</span>
                     </div>
                     <div class="content-body">
+		    	<h3>공정</h3>
+		    	<p>제작은 <strong>재료투입→가공→특수가공→마감</strong> 순으로 진행되며 이중 특수가공은 생략 가능하다. 각 단계별 세부가공은 아래와 같으며 각각 1~3개를 선택하여 진행할 수 있다.</p>
+                    	<ul>
+                        	<li><strong>가공:</strong> 혼합/분쇄/절단/가열/냉각/숙성/압착/접합/직조/재단/망치질/세공/염색/정제</li>
+                        	<li><strong>특수가공:</strong> 마나주입/룬각인/마법연출</li>
+                        	<li><strong>마감:</strong> 조율/연마/코팅/플레이팅</li>
+                    	</ul>
                         <div class="card">
-                            <h4>제작 공정</h4>
-                            <p>재료투입 → 가공 → 특수가공(마나/룬) → 마감</p>
-                        </div>
-                        <div class="card">
-                            <h4>아이템 규격</h4>
+                            <h4>아이템</h4>
                             <ul>
                                 <li><strong>등급:</strong> Ⅰ &lt; Ⅱ &lt; Ⅲ &lt; Ⅳ &lt; Ⅴ</li>
+                                <li><strong>도구·무기 보정치:</strong> 각 도구, 무기가 가진 판정 보정치.</li>
+                                <li><strong>DEF:</strong> 각 장비가 가진 방어 수치.</li>
                                 <li><strong>내구도:</strong> 장비·무기 내구도 | 0%~100% | 0%=파괴</li>
                                 <li><strong>잔량:</strong> 소모품 잔량 | 0%~100% | 0%=소멸</li>
                             </ul>
@@ -1156,7 +1169,6 @@
 
                     <div class="section-title">
                         <span>&nbsp;</span>
-                        <span class="section-sub">CHAPTER IV</span>
                     </div>
                     <div class="content-body">
                         <div class="char-item">
