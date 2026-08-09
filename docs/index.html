@@ -539,8 +539,7 @@
             color: #8b0000;
             border: 1px solid #8b0000;
             border-radius: 50%;
-	    box-shadow: inset 0 0 0 1.5px #ead5b5,
-                inset 0 0 0 2px #8b0000;
+			box-shadow: inset 0 0 0 1.5px #ead5b5, inset 0 0 0 2px #8b0000;
             width: 16px;
             height: 16px;
             display: flex;
@@ -571,6 +570,12 @@
             box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
             flex-shrink: 0;
         }
+
+		.guild-portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: fit;
+		}
 
         .guild-info {
             flex-grow: 1;
@@ -1591,7 +1596,9 @@
                                     <span class="guild-stamp">ᛏ</span>
                                 </div>
                                 <div class="guild-card-body">
-                                    <div class="guild-portrait"><img src="https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/hilda_profile.webp" alt="힐다 증명사진"></div>
+                                    <div class="guild-portrait">
+										<img src="https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/hilda_profile.webp" alt="힐다 증명사진">
+									</div>
                                     <div class="guild-info">
                                         <div class="guild-info-row">
                                             <span>힐다</span>
