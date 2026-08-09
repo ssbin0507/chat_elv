@@ -569,13 +569,14 @@
             font-size: 1.1rem;
             box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
             flex-shrink: 0;
+            overflow: hidden;
         }
 
-		.guild-portrait img {
+	.guild-portrait img {
             width: 100%;
             height: 100%;
             object-fit: fit;
-		}
+	}
 
         .guild-info {
             flex-grow: 1;
@@ -1312,7 +1313,7 @@
                     <div class="content-body">
                         <!-- 2개씩 배치되는 신분증 그리드 -->
                         <div class="character-grid">
-                            <div class="guild-card" onclick="openCharModal(event, '엘리나', '여', '19세', '인간', '포션계 위치', 'ESFJ + 2w1', '차분하고 상냥한 어투', '👩')">
+                            <div class="guild-card" onclick="openCharModal(event, '엘리나', '여', '19세', '인간', '포션계 위치', 'ESFJ + 2w1', '차분하고 상냥한 어투', 'https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/elina_profile.webp')">
                                 <div class="guild-card-header">
                                     <span class="guild-card-title">GUILD LICENSE</span>
                                     <span class="guild-stamp">ᛏ</span>
@@ -1332,7 +1333,7 @@
                                 <div class="click-badge">Witch Guild</div>
                             </div>
 
-                            <div class="guild-card" onclick="openCharModal(event, '루시안', '남', '200세', '엘프', '제작계 위치', 'INFJ + 9w1', '포근하고 온화한 어투', '🧝‍♂️')">
+                            <div class="guild-card" onclick="openCharModal(event, '루시안', '남', '200세', '엘프', '제작계 위치', 'INFJ + 9w1', '포근하고 온화한 어투', 'https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/lucian_profile.webp')">
                                 <div class="guild-card-header">
                                     <span class="guild-card-title">GUILD LICENSE</span>
                                     <span class="guild-stamp">ᛏ</span>
@@ -1352,7 +1353,7 @@
                                 <div class="click-badge">Witch Guild</div>
                             </div>
 
-                            <div class="guild-card" onclick="openCharModal(event, '릴리아', '여', '360세', '수인', '만능계 위치', 'ENTP + 7w8', '장난스럽고 능글맞은 어투', '🦊')">
+                            <div class="guild-card" onclick="openCharModal(event, '릴리아', '여', '360세', '수인', '만능계 위치', 'ENTP + 7w8', '장난스럽고 능글맞은 어투', 'https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/lilia_profile.webp')">
                                 <div class="guild-card-header">
                                     <span class="guild-card-title">GUILD LICENSE</span>
                                     <span class="guild-stamp">ᛏ</span>
@@ -1372,7 +1373,7 @@
                                 <div class="click-badge">Witch Guild</div>
                             </div>
 
-                            <div class="guild-card" onclick="openCharModal(event, '비비안', '여', '18세', '수인', '헌터(단검사)', 'ENTJ + 3w4', '새침한 츤데레', '🐱')">
+                            <div class="guild-card" onclick="openCharModal(event, '비비안', '여', '18세', '수인', '헌터(단검사)', 'ENTJ + 3w4', '새침한 츤데레', 'https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/vivian_profile.webp')">
                                 <div class="guild-card-header">
                                     <span class="guild-card-title">GUILD LICENSE</span>
                                     <span class="guild-stamp">ᛏ</span>
@@ -1392,7 +1393,7 @@
                                 <div class="click-badge">Hunter Guild</div>
                             </div>
 
-                            <div class="guild-card" onclick="openCharModal(event, '라스', '남', '25세', '인간', '헌터 마법사', 'INTJ + 5w6', '까칠하고 논리적인 어투', '🧙‍♂️')">
+                            <div class="guild-card" onclick="openCharModal(event, '라스', '남', '25세', '인간', '헌터 마법사', 'INTJ + 5w6', '까칠하고 논리적인 어투', 'https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/las_profile.webp')">
                                 <div class="guild-card-header">
                                     <span class="guild-card-title">GUILD LICENSE</span>
                                     <span class="guild-stamp">ᛏ</span>
@@ -1412,7 +1413,7 @@
                                 <div class="click-badge">Hunter Guild</div>
                             </div>
 
-                            <div class="guild-card" onclick="openCharModal(event, '레반', '남', '30세', '수인', '헌터(검사)', 'ISTP + 6w5', '무뚝뚝하고 간결함', '🐺')">
+                            <div class="guild-card" onclick="openCharModal(event, '레반', '남', '30세', '수인', '헌터(검사)', 'ISTP + 6w5', '무뚝뚝하고 간결함', 'https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/revan_profile.webp')">
                                 <div class="guild-card-header">
                                     <span class="guild-card-title">GUILD LICENSE</span>
                                     <span class="guild-stamp">ᛏ</span>
@@ -1451,7 +1452,7 @@
                             <span class="section-sub">CHAPTER IV</span>
                         </div>
                         <div class="character-grid">
-                            <div class="guild-card" onclick="openCharModal(event, '엘리나', '여', '19세', '인간', '포션계 위치', 'ESFJ + 2w1', '차분하고 상냥한 어투', '👩')">
+                            <div class="guild-card" onclick="openCharModal(event, '엘리나', '여', '19세', '인간', '포션계 위치', 'ESFJ + 2w1', '차분하고 상냥한 어투', 'https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/elina_profile.webp')">
                                 <div class="guild-card-header">
                                     <span class="guild-card-title">GUILD LICENSE</span>
                                     <span class="guild-stamp">ᛏ</span>
@@ -1471,7 +1472,7 @@
                                 <div class="click-badge">Witch Guild</div>
                             </div>
 
-                            <div class="guild-card" onclick="openCharModal(event, '루시안', '남', '200세', '엘프', '제작계 위치', 'INFJ + 9w1', '포근하고 온화한 어투', '🧝‍♂️')">
+                            <div class="guild-card" onclick="openCharModal(event, '루시안', '남', '200세', '엘프', '제작계 위치', 'INFJ + 9w1', '포근하고 온화한 어투', 'https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/lucian_profile.webp')">
                                 <div class="guild-card-header">
                                     <span class="guild-card-title">GUILD LICENSE</span>
                                     <span class="guild-stamp">ᛏ</span>
@@ -1491,7 +1492,7 @@
                                 <div class="click-badge">Witch Guild</div>
                             </div>
 
-                            <div class="guild-card" onclick="openCharModal(event, '릴리아', '여', '360세', '수인', '만능계 위치', 'ENTP + 7w8', '장난스럽고 능글맞은 어투', '🦊')">
+                            <div class="guild-card" onclick="openCharModal(event, '릴리아', '여', '360세', '수인', '만능계 위치', 'ENTP + 7w8', '장난스럽고 능글맞은 어투', 'https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/lilia_profile.webp')">
                                 <div class="guild-card-header">
                                     <span class="guild-card-title">GUILD LICENSE</span>
                                     <span class="guild-stamp">ᛏ</span>
@@ -1511,7 +1512,7 @@
                                 <div class="click-badge">Witch Guild</div>
                             </div>
 
-                            <div class="guild-card" onclick="openCharModal(event, '비비안', '여', '18세', '수인', '헌터(단검사)', 'ENTJ + 3w4', '새침한 츤데레', '🐱')">
+                            <div class="guild-card" onclick="openCharModal(event, '비비안', '여', '18세', '수인', '헌터(단검사)', 'ENTJ + 3w4', '새침한 츤데레', 'https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/vivian_profile.webp')">
                                 <div class="guild-card-header">
                                     <span class="guild-card-title">GUILD LICENSE</span>
                                     <span class="guild-stamp">ᛏ</span>
@@ -1531,7 +1532,7 @@
                                 <div class="click-badge">Hunter Guild</div>
                             </div>
 
-                            <div class="guild-card" onclick="openCharModal(event, '라스', '남', '25세', '인간', '헌터 마법사', 'INTJ + 5w6', '까칠하고 논리적인 어투', '🧙‍♂️')">
+                            <div class="guild-card" onclick="openCharModal(event, '라스', '남', '25세', '인간', '헌터 마법사', 'INTJ + 5w6', '까칠하고 논리적인 어투', 'https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/las_profile.webp')">
                                 <div class="guild-card-header">
                                     <span class="guild-card-title">GUILD LICENSE</span>
                                     <span class="guild-stamp">ᛏ</span>
@@ -1551,7 +1552,7 @@
                                 <div class="click-badge">Hunter Guild</div>
                             </div>
 
-                            <div class="guild-card" onclick="openCharModal(event, '레반', '남', '30세', '수인', '헌터(검사)', 'ISTP + 6w5', '무뚝뚝하고 간결함', '🐺')">
+                            <div class="guild-card" onclick="openCharModal(event, '레반', '남', '30세', '수인', '헌터(검사)', 'ISTP + 6w5', '무뚝뚝하고 간결함', 'https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/revan_profile.webp')">
                                 <div class="guild-card-header">
                                     <span class="guild-card-title">GUILD LICENSE</span>
                                     <span class="guild-stamp">ᛏ</span>
@@ -1578,7 +1579,7 @@
                     </div>
                     <div class="content-body">
                         <div class="character-grid">
-                            <div class="guild-card" onclick="openCharModal(event, '메이', '여', '47세', '엘프', '헌터 탐험가', 'ESFP + 7w6', '웃음많고 발랄한 어투', '🧝‍♀️')">
+                            <div class="guild-card" onclick="openCharModal(event, '메이', '여', '47세', '엘프', '헌터 탐험가', 'ESFP + 7w6', '웃음많고 발랄한 어투', 'https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/may_profile.webp')">
                                 <div class="guild-card-header">
                                     <span class="guild-card-title">GUILD LICENSE</span>
                                     <span class="guild-stamp">ᛏ</span>
@@ -1598,7 +1599,7 @@
                                 <div class="click-badge">Hunter Guild</div>
                             </div>
 
-                            <div class="guild-card" onclick="openCharModal(event, '이안', '남', '22세', '인간', '요리사', 'ESTJ + 1w2', '예의있고 담백하지만 직설적인 어투', '👨‍🍳')">
+                            <div class="guild-card" onclick="openCharModal(event, '이안', '남', '22세', '인간', '요리사', 'ESTJ + 1w2', '예의있고 담백하지만 직설적인 어투', 'https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/ian_profile.webp')">
                                 <div class="guild-card-header">
                                     <span class="guild-card-title">GUILD LICENSE</span>
                                     <span class="guild-stamp">ᛏ</span>
@@ -1618,7 +1619,7 @@
                                 <div class="click-badge">Chef Guild</div>
                             </div>
 
-                            <div class="guild-card" onclick="openCharModal(event, '힐다', '여', '400세', '드워프', '대장장이', 'ESTP + 8w7', '호탕하고 시원시원한 어투', '⚒️')">
+                            <div class="guild-card" onclick="openCharModal(event, '힐다', '여', '400세', '드워프', '대장장이', 'ESTP + 8w7', '호탕하고 시원시원한 어투', 'https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/hilda_profile.webp')">
                                 <div class="guild-card-header">
                                     <span class="guild-card-title">GUILD LICENSE</span>
                                     <span class="guild-stamp">ᛏ</span>
@@ -1638,7 +1639,7 @@
                                 <div class="click-badge">Blacksmith Guild</div>
                             </div>
 
-                            <div class="guild-card" onclick="openCharModal(event, '베릴', '남', '60세', '엘프?', '떠돌이상인?', 'ENTP + 5w4', '능청스럽고 가벼운 어투', '🎪')">
+                            <div class="guild-card" onclick="openCharModal(event, '베릴', '남', '60세', '엘프?', '떠돌이상인?', 'ENTP + 5w4', '능청스럽고 가벼운 어투', 'https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/velil_profile.webp')">
                                 <div class="guild-card-header">
                                     <span class="guild-card-title">GUILD LICENSE</span>
                                     <span class="guild-stamp">ᛏ</span>
@@ -1681,7 +1682,7 @@
             </div>
             <div class="modal-body">
                 <div style="display: flex; justify-content: center; margin-bottom: 15px;">
-                    <div id="mIcon" style="font-size: 3rem; background: var(--leather-dark); border: 2px solid var(--gold-accent); border-radius: 8px; width: 70px; height: 85px; display: flex; align-items: center; justify-content: center;"></div>
+                    <div id="mIcon" style="background: var(--leather-dark); border: 2px solid var(--gold-accent); border-radius: 8px; width: 70px; height: 85px; display: flex; align-items: center; justify-content: center; overflow: hidden;"></div>
                 </div>
                 <div class="modal-field">
                     <span class="modal-field-label">성별/나이</span>
@@ -1742,21 +1743,21 @@
                 const rect = event.currentTarget.getBoundingClientRect();
                 const clickX = event.clientX - rect.left;
 
-				if (pageIdx === currentSpread - 1) {
+		if (pageIdx === currentSpread - 1) {
+			prevSpread();
+		} else if (pageIdx === currentSpread) {
+			if(currentSpread === 0) {
+				nextSpread();
+			} else {
+				if (clickX > rect.width / 2) {
+					// 오른쪽 클릭 시 다음 페이지로
+					nextSpread();
+				} else {
+					// 왼쪽 클릭 시 이전 페이지로
 					prevSpread();
-				} else if (pageIdx === currentSpread) {
-					if(currentSpread === 0) {
-						nextSpread();
-					} else {
-						if (clickX > rect.width / 2) {
-							// 오른쪽 클릭 시 다음 페이지로
-							nextSpread();
-						} else {
-							// 왼쪽 클릭 시 이전 페이지로
-							prevSpread();
-						}
-					}
 				}
+			}
+		}
             } else {
                 // 데스크톱 환경
                 if (pageIdx === currentSpread) {
@@ -1792,7 +1793,7 @@
         /* -----------------------------------------------------
            [캐릭터 신분증 클릭 시 팝업 관련 스크립트]
            ----------------------------------------------------- */
-        function openCharModal(e, name, gender, age, race, job, personality, speech, icon) {
+        function openCharModal(e, name, gender, age, race, job, personality, speech, imgSrc) {
             e.stopPropagation(); // 페이지 넘어가는 이벤트 방지
             
             document.getElementById('mName').innerText = name + ' (자격증 세부 정보)';
@@ -1801,7 +1802,10 @@
             document.getElementById('mJob').innerText = job;
             document.getElementById('mPersonality').innerText = personality;
             document.getElementById('mSpeech').innerText = speech;
-            document.getElementById('mIcon').innerText = icon;
+
+            // 모달 팝업 상단 프로필 영역에 사진(img) 생성 및 적용
+            const mIcon = document.getElementById('mIcon');
+            mIcon.innerHTML = `<img src="${imgSrc}" alt="${name}" style="width: 100%; height: 100%; object-fit: fit;">`;
 
             const modal = document.getElementById('charModal');
             modal.style.display = 'flex';
