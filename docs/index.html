@@ -491,7 +491,7 @@
         }
 
         /* -----------------------------------------------------
-           [주요 인물 길드 자격증 카드 신규 스타일 (jog-grid 스타일의 2열 신분증 그리드)]
+           [등장인물 길드 자격증 카드 신규 스타일 (jog-grid 스타일의 2열 신분증 그리드)]
            ----------------------------------------------------- */
         .character-grid {
             display: grid;
@@ -595,7 +595,7 @@
         }
 
         .guild-info-detail {
-            font-size: 0.68rem;
+            font-size: 0.7rem;
             color: var(--text-sub);
             white-space: nowrap;
             overflow: hidden;
@@ -783,8 +783,8 @@
             .element-img-box { width: 170px; height: 120px; }
             .guild-card { padding: 4px 6px; }
             .guild-portrait { width: 58px; height: 70px; font-size: 0.9rem; }
-            .guild-info-row { font-size: 0.65rem; }
-            .guild-info-detail { font-size: 0.55rem; }
+            .guild-info-row { font-size: 0.8rem; }
+            .guild-info-detail { font-size: 0.6rem; }
         }
 
         /* 모바일 최적화 스타일 */
@@ -910,7 +910,6 @@
             }
 
             .card h4 {
-                font-size: 1rem;
 		margin-left: 5px;
             }
 
@@ -967,12 +966,17 @@
             }
 
             .guild-info-row {
-                font-size: 0.65rem;
+                font-size: 0.8rem;
             }
 
             .guild-info-detail {
-                font-size: 0.55rem;
+                font-size: 0.6rem;
             }
+
+	    .click-badge {
+	            font-size: 0.4rem;
+	    }
+
 
             /* 모바일 대응 모달 스타일 조정 */
 	    .modal-content {
@@ -1010,7 +1014,7 @@
         <button class="nav-tab" data-tab="2" onclick="goToSpread(2)">I. 세계관</button>
         <button class="nav-tab" data-tab="3" onclick="goToSpread(3)">II. 직업</button>
         <button class="nav-tab" data-tab="4" onclick="goToSpread(4)">III. 제작</button>
-        <button class="nav-tab" data-tab="5" onclick="goToSpread(5)">IV. 주요 인물</button>
+        <button class="nav-tab" data-tab="5" onclick="goToSpread(5)">IV. 등장인물</button>
     </nav>
 
     <!-- 3D 펼침책 구조 (Book Viewport) -->
@@ -1853,7 +1857,7 @@
             'SPREAD 2 / 세계관',
             'SPREAD 3 / 직업',
             'SPREAD 4 / 제작',
-            'SPREAD 5 / 주요 인물'
+            'SPREAD 5 / 등장인물'
         ];
 
         function updateView() {
