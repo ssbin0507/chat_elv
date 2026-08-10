@@ -962,10 +962,19 @@
             }
 
             /* 모바일 대응 모달 스타일 조정 */
+	    .modal-content {
+		height: auto;
+		max-height: calc(100dvh - 30px);
+		display: flex;
+		flex-direction: column;
+	    }
+
             .modal-body {
                 flex-direction: column;
                 align-items: center;
                 gap: 15px;
+		overflow-y: auto;
+		min-height: 0;
             }
 
             .modal-portrait-container #mIcon {
