@@ -355,7 +355,7 @@
         .element-img-box {
             flex-shrink: 0;
             width: 250px;
-            height: 150px;
+            height: 160px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -760,6 +760,10 @@
             display: none;
         }
 
+        .pc-only {
+            display: block !important;
+        }
+
         /* 데스크톱 중간 크기 대응 */
         @media (max-width: 1000px) and (min-width: 769px) {
             .top-nav { width: 100%; max-width: 720px; }
@@ -809,6 +813,11 @@
                 display: block !important;
                 font-size: 0.82rem;
             }
+
+	    .pc-only {
+	        display: none;
+ 	     }
+
             .scene {
                 width: 95vw;
                 max-width: 450px;
@@ -1049,7 +1058,7 @@
                                 <li><strong>CON(건강):</strong> 최대 HP, 자연회복, 면역력</li>
                                 <li><strong>INT(지혜):</strong> 마법 또는 특수 스킬 효율</li>
                                 <li><strong>MND(정신):</strong> 최대 MP, 상태 이상 저항</li>
-                                <li><strong>LUK(운):</strong> 재료 발견, 아이템드랍 등의 변수</li>
+                                <li><strong>LUK(운):</strong> 재료 발견, 아이템 드랍 등의 변수</li>
                                 <li><strong>CHA(매력):</strong> 외모, 말 솜씨, 사교, 카리스마</li>
                             </ul>
                     </div>
@@ -1061,7 +1070,6 @@
                 <div class="page-face page-back">
                     <div class="section-title">
                         <span>Ⅰ. 세계관</span>
-                        <span class="section-sub">CHAPTER I</span>
                     </div>
                     <div class="content-body">
                         <h3>마나</h3>
@@ -1121,8 +1129,10 @@
                         </div>
                     </div>
 
-                    <div class="section-title">
-                        <span>&nbsp;</span>
+                    <div class="pc-only">
+ 	                   <div class="section-title">
+	                        <span>&nbsp;</span>
+    	                </div>
                     </div>
                     <div class="content-body">
                       <!-- 지도 배경 위 포스트잇 스타일 카드 배치 -->
@@ -1186,6 +1196,7 @@
                 <div class="page-face page-back">
                     <div class="section-title">
                         <span>&nbsp;</span>
+                        <span class="section-sub">CHAPTER I</span>
                     </div>
                     <div class="content-body">
                             <h3>🏠 거주지</h3>
@@ -1216,7 +1227,6 @@
                 <div class="page-face page-front">
                     <div class="section-title">
                         <span>Ⅱ. 직업</span>
-                        <span class="section-sub">CHAPTER II</span>
                     </div>
                     <div class="content-body">
                         <div class="job-grid">
@@ -1247,7 +1257,6 @@
                 <div class="page-face page-back">
                     <div class="section-title">
                         <span>Ⅲ. 제작</span>
-                        <span class="section-sub">CHAPTER III</span>
                     </div>
                     <div class="content-body">
                             <h3>성질</h3>
@@ -1324,8 +1333,11 @@
 		      </div>
                     </div>
 
-                    <div class="section-title">
-                        <span>&nbsp;</span>
+                    <div class="pc-only">
+    	                <div class="section-title">
+    	                    <span>&nbsp;</span>
+	                    <span class="section-sub">CHAPTER III</span>
+  	                  </div>
                     </div>
                     <div class="content-body">
 		    	<h3>공정</h3>
@@ -1335,6 +1347,8 @@
                         	<li><strong>특수가공:</strong> 마나주입/룬각인/마법연출</li>
                         	<li><strong>마감:</strong> 조율/연마/코팅/플레이팅</li>
                     	</ul>
+                    </div>
+                    <div class="content-body">
                         <div class="card">
                             <h4>아이템</h4>
                             <ul>
@@ -1355,7 +1369,6 @@
                 <div class="page-face page-back">
                     <div class="section-title">
                         <span>Ⅳ. 주요 등장인물</span>
-                        <span class="section-sub">CHAPTER IV</span>
                     </div>
                     <div class="content-body">
                         <!-- 2개씩 배치되는 신분증 그리드 -->
@@ -1496,7 +1509,6 @@
                     <div class="mobile-only">
                         <div class="section-title">
                             <span>Ⅳ. 주요 등장인물</span>
-                            <span class="section-sub">CHAPTER IV</span>
                         </div>
                         <div class="character-grid">
                             <div class="guild-card" onclick="openCharModal(event, '엘리나', '여', '19세', '인간', '포션계 위치', 'ESFJ + 2w1', '차분하고 상냥하며 주변을 잘 챙겨주는 위치', 'https://raw.githubusercontent.com/ssbin0507/chat_elv/refs/heads/main/docs/img/elina_profile.webp')">
@@ -1621,8 +1633,11 @@
                         </div>
                     </div>
 
-                    <div class="section-title">
-                        <span>&nbsp;</span>
+                    <div class="pc-only">
+ 	                   <div class="section-title">
+ 	                       <span>&nbsp;</span>
+  	                      <span class="section-sub">CHAPTER IV</span>
+  	                  </div>
                     </div>
                     <div class="content-body">
                         <div class="character-grid">
