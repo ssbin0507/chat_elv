@@ -28,7 +28,6 @@
             margin: 0;
             padding: 0;
             user-select: none;
-			-webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -313,6 +312,27 @@
             margin: 0 3px 7px;
             line-height: 1.7;
         }
+
+        /* 레벨과 기본능력치를 좌우로 배치하기 위한 컨테이너 추가 */
+        .status-container {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            margin-top: 10px;
+        }
+
+        .status-col {
+            flex: 1;
+            min-width: 0;
+        }
+
+	.status-col:first-child {
+	    flex: 1.2;
+	}
+
+	.status-col:last-child {
+	    flex: 0.8;
+	}
 
         /* 누끼 꽃 책갈피 이미지 프레임 스타일 */
         .bookmark-frame {
@@ -891,6 +911,10 @@
                 font-size: 0.95rem;
             }
 
+            .status-container {
+                gap: 8px;
+            }
+
             .bookmark-frame {
                 height: 180px;
                 margin-top: 15px;
@@ -1036,7 +1060,7 @@
                         <span class="section-sub">Preface</span>
                     </div>
                     <div class="content-body">
-                        <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 여러 헌터들의 노력으로 언제나 새로운 정보가 갱신되고 있으니 자세한 소식은 소속 길드를 통해 전달받아주십시오.</p>
+                        <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다.<br>여러 헌터들의 노력으로 언제나 새로운 정보가 갱신되고 있으니 자세한 소식은 소속 길드를 통해 전달받아주십시오.</p>
                         
                         <!-- 누끼 딴 꽃 책갈피 이미지 삽입 공간 -->
                         <div class="bookmark-frame">
@@ -1068,28 +1092,41 @@
                     </div>
 
                     <div class="section-title">
-                        <span>판정</span>
+                        <span>규칙</span>
                         <span class="section-sub">Rules</span>
                     </div>
                     <div class="content-body">
                         <div class="card">
-                            <h4>다이스룰</h4>
+                            <h4>판정</h4>
                             <p style="margin-bottom: 0;">성공 여부가 불확실한 상황 발생 시 20면체 주사위를 굴려 판단.<br>🎲값+보정치≥목표치=성공 (🎲1=대실패 / 🎲20=대성공).<br> - 예시: </p>
                             <div class="card-example">
                                 <p style="margin: 0 0 0 5px;">목표: 약초 채집 / 난이도: 10<br>🎲14+AGI(+1)+일반채집(+1)+채집낫(+2)=18<br><br>판정 ✅성공</p>
                             </div>
                         </div>
-                            <h3>기본능력치</h3>
-                            <ul>
-                                <li><strong>STR(힘):</strong> 근력사용, 물리 공격</li>
-                                <li><strong>AGI(민첩):</strong> 회피, 명중, 정밀행동, 원거리 공격</li>
-                                <li><strong>CON(건강):</strong> 최대 HP, 자연회복, 면역력</li>
-                                <li><strong>INT(지혜):</strong> 마법 또는 특수 스킬 효율</li>
-                                <li><strong>MND(정신):</strong> 최대 MP, 상태 이상 저항</li>
-                                <li><strong>LUK(운):</strong> 재료 발견, 아이템 드랍 등의 변수</li>
-                                <li><strong>CHA(매력):</strong> 외모, 말 솜씨, 사교, 카리스마</li>
-                            </ul>
+
+                        <!-- 레벨과 기본능력치를 좌우로 배치 -->
+                        <div class="status-container">
+                            <div class="status-col">
+                                <h3>기본능력치</h3>
+                                <ul>
+                                    <li><strong>STR(힘):</strong> 근력사용, 물리공격</li>
+                                    <li><strong>AGI(민첩):</strong> 회피, 명중, 정밀행동</li>
+                                    <li><strong>CON(건강):</strong> 최대 HP, 자연회복, 면역력</li>
+                                    <li><strong>INT(지혜):</strong> 마법 또는 특수스킬 효율</li>
+                                    <li><strong>MND(정신):</strong> 최대 MP, 상태이상 저항</li>
+                                    <li><strong>LUK(운):</strong> 재료발견, 아이템드랍 등 변수</li>
+                                    <li><strong>CHA(매력):</strong> 외모, 사교, 카리스마</li>
+                                </ul>
+                            </div>
+                            <div class="status-col">
+                                <h3>레벨 (LV)</h3>
+                                <p>캐릭터의 성장 정도.<br>1~30까지 존재, 레벨 상승 시 잔여스탯 2 획득.</p>
+                                <ul>
+                                    <li><strong>스킬레벨:</strong> 스킬의 레벨. 1~10 존재.</li>
+                                </ul>
+                            </div>
                         </div>
+                    </div>
 			<div class="page-footer">
 	                    <div class="mobile-only">
 				<span>&nbsp;&nbsp;</span>
@@ -1117,7 +1154,7 @@
                         <table>
                             <tr><th>종족명</th><th>수명</th><th>외형특징</th><th>능력특징</th></tr>
                             <tr><td>인간</td><td>약 100세</td><td> - </td><td>표준적</td></tr>
-                            <tr><td>엘프</td><td>약 1000세</td><td>뾰족귀</td><td>힘↓, 마나↑</td></tr>
+                            <tr><td>엘프</td><td>약 1000세</td><td>뾰족귀, 마른몸</td><td>힘↓, 마나↑</td></tr>
                             <tr><td>드워프</td><td>약 1000세</td><td>짧은키, 근육질</td><td>힘↑, 마나↓</td></tr>
                             <tr><td>수인</td><td>약 500세</td><td>동물적 특징(귀, 꼬리 등)</td><td>체력↑, 운↓</td></tr>
                         </table>
@@ -1154,7 +1191,7 @@
                             <table>
                                 <tr><th>종족명</th><th>수명</th><th>외형특징</th><th>능력특징</th></tr>
                                 <tr><td>인간</td><td>약 100세</td><td> - </td><td>표준적</td></tr>
-                                <tr><td>엘프</td><td>약 1000세</td><td>뾰족귀</td><td>힘↓, 마나↑</td></tr>
+                                <tr><td>엘프</td><td>약 1000세</td><td>뾰족귀, 마른몸</td><td>힘↓, 마나↑</td></tr>
                                 <tr><td>드워프</td><td>약 1000세</td><td>짧은키, 근육질</td><td>힘↑, 마나↓</td></tr>
                                 <tr><td>수인</td><td>약 500세</td><td>동물적 특징(귀, 꼬리 등)</td><td>체력↑, 운↓</td></tr>
                             </table>
@@ -1271,38 +1308,38 @@
                         <div class="job-grid">
                             <div class="card">
                                     <h4>위치 (Witch)</h4>
-                                    <p>마나 도구, 포션 제작 전문<br>분류: 제작계 | 포션계 | 만능계<br>등급: F(견습) &lt; E &lt; D &lt; C &lt; B &lt; A &lt; S(대마녀)</p>
+                                    <p>마나 도구, 포션 제작 전문<br><strong>분류:</strong> 제작계 | 포션계 | 만능계<br><strong>등급:</strong> F(견습) &lt; E &lt; D &lt; C &lt; B &lt; A &lt; S(대마녀)</p>
                             </div>
                             <div class="card">
                                     <h4>헌터 (Hunter)</h4>
-                                    <p>사냥, 탐험, 생태계 탐색 및 관리 전문<br>종류: 전투계(검사, 궁수, 마법사, 등) | 탐사계(탐험가, 생태학자)<br>등급: 코퍼 &lt; 실버 &lt; 골드 &lt; 플래티넘</p>
+                                    <p>사냥, 탐험, 생태계 탐색 및 관리 전문<br><strong>종류:</strong> 전투계(검사, 궁수, 마법사, 등) | 탐사계(탐험가, 생태학자)<br><strong>등급:</strong> 코퍼 &lt; 실버 &lt; 골드 &lt; 플래티넘</p>
                             </div>
                             <div class="card">
                                     <h4>요리사 (Chef)</h4>
-                                    <p>요리 제작 전문<br>종류: -<br>등급: ⭐0(입문) &lt; ⭐1 &lt; ⭐2 &lt; ⭐3 &lt; ⭐4 &lt; ⭐5 &lt; 💫(마스터)</p>
+                                    <p>요리 제작 전문<br><strong>종류:</strong> -<br><strong>등급:</strong> ⭐0(입문) &lt; ⭐1 &lt; ⭐2 &lt; ⭐3 &lt; ⭐4 &lt; ⭐5 &lt; 💫(마스터)</p>
                             </div>
                             <div class="card">
                                     <h4>장인 (Artisan)</h4>
-                                    <p>각 분야 (무기, 장신구, 의복) 제작 전문<br>종류: 대장장이 | 세공사 | 직조공<br>등급: 견습 &lt; 초급 &lt; 숙련 &lt; 전문 &lt; 명장 &lt; 거장</p>
+                                    <p>각 분야 (무기, 장신구, 의복) 제작 전문<br><strong>종류:</strong> 대장장이 | 세공사 | 직조공<br><strong>등급:</strong> 견습 &lt; 초급 &lt; 숙련 &lt; 전문 &lt; 명장 &lt; 거장</p>
                             </div>
                           </div>
                         </div>
                       <div class="mobile-only">
                             <div class="card">
                                     <h4>위치 (Witch)</h4>
-                                    <p>마나 도구, 포션 제작 전문<br>분류: 제작계 | 포션계 | 만능계<br>등급: F(견습) &lt; E &lt; D &lt; C &lt; B &lt; A &lt; S(대마녀)</p>
+                                    <p>마나 도구, 포션 제작 전문<br><strong>분류:</strong> 제작계 | 포션계 | 만능계<br><strong>등급:</strong> F(견습) &lt; E &lt; D &lt; C &lt; B &lt; A &lt; S(대마녀)</p>
                             </div>
                             <div class="card">
                                     <h4>헌터 (Hunter)</h4>
-                                    <p>사냥, 탐험, 생태계 탐색 및 관리 전문<br>종류: 전투계(검사, 궁수, 마법사, 등) | 탐사계(탐험가, 생태학자)<br>등급: 코퍼 &lt; 실버 &lt; 골드 &lt; 플래티넘</p>
+                                    <p>사냥, 탐험, 생태계 탐색 및 관리 전문<br><strong>종류:</strong> 전투계(검사, 궁수, 마법사, 등) | 탐사계(탐험가, 생태학자)<br><strong>등급:</strong> 코퍼 &lt; 실버 &lt; 골드 &lt; 플래티넘</p>
                             </div>
                             <div class="card">
                                     <h4>요리사 (Chef)</h4>
-                                    <p>요리 제작 전문<br>종류: -<br>등급: ⭐0(입문) &lt; ⭐1 &lt; ⭐2 &lt; ⭐3 &lt; ⭐4 &lt; ⭐5 &lt; 💫(마스터)</p>
+                                    <p>요리 제작 전문<br><strong>종류:</strong> -<br><strong>등급:</strong> ⭐0(입문) &lt; ⭐1 &lt; ⭐2 &lt; ⭐3 &lt; ⭐4 &lt; ⭐5 &lt; 💫(마스터)</p>
                             </div>
                             <div class="card">
                                     <h4>장인 (Artisan)</h4>
-                                    <p>각 분야 (무기, 장신구, 의복) 제작 전문<br>종류: 대장장이 | 세공사 | 직조공<br>등급: 견습 &lt; 초급 &lt; 숙련 &lt; 전문 &lt; 명장 &lt; 거장</p>
+                                    <p>각 분야 (무기, 장신구, 의복) 제작 전문<br><strong>종류:</strong> 대장장이 | 세공사 | 직조공<br><strong>등급:</strong> 견습 &lt; 초급 &lt; 숙련 &lt; 전문 &lt; 명장 &lt; 거장</p>
                             </div>
                         </div>
                     </div>
