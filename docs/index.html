@@ -485,9 +485,11 @@
             padding: 10px;
             box-shadow: inset 0 0 12px rgba(0,0,0,.35);
         }
+
         .card-example p {
             font-size: 0.8rem;
             color: var(--parchment);
+	    line-height: 1.5;
         }
 
         ul { padding-left: 16px; font-size: 0.8rem; }
@@ -1100,7 +1102,7 @@
                             <h4>판정</h4>
                             <p style="margin-bottom: 0;">성공 여부가 불확실한 상황 발생 시 20면체 주사위를 굴려 판단.<br>🎲값+보정치≥목표치=성공 (🎲1=대실패 / 🎲20=대성공).<br> - 예시: </p>
                             <div class="card-example">
-                                <p style="margin: 0 0 0 5px;">목표: 약초 채집 / 난이도: 10<br>🎲14+AGI(+1)+일반채집(+1)+채집낫(+2)=18<br><br>판정 ✅성공</p>
+                                <p style="margin: 0 0 0 5px;">목표: 약초 채집 / 난이도: 10<br>🎲14+AGI(+1)+일반채집(+1)+채집낫(+2)=18<br>판정 ✅성공</p>
                             </div>
                         </div>
 
@@ -1108,6 +1110,7 @@
                         <div class="status-container">
                             <div class="status-col">
                                 <h3>기본능력치</h3>
+				<p>사람의 기본적인 능력치(범위=1~20)</p>
                                 <ul>
                                     <li><strong>STR(힘):</strong> 근력사용, 물리공격</li>
                                     <li><strong>AGI(민첩):</strong> 회피, 명중, 정밀행동</li>
@@ -1120,9 +1123,9 @@
                             </div>
                             <div class="status-col">
                                 <h3>레벨 (LV)</h3>
-                                <p>캐릭터의 성장 정도.<br>1~30까지 존재, 레벨 상승 시 잔여스탯 2 획득.</p>
+                                <p>캐릭터의 성장 정도(범위=1~30)<br>레벨 상승 시 잔여스탯 2 획득</p>
                                 <ul>
-                                    <li><strong>스킬레벨:</strong> 스킬의 레벨. 1~10 존재.</li>
+                                    <li><strong>스킬레벨:</strong> 스킬의 레벨(범위=1~10)</li>
                                 </ul>
                             </div>
                         </div>
