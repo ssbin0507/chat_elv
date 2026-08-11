@@ -1085,7 +1085,7 @@
                             <span>서문</span>
                             <span class="section-sub">Preface</span>
                         </div>
-                        <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다. 여러 헌터들의 노력으로 언제나 새로운 정보가 갱신되고 있으니 자세한 소식은 소속 길드를 통해 전달받아주십시오.</p>
+                        <p>본 도감은 대륙을 탐험하는 모든 이들을 위한 통합 도감입니다.<br>여러 헌터들의 노력으로 언제나 새로운 정보가 갱신되고 있으니 자세한 소식은 소속 길드를 통해 전달받아주십시오.</p>
                         
                         <!-- 모바일용 꽃 책갈피 이미지 삽입 공간 -->
                         <div class="bookmark-frame">
@@ -1107,7 +1107,8 @@
                         </div>
 
                         <!-- 레벨과 기본능력치를 좌우로 배치 -->
-                        <div class="status-container">
+						<div class="pc-only">
+                          <div class="status-container">
                             <div class="status-col">
                                 <h3>기본능력치</h3>
 				<p>사람의 기본적인 능력치(범위=1~20)</p>
@@ -1129,7 +1130,26 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                      </div>
+						<div class="mobile-only">
+                                <h3>기본능력치</h3>
+				<p>사람의 기본적인 능력치(범위=1~20)</p>
+                                <ul>
+                                    <li><strong>STR(힘):</strong> 근력사용, 물리공격</li>
+                                    <li><strong>AGI(민첩):</strong> 회피, 명중, 정밀행동</li>
+                                    <li><strong>CON(건강):</strong> 최대 HP, 자연회복, 면역력</li>
+                                    <li><strong>INT(지혜):</strong> 마법 또는 특수스킬 효율</li>
+                                    <li><strong>MND(정신):</strong> 최대 MP, 상태이상 저항</li>
+                                    <li><strong>LUK(운):</strong> 재료발견, 아이템드랍 등 변수</li>
+                                    <li><strong>CHA(매력):</strong> 외모, 사교, 카리스마</li>
+                                </ul>
+                                <h3>레벨 (LV)</h3>
+                                <p>캐릭터의 성장 정도(범위=1~30)<br>레벨 상승 시 잔여스탯 2 획득</p>
+                                <ul>
+                                    <li><strong>스킬레벨:</strong> 스킬의 레벨(범위=1~10)</li>
+								</ul>
+                      </div>
+				</div>
 			<div class="page-footer">
 	                    <div class="mobile-only">
 				<span>&nbsp;&nbsp;</span>
